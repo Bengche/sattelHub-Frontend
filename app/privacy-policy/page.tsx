@@ -21,7 +21,8 @@ export default function PrivacyPolicyPage() {
         </div>
         <div className="prose-luxury">
           <p>
-            Diese Datenschutzerklärung beschreibt, wie <strong>Sattelhub.de</strong> ("
+            Diese Datenschutzerklärung beschreibt, wie{" "}
+            <strong>Sattelhub.de</strong> ("
             {SITE_CONFIG.name}", "we", "us", or "our"), located at{" "}
             {SITE_CONFIG.address.full}, collects, uses, and shares information
             when you visit or make a purchase from{" "}
@@ -41,8 +42,9 @@ export default function PrivacyPolicyPage() {
             </li>
             <li>
               <strong>Order information:</strong> Shipping and billing
-              addresses, Art der Zahlungsmethode (keine Kartennummern - siehe Abschnitt zur Zahlungsabwicklung
-              Processing below), and order history.
+              addresses, Art der Zahlungsmethode (keine Kartennummern - siehe
+              Abschnitt zur Zahlungsabwicklung Processing below), and order
+              history.
             </li>
             <li>
               <strong>Communications:</strong> Any messages you send us via

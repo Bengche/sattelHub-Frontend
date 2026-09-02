@@ -83,10 +83,10 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Sattelhub.de wurde in London gegründet und verbindet
-                  of American horse country — by a team of lifelong riders who
-                  were tired of subpar saddle-buying experiences. We combined
-                  our passion for horses with deep product knowledge to create a
+                  Sattelhub.de wurde in London gegründet und verbindet of
+                  American horse country — by a team of lifelong riders who were
+                  tired of subpar saddle-buying experiences. We combined our
+                  passion for horses with deep product knowledge to create a
                   marketplace defined by integrity and excellence.
                 </p>
                 <p>

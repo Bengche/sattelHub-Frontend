@@ -70,7 +70,7 @@ function LoginForm() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@example.com"
+                placeholder="sie@beispiel.de"
                 required
                 autoFocus
                 className="input-field pl-10"

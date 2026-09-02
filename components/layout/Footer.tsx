@@ -75,8 +75,8 @@ export default function Footer() {
                 Newsletter abonnieren
               </h3>
               <p className="text-white/70 text-sm">
-                Tipps zur Sattelpflege, Neuheiten und exklusive Angebote direkt in
-                Ihr Postfach.
+                Tipps zur Sattelpflege, Neuheiten und exklusive Angebote direkt
+                in Ihr Postfach.
               </p>
             </div>
             <form

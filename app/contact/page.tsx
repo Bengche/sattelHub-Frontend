@@ -105,7 +105,8 @@ export default function ContactPage() {
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
                 Jeder Sattel kann 30 Tage kostenlos getestet werden. Reiten Sie
-                ihn, prüfen Sie ihn und geben Sie ihn bei Bedarf unkompliziert zurück.
+                ihn, prüfen Sie ihn und geben Sie ihn bei Bedarf unkompliziert
+                zurück.
               </p>
             </div>
           </div>

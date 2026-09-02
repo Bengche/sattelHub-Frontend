@@ -242,7 +242,7 @@ export default function AiChat() {
                     Sterling
                   </p>
                   <p className="text-white/40 text-[11px] mt-0.5 tracking-wide">
-                    Equestrian AI Advisor
+                    KI-Reitsportberatung
                   </p>
                 </div>
               </div>
@@ -253,7 +253,7 @@ export default function AiChat() {
                 </span>
                 <button
                   onClick={handleReset}
-                  title="New conversation"
+                  title="Neues Gespräch"
                   className="p-1.5 rounded-lg text-white/40 hover:text-white/80 hover:bg-white/10 transition-colors"
                 >
                   <RotateCcw size={14} />
@@ -261,7 +261,7 @@ export default function AiChat() {
                 <button
                   onClick={() => setIsOpen(false)}
                   className="p-1.5 rounded-lg text-white/40 hover:text-white/80 hover:bg-white/10 transition-colors"
-                  aria-label="Close chat"
+                  aria-label="Chat schließen"
                 >
                   <X size={16} />
                 </button>
@@ -335,7 +335,7 @@ export default function AiChat() {
                   className="pt-2"
                 >
                   <p className="text-[11px] text-gray-400 text-center mb-2.5 tracking-wide uppercase font-medium">
-                    Quick questions
+                    Schnelle Fragen
                   </p>
                   <div className="flex flex-wrap gap-2 justify-center">
                     {QUICK_PROMPTS.map((q) => (
@@ -363,7 +363,7 @@ export default function AiChat() {
                     type="text"
                     value={input}
                     onChange={(e) => setInput(e.target.value)}
-                    placeholder="Ask about saddles, sizing, shipping…"
+                    placeholder="Fragen Sie zu Sätteln, Größen oder Versand ..."
                     className="flex-1 bg-transparent text-sm text-gray-800 placeholder-gray-400 outline-none"
                     disabled={loading}
                     maxLength={500}
@@ -395,7 +395,7 @@ export default function AiChat() {
         style={{ padding: isOpen ? "11px 16px" : "11px 20px" }}
         whileHover={{ scale: 1.03 }}
         whileTap={{ scale: 0.96 }}
-        aria-label={isOpen ? "Close AI chat" : "Open AI chat"}
+        aria-label={isOpen ? "KI-Chat schließen" : "KI-Chat öffnen"}
       >
         <AnimatePresence mode="wait" initial={false}>
           {isOpen ? (

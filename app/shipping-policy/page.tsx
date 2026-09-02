@@ -24,7 +24,9 @@ export default function ShippingPolicyPage() {
             <p className="font-serif text-2xl font-bold text-green-600 mb-1">
               FREE
             </p>
-            <p className="text-sm font-medium text-gray-900">Kostenloser Versand</p>
+            <p className="text-sm font-medium text-gray-900">
+              Kostenloser Versand
+            </p>
             <p className="text-xs text-gray-400 mt-1">
               Orders over{" "}
               {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)}
@@ -60,8 +62,8 @@ export default function ShippingPolicyPage() {
             <strong>
               {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)} or more
             </strong>{" "}
-            qualify for free standard shipping within the United States. The
-            die kostenlose Versandoption wird an der Kasse automatisch angewendet.
+            qualify for free standard shipping within the United States. The die
+            kostenlose Versandoption wird an der Kasse automatisch angewendet.
           </p>
 
           <h2>

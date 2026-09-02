@@ -13,7 +13,10 @@ import api from "@/lib/api";
 const STATUS_MAP: Record<string, { label: string; color: string }> = {
   pending: { label: "Ausstehend", color: "bg-yellow-100 text-yellow-700" },
   confirmed: { label: "Bestätigt", color: "bg-blue-100 text-blue-700" },
-  processing: { label: "In Bearbeitung", color: "bg-indigo-100 text-indigo-700" },
+  processing: {
+    label: "In Bearbeitung",
+    color: "bg-indigo-100 text-indigo-700",
+  },
   shipped: { label: "Versendet", color: "bg-purple-100 text-purple-700" },
   delivered: { label: "Zugestellt", color: "bg-green-100 text-green-700" },
   cancelled: { label: "Storniert", color: "bg-red-100 text-red-700" },

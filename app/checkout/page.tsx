@@ -54,6 +54,18 @@ const checkoutSchema = z
 
 type CheckoutFormData = z.infer<typeof checkoutSchema>;
 
+const FIELD_LABELS: Record<string, string> = {
+  firstName: "Vorname",
+  lastName: "Nachname",
+  email: "E-Mail-Adresse",
+  phone: "Telefon",
+  street: "Straße",
+  city: "Ort",
+  state: "Bundesland",
+  zipCode: "PLZ",
+  country: "Land",
+};
+
 const SHIPPING_OPTIONS = [
   {
     id: "standard",
@@ -135,7 +147,7 @@ export default function CheckoutPage() {
       setAppliedCouponCode(couponCode);
       setCouponDiscount(res.data.discount);
       showToast(
-        `Coupon applied! You saved ${formatPrice(res.data.discount)}`,
+        `Gutscheincode angewendet! Sie sparen ${formatPrice(res.data.discount)}`,
         "success",
       );
     } catch (err) {
@@ -312,7 +324,7 @@ export default function CheckoutPage() {
                     <input
                       {...register("shipping.street")}
                       className="input-field"
-                      placeholder="123 Main St, Apt 4"
+                      placeholder="Musterstraße 12, Wohnung 4"
                     />
                     {errors.shipping?.street && (
                       <p className="text-red-500 text-xs mt-1">
@@ -419,7 +431,7 @@ export default function CheckoutPage() {
                           className={field === "street" ? "sm:col-span-2" : ""}
                         >
                           <label className="block text-sm font-medium text-gray-700 mb-1 capitalize">
-                            {field.replace(/([A-Z])/g, " $1")} *
+                            {FIELD_LABELS[field]} *
                           </label>
                           <input
                             {...register(`billing.${field}`)}
@@ -442,9 +454,9 @@ export default function CheckoutPage() {
                   <div className="flex items-start gap-2 text-sm text-green-700 bg-green-50 border border-green-200 rounded-xl px-4 py-3 mb-4">
                     <CheckCircle size={15} className="flex-shrink-0 mt-0.5" />
                     <span>
-                      Ihre Bestellung erhält <strong>kostenlosen Versand</strong>.
-                      Dieser ist unten vorausgewählt. Sie können eine schnellere
-                      Option wählen.
+                      Ihre Bestellung erhält{" "}
+                      <strong>kostenlosen Versand</strong>. Dieser ist unten
+                      vorausgewählt. Sie können eine schnellere Option wählen.
                     </span>
                   </div>
                 )}
@@ -469,9 +481,7 @@ export default function CheckoutPage() {
                         <p className="font-medium text-gray-900">
                           Kostenloser Versand
                         </p>
-                        <p className="text-sm text-gray-500">
-                          3-5 Werktage
-                        </p>
+                        <p className="text-sm text-gray-500">3-5 Werktage</p>
                       </div>
                       <span className="font-semibold text-green-600">FREE</span>
                     </label>
@@ -587,7 +597,7 @@ export default function CheckoutPage() {
                 <textarea
                   {...register("notes")}
                   rows={3}
-                  placeholder="Special instructions, saddle fit notes, gate codes..."
+                  placeholder="Besondere Hinweise, Sattelpassform, Zugangscode ..."
                   className="input-field resize-none"
                 />
               </div>
@@ -749,7 +759,9 @@ export default function CheckoutPage() {
                   className="btn-gold w-full py-4 text-base flex items-center justify-center gap-2"
                 >
                   <Lock size={16} />
-                  {placingOrder ? "Bestellung wird aufgegeben ..." : "Bestellung aufgeben"}
+                  {placingOrder
+                    ? "Bestellung wird aufgegeben ..."
+                    : "Bestellung aufgeben"}
                 </button>
 
                 <div className="flex items-center justify-center gap-2 text-xs text-gray-400 mt-4">

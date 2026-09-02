@@ -339,7 +339,7 @@ export default function ProductsClient() {
                         <input
                           type="number"
                           min={0}
-                          placeholder="$0"
+                          placeholder="0 EUR"
                           defaultValue={filters.minPrice || ""}
                           onBlur={(e) => setParam("minPrice", e.target.value)}
                           className="input-field text-sm"
@@ -352,7 +352,7 @@ export default function ProductsClient() {
                         <input
                           type="number"
                           min={0}
-                          placeholder="No limit"
+                          placeholder="Keine Obergrenze"
                           defaultValue={filters.maxPrice || ""}
                           onBlur={(e) => setParam("maxPrice", e.target.value)}
                           className="input-field text-sm"
@@ -363,7 +363,7 @@ export default function ProductsClient() {
                       <p className="text-xs text-primary-500 mt-2">
                         {filters.minPrice
                           ? formatPrice(filters.minPrice)
-                          : "$0"}{" "}
+                          : "0 EUR"}{" "}
                         —{" "}
                         {filters.maxPrice
                           ? formatPrice(filters.maxPrice)

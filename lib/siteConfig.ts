@@ -118,6 +118,6 @@ export const formatPrice = (amount: number): string =>
     minimumFractionDigits: 2,
   }).format(amount);
 
-  // Hilfsfunktion: Prüft, ob kostenloser Versand gilt
+// Hilfsfunktion: Prüft, ob kostenloser Versand gilt
 export const isFreeShipping = (subtotal: number): boolean =>
   subtotal >= SITE_CONFIG.shipping.freeShippingThreshold;

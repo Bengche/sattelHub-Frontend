@@ -213,7 +213,7 @@ export default function CartPage() {
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
-                    <span className="text-gray-600">Versand</span>
+                  <span className="text-gray-600">Versand</span>
                   <span
                     className={
                       cart.subtotal >= freeShippingThreshold

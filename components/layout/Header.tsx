@@ -302,13 +302,13 @@ export default function Header() {
                         href="/account/profile"
                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
                       >
-                          <User size={15} /> Mein Profil
+                        <User size={15} /> Mein Profil
                       </Link>
                       <Link
                         href="/account/orders"
                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
                       >
-                          <Package size={15} /> Meine Bestellungen
+                        <Package size={15} /> Meine Bestellungen
                       </Link>
                       {isAdmin && (
                         <Link
@@ -323,7 +323,7 @@ export default function Header() {
                           onClick={logout}
                           className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors"
                         >
-                            <LogOut size={15} /> Abmelden
+                          <LogOut size={15} /> Abmelden
                         </button>
                       </div>
                     </motion.div>
@@ -339,7 +339,7 @@ export default function Header() {
                     "bg-white/15 border border-white/30 hover:bg-white/25 backdrop-blur-sm shadow-none",
                 )}
               >
-                  Anmelden
+                Anmelden
               </Link>
             )}
           </div>
@@ -366,7 +366,7 @@ export default function Header() {
                 "p-2.5 rounded-lg",
                 isTransparent ? "text-white" : "text-gray-700",
               )}
-                  aria-label="Menü öffnen"
+              aria-label="Menü öffnen"
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -416,7 +416,7 @@ export default function Header() {
                 </button>
               </form>
               <p className="text-center text-sm text-white/70 mt-3">
-                  Mit Enter suchen
+                Mit Enter suchen
               </p>
             </motion.div>
           </motion.div>

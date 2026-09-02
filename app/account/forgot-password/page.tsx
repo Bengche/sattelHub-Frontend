@@ -80,7 +80,7 @@ export default function ForgotPasswordPage() {
                   <input
                     type="email"
                     autoComplete="email"
-                    placeholder="you@example.com"
+                    placeholder="sie@beispiel.de"
                     {...register("email")}
                     className="input-field"
                   />
@@ -125,8 +125,8 @@ export default function ForgotPasswordPage() {
                 {getValues("email")}
               </p>
               <p className="text-sm text-gray-400 mb-8">
-                Nicht erhalten? Prüfen Sie Ihren Spam-Ordner oder versuchen Sie es
-                mit einer anderen E-Mail-Adresse.
+                Nicht erhalten? Prüfen Sie Ihren Spam-Ordner oder versuchen Sie
+                es mit einer anderen E-Mail-Adresse.
               </p>
               <div className="flex flex-col gap-3">
                 <button

@@ -75,7 +75,10 @@ export default function FeaturedProducts() {
             animate={{ opacity: 1 }}
             className="text-center py-16 text-gray-500"
           >
-            <p>Derzeit keine empfohlenen Produkte. Schauen Sie bald wieder vorbei.</p>
+            <p>
+              Derzeit keine empfohlenen Produkte. Schauen Sie bald wieder
+              vorbei.
+            </p>
           </motion.div>
         )}
 

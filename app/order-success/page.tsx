@@ -21,26 +21,26 @@ function OrderSuccessContent() {
           </div>
 
           <h1 className="font-serif text-3xl font-bold text-primary-500 mb-3">
-            Order Placed Successfully
+            Bestellung erfolgreich aufgegeben
           </h1>
 
           <p className="text-gray-600 leading-relaxed mb-3">
-            Thank you for your order. A confirmation has been sent to your email
-            address.
+            Vielen Dank für Ihre Bestellung. Eine Bestätigung wurde an Ihre
+            E-Mail-Adresse gesendet.
           </p>
 
           {orderNumber && (
             <p className="text-sm font-medium text-primary-400 bg-cream-100 rounded-lg px-4 py-2 inline-block mb-6">
-              Order #{orderNumber}
+              Bestellung #{orderNumber}
             </p>
           )}
 
           <div className="flex flex-col gap-3">
             <Link href="/account/orders" className="btn-primary">
-              Track My Order
+              Bestellung verfolgen
             </Link>
             <Link href="/products" className="btn-secondary">
-              Continue Shopping
+              Weiter einkaufen
             </Link>
           </div>
         </div>
@@ -48,7 +48,7 @@ function OrderSuccessContent() {
         {/* What happens next */}
         <div className="bg-white rounded-2xl shadow-card p-6">
           <h2 className="font-serif text-lg font-semibold text-primary-500 mb-4">
-            What Happens Next
+            Wie geht es weiter?
           </h2>
 
           <div className="space-y-4">
@@ -58,11 +58,11 @@ function OrderSuccessContent() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-800">
-                  Order review &amp; payment confirmation
+                  Bestellprüfung und Zahlungsbestätigung
                 </p>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Our team will contact you within 24 hours to confirm payment
-                  details and answer any questions.
+                  Unser Team kontaktiert Sie innerhalb von 24 Stunden, um die
+                  Zahlungsdetails zu bestätigen und Fragen zu beantworten.
                 </p>
               </div>
             </div>
@@ -73,11 +73,11 @@ function OrderSuccessContent() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-800">
-                  Inspection &amp; dispatch
+                  Prüfung und Versand
                 </p>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Once payment is confirmed, your saddle is carefully inspected
-                  and shipped with tracking.
+                  Nach Bestätigung der Zahlung wird Ihr Sattel sorgfältig
+                  geprüft und mit Sendungsverfolgung versendet.
                 </p>
               </div>
             </div>
@@ -88,11 +88,11 @@ function OrderSuccessContent() {
               </div>
               <div>
                 <p className="text-sm font-semibold text-gray-800">
-                  30-Day free trial begins on delivery
+                  30-tägiger Testzeitraum beginnt bei Lieferung
                 </p>
                 <p className="text-sm text-gray-500 leading-relaxed">
-                  Ride in it, assess the fit. If it is not right — for any
-                  reason — we will refund or exchange it, no questions asked.
+                  Reiten Sie damit und prüfen Sie die Passform. Wenn er nicht
+                  passt, erstatten wir den Kaufpreis oder tauschen ihn um.
                 </p>
               </div>
             </div>
@@ -100,7 +100,7 @@ function OrderSuccessContent() {
 
           <div className="mt-6 pt-6 border-t border-gray-100">
             <p className="text-sm text-gray-500 mb-3">
-              Have a question? We are here to help.
+              Haben Sie eine Frage? Wir helfen Ihnen gerne.
             </p>
             <div className="flex flex-col sm:flex-row gap-3">
               <a

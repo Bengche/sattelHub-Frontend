@@ -257,7 +257,7 @@ export default function ProfilePage() {
                   type="tel"
                   {...profileForm.register("phone")}
                   className="input-field"
-                  placeholder="+1 (555) 000-0000"
+                  placeholder="+49 30 12345678"
                 />
               </div>
               <div className="flex justify-end">
@@ -455,7 +455,7 @@ export default function ProfilePage() {
                 </label>
                 <input
                   {...addressForm.register("label")}
-                  placeholder="Home, Office..."
+                  placeholder="Zuhause, Büro ..."
                   className="input-field"
                 />
               </div>

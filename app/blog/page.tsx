@@ -90,8 +90,8 @@ export default function BlogPage() {
             Der Sattelkammer-Ratgeber
           </h1>
           <p className="text-white/70 max-w-xl mx-auto text-lg">
-            Fachkundige Ratgeber, Tipps zur Sattelpflege und Reitsportwissen
-            von unserem Reiterteam.
+            Fachkundige Ratgeber, Tipps zur Sattelpflege und Reitsportwissen von
+            unserem Reiterteam.
           </p>
 
           {/* Search */}
@@ -207,7 +207,8 @@ export default function BlogPage() {
               Keine Artikel gefunden
             </p>
             <p className="text-gray-400 text-sm mt-2">
-              Versuchen Sie einen anderen Suchbegriff oder eine andere Kategorie.
+              Versuchen Sie einen anderen Suchbegriff oder eine andere
+              Kategorie.
             </p>
           </div>
         )}

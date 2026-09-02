@@ -142,7 +142,10 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
   const handleSubmitReview = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isAuthenticated) {
-      showToast("Bitte melden Sie sich an, um eine Bewertung abzugeben", "info");
+      showToast(
+        "Bitte melden Sie sich an, um eine Bewertung abzugeben",
+        "info",
+      );
       return;
     }
     setSubmittingReview(true);
@@ -533,7 +536,9 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                 className="btn-primary w-full py-4 text-base disabled:opacity-60"
               >
                 <ShoppingCart size={20} />
-                {product.stock_quantity === 0 ? "Nicht verfügbar" : "In den Warenkorb"}
+                {product.stock_quantity === 0
+                  ? "Nicht verfügbar"
+                  : "In den Warenkorb"}
               </button>
             </div>
 
@@ -641,7 +646,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
               }}
               className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 transition-colors"
             >
-              <Share2 size={15} /> Share this saddle
+              <Share2 size={15} /> Sattel teilen
             </button>
           </div>
         </div>
@@ -649,7 +654,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
         {/* Description & Specs tabs */}
         <div className="bg-white rounded-2xl shadow-card p-5 sm:p-8 mb-6 sm:mb-10">
           <h2 className="font-serif text-2xl font-bold text-primary-500 mb-6">
-            Description
+            Beschreibung
           </h2>
           <div
             className="prose-luxury max-w-none"
@@ -661,7 +666,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
           {specRows.length > 0 && (
             <>
               <h3 className="font-serif text-xl font-bold text-primary-500 mt-10 mb-5">
-                Specifications
+                Technische Daten
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {specRows.map((row) => (
@@ -694,7 +699,8 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
 
           {reviews.length === 0 ? (
             <p className="text-gray-500 text-sm mb-8">
-              No reviews yet. Be the first to share your experience.
+              Noch keine Bewertungen. Seien Sie der Erste, der seine Erfahrung
+              teilt.
             </p>
           ) : (
             <div className="space-y-6 mb-8">
@@ -747,7 +753,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
           {/* Review form */}
           <div className="border-t border-gray-100 pt-8">
             <h3 className="font-serif text-lg font-semibold mb-5">
-              Write a Review
+              Bewertung schreiben
             </h3>
             {!isAuthenticated ? (
               <p className="text-sm text-gray-500">
@@ -755,9 +761,9 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                   href="/account/login"
                   className="text-primary-500 underline"
                 >
-                  Sign in
+                  Anmelden
                 </Link>{" "}
-                to leave a review.
+                , um eine Bewertung abzugeben.
               </p>
             ) : (
               <form
@@ -766,7 +772,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
               >
                 <div>
                   <label className="text-sm font-medium text-gray-700 mb-2 block">
-                    Rating
+                    Bewertung
                   </label>
                   <div className="flex gap-2">
                     {[1, 2, 3, 4, 5].map((rating) => (
@@ -790,20 +796,20 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-700 mb-1 block">
-                    Review Title
+                    Titel der Bewertung
                   </label>
                   <input
                     value={reviewForm.title}
                     onChange={(e) =>
                       setReviewForm((f) => ({ ...f, title: e.target.value }))
                     }
-                    placeholder="Summarize your experience"
+                    placeholder="Fassen Sie Ihre Erfahrung zusammen"
                     className="input-field"
                   />
                 </div>
                 <div>
                   <label className="text-sm font-medium text-gray-700 mb-1 block">
-                    Your Review
+                    Ihre Bewertung
                   </label>
                   <textarea
                     value={reviewForm.body}
@@ -812,7 +818,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                     }
                     required
                     rows={4}
-                    placeholder="Tell other riders about your experience with this saddle..."
+                    placeholder="Teilen Sie Ihre Erfahrung mit diesem Sattel ..."
                     className="input-field resize-none"
                   />
                 </div>
@@ -821,7 +827,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                   disabled={submittingReview}
                   className="btn-primary disabled:opacity-60"
                 >
-                  {submittingReview ? "Submitting..." : "Submit Review"}
+                  {submittingReview ? "Wird gesendet ..." : "Bewertung senden"}
                 </button>
               </form>
             )}

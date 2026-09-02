@@ -66,7 +66,9 @@ export default function CookieConsent() {
                   <p className="font-semibold text-gray-900 text-sm">
                     Cookie-Einstellungen
                   </p>
-                  <p className="text-xs text-gray-500">Ihre Privatsphäre ist uns wichtig</p>
+                  <p className="text-xs text-gray-500">
+                    Ihre Privatsphäre ist uns wichtig
+                  </p>
                 </div>
               </div>
               <button
@@ -80,8 +82,8 @@ export default function CookieConsent() {
             <div className="p-5">
               <p className="text-sm text-gray-600 leading-relaxed">
                 Wir verwenden Cookies, um Ihr Erlebnis zu verbessern und den
-                Website-Traffic zu analysieren. Sie können Ihre Einstellungen verwalten
-                oder mehr in unserer{" "}
+                Website-Traffic zu analysieren. Sie können Ihre Einstellungen
+                verwalten oder mehr in unserer{" "}
                 <Link
                   href="/privacy-policy"
                   className="text-primary-600 underline underline-offset-2"

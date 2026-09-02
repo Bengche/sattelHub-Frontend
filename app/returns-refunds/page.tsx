@@ -39,8 +39,8 @@ export default function ReturnsRefundsPage() {
 
           <h2>What Can Be Returned</h2>
           <p>
-            Jeder bei Sattelhub.de gekaufte Sattel kann innerhalb des
-            30-day trial window, including:
+            Jeder bei Sattelhub.de gekaufte Sattel kann innerhalb des 30-day
+            trial window, including:
           </p>
           <ul>
             <li>New saddles</li>
@@ -62,7 +62,8 @@ export default function ReturnsRefundsPage() {
           <h2>How to Initiate a Return</h2>
           <ol>
             <li>
-              Melden Sie sich an und öffnen Sie <strong>Meine Bestellungen</strong>.
+              Melden Sie sich an und öffnen Sie{" "}
+              <strong>Meine Bestellungen</strong>.
             </li>
             <li>
               Click <strong>Request Return</strong> on the order you want to
@@ -93,8 +94,8 @@ export default function ReturnsRefundsPage() {
           <p>
             Once we receive your return and inspect it (typically within 2
             business days of receipt), we will process your refund. Refunds are
-            über Ihre <strong>ursprüngliche Zahlungsmethode</strong> ausgezahlt und
-            typically appear within <strong>3–5 business days</strong>,
+            über Ihre <strong>ursprüngliche Zahlungsmethode</strong> ausgezahlt
+            und typically appear within <strong>3–5 business days</strong>,
             depending on your bank.
           </p>
 

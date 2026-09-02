@@ -18,7 +18,9 @@ const schema = z
     last_name: z.string().min(2, "Nachname erforderlich"),
     email: z.string().email("Gültige E-Mail-Adresse erforderlich"),
     phone: z.string().optional(),
-    password: z.string().min(8, "Das Passwort muss mindestens 8 Zeichen enthalten"),
+    password: z
+      .string()
+      .min(8, "Das Passwort muss mindestens 8 Zeichen enthalten"),
     confirm_password: z.string(),
     newsletter: z.boolean().optional(),
   })
@@ -103,7 +105,7 @@ export default function RegisterPage() {
                 />
                 <input
                   {...register("first_name")}
-                  placeholder="Jane"
+                  placeholder="Anna"
                   className="input-field pl-10"
                 />
               </div>
@@ -119,7 +121,7 @@ export default function RegisterPage() {
               </label>
               <input
                 {...register("last_name")}
-                placeholder="Doe"
+                placeholder="Müller"
                 className="input-field"
               />
               {errors.last_name && (
@@ -142,7 +144,7 @@ export default function RegisterPage() {
               <input
                 {...register("email")}
                 type="email"
-                placeholder="jane@example.com"
+                placeholder="anna@beispiel.de"
                 className="input-field pl-10"
               />
             </div>
@@ -166,7 +168,7 @@ export default function RegisterPage() {
               <input
                 {...register("phone")}
                 type="tel"
-                placeholder="+1 (555) 000-0000"
+                placeholder="+49 30 12345678"
                 className="input-field pl-10"
               />
             </div>
@@ -232,7 +234,8 @@ export default function RegisterPage() {
               className="mt-0.5 rounded text-primary-500"
             />
             <span className="text-sm text-gray-600">
-              Newsletter mit Sattelpflegetipps, Neuheiten und exklusiven Angeboten abonnieren.
+              Newsletter mit Sattelpflegetipps, Neuheiten und exklusiven
+              Angeboten abonnieren.
             </span>
           </label>
 

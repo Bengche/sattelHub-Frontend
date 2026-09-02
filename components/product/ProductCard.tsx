@@ -83,7 +83,9 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               ? "bg-red-500 text-white"
               : "bg-white/80 text-gray-600 hover:text-red-500",
           )}
-          aria-label={isFav ? "Aus Favoriten entfernen" : "Zu Favoriten hinzufügen"}
+          aria-label={
+            isFav ? "Aus Favoriten entfernen" : "Zu Favoriten hinzufügen"
+          }
         >
           <Heart size={15} fill={isFav ? "currentColor" : "none"} />
         </button>
@@ -172,7 +174,9 @@ export default function ProductCard({ product, className }: ProductCardProps) {
                 : "bg-primary-500 hover:bg-primary-600 text-white",
             )}
             aria-label={
-              product.stock_quantity === 0 ? "Nicht verfügbar" : "In den Warenkorb"
+              product.stock_quantity === 0
+                ? "Nicht verfügbar"
+                : "In den Warenkorb"
             }
           >
             <ShoppingCart size={16} />

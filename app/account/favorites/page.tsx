@@ -85,8 +85,8 @@ export default function FavoritesPage() {
               Noch keine Favoriten
             </h2>
             <p className="text-gray-500 mb-8">
-              Entdecken Sie unsere Kollektion und speichern Sie Ihre Lieblingssättel
-              mit dem Herzsymbol.
+              Entdecken Sie unsere Kollektion und speichern Sie Ihre
+              Lieblingssättel mit dem Herzsymbol.
             </p>
             <Link href="/products" className="btn-primary inline-flex">
               Sättel entdecken

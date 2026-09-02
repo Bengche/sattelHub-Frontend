@@ -76,7 +76,8 @@ export default function WhyChooseUsSection() {
           </h2>
           <p className="text-gray-500 mt-6 max-w-2xl mx-auto text-base leading-relaxed">
             Unser Unternehmen basiert auf einem einfachen Grundsatz: Reiter
-            verdienen ein ebenso hochwertiges Einkaufserlebnis wie der Sport selbst.
+            verdienen ein ebenso hochwertiges Einkaufserlebnis wie der Sport
+            selbst.
           </p>
         </div>
 
@@ -116,7 +117,11 @@ export default function WhyChooseUsSection() {
                 label: "Sättel auf Lager",
                 sub: "alle Disziplinen",
               },
-              { value: "30 Tage", label: "Kostenlos testen", sub: "ohne Risiko" },
+              {
+                value: "30 Tage",
+                label: "Kostenlos testen",
+                sub: "ohne Risiko",
+              },
               {
                 value: "98%",
                 label: "Zufriedenheitsquote",

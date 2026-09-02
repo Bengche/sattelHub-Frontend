@@ -12,7 +12,9 @@ const schema = z.object({
   email: z.string().email("Ungültige E-Mail-Adresse"),
   phone: z.string().optional(),
   subject: z.string().min(3, "Bitte geben Sie einen Betreff ein"),
-  message: z.string().min(10, "Die Nachricht muss mindestens 10 Zeichen enthalten"),
+  message: z
+    .string()
+    .min(10, "Die Nachricht muss mindestens 10 Zeichen enthalten"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -80,7 +82,7 @@ export default function ContactClient() {
             <input
               {...register("name")}
               className="input-field"
-              placeholder="Jane Smith"
+              placeholder="Anna Müller"
             />
             {errors.name && (
               <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
@@ -94,7 +96,7 @@ export default function ContactClient() {
               type="email"
               {...register("email")}
               className="input-field"
-              placeholder="you@example.com"
+              placeholder="sie@beispiel.de"
             />
             {errors.email && (
               <p className="text-red-500 text-xs mt-1">
@@ -112,7 +114,7 @@ export default function ContactClient() {
               type="tel"
               {...register("phone")}
               className="input-field"
-              placeholder="+1 (555) 000-0000"
+              placeholder="+49 30 12345678"
             />
           </div>
           <div>
@@ -136,7 +138,7 @@ export default function ContactClient() {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-              Nachricht *
+            Nachricht *
           </label>
           <textarea
             {...register("message")}

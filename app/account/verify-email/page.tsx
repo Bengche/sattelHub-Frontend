@@ -128,7 +128,9 @@ function VerifyEmailForm() {
         <h1 className="font-serif text-2xl font-bold text-primary-500 mb-2">
           Prüfen Sie Ihre E-Mail
         </h1>
-        <p className="text-gray-500 text-sm mb-2">Wir haben einen sechsstelligen Code gesendet an:</p>
+        <p className="text-gray-500 text-sm mb-2">
+          Wir haben einen sechsstelligen Code gesendet an:
+        </p>
         <p className="font-semibold text-gray-900 mb-8">{emailParam}</p>
 
         {error && (
