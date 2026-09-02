@@ -4,27 +4,27 @@ import { SITE_CONFIG } from "@/lib/siteConfig";
 import { MapPin, Phone, Mail, MessageSquare, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Contact Us",
-  description: `Get in touch with Saddles Market. We're here to help with saddle selection, orders, and returns. Call ${SITE_CONFIG.phone} or email ${SITE_CONFIG.email.support}.`,
+  title: "Kontakt",
+  description: `Kontaktieren Sie Sattelhub.de. Wir helfen Ihnen bei Sattelwahl, Bestellungen und Rückgaben. Sie erreichen uns unter ${SITE_CONFIG.phone} oder ${SITE_CONFIG.email.support}.`,
   alternates: { canonical: "/contact" },
 };
 
 const contactInfo = [
   {
     icon: MapPin,
-    label: "Address",
+    label: "Adresse",
     value: SITE_CONFIG.address.full,
     href: undefined,
   },
   {
     icon: Phone,
-    label: "Phone",
+    label: "Telefon",
     value: SITE_CONFIG.phone,
     href: `tel:${SITE_CONFIG.phone}`,
   },
   {
     icon: Mail,
-    label: "Email",
+    label: "E-Mail",
     value: SITE_CONFIG.email.support,
     href: `mailto:${SITE_CONFIG.email.support}`,
   },
@@ -36,8 +36,8 @@ const contactInfo = [
   },
   {
     icon: Clock,
-    label: "Hours",
-    value: "Mon–Fri, 9am–6pm EST",
+    label: "Öffnungszeiten",
+    value: "Mo-Fr, 9:00-18:00 Uhr",
     href: undefined,
   },
 ];
@@ -48,14 +48,14 @@ export default function ContactPage() {
       {/* Hero */}
       <div className="bg-primary-800 py-20 text-center">
         <p className="text-gold-400 text-sm font-medium tracking-widest uppercase mb-3">
-          Get In Touch
+          Kontakt aufnehmen
         </p>
         <h1 className="font-serif text-5xl font-bold text-white mb-4">
-          Contact Us
+          Kontakt
         </h1>
         <p className="text-white/60 text-lg max-w-xl mx-auto">
-          Our team of equestrian experts is ready to help you find the perfect
-          saddle.
+          Unser Team aus Reitsport-Experten hilft Ihnen gerne, den passenden
+          Sattel zu finden.
         </p>
       </div>
 
@@ -68,7 +68,7 @@ export default function ContactPage() {
           {/* Contact info */}
           <div className="lg:col-span-2 order-2 lg:order-none">
             <h2 className="font-serif text-2xl font-bold text-primary-500 mb-6">
-              Our Details
+              Unsere Kontaktdaten
             </h2>
             <div className="space-y-5">
               {contactInfo.map((item) => (
@@ -101,11 +101,11 @@ export default function ContactPage() {
 
             <div className="mt-10 bg-primary-500 rounded-2xl p-6 text-white">
               <h3 className="font-serif text-lg font-semibold mb-2">
-                30-Day Free Trial
+                30 Tage kostenlos testen
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Every saddle comes with our signature 30-day free trial. Ride
-                it, try it, love it — or return it, no questions asked.
+                Jeder Sattel kann 30 Tage kostenlos getestet werden. Reiten Sie
+                ihn, prüfen Sie ihn und geben Sie ihn bei Bedarf unkompliziert zurück.
               </p>
             </div>
           </div>

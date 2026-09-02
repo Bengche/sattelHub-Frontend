@@ -61,14 +61,14 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           )}
           {product.is_featured && (
             <span className="px-2.5 py-0.5 rounded-full bg-amber-400 text-white text-[11px] font-bold tracking-wide shadow-sm">
-              Featured
+              Empfohlen
             </span>
           )}
           {product.created_at &&
             Date.now() - new Date(product.created_at).getTime() <
               7 * 24 * 60 * 60 * 1000 && (
               <span className="px-2.5 py-0.5 rounded-full bg-emerald-500 text-white text-[11px] font-bold tracking-wide shadow-sm">
-                New
+                Neu
               </span>
             )}
         </div>
@@ -83,7 +83,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
               ? "bg-red-500 text-white"
               : "bg-white/80 text-gray-600 hover:text-red-500",
           )}
-          aria-label={isFav ? "Remove from favorites" : "Add to favorites"}
+          aria-label={isFav ? "Aus Favoriten entfernen" : "Zu Favoriten hinzufügen"}
         >
           <Heart size={15} fill={isFav ? "currentColor" : "none"} />
         </button>
@@ -94,7 +94,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           className="absolute inset-x-0 bottom-0 z-10 flex items-center justify-center gap-2 bg-black/50 backdrop-blur-sm text-white text-sm font-medium py-3 translate-y-full group-hover:translate-y-0 transition-transform duration-300"
         >
           <Eye size={15} />
-          View Details
+          Details ansehen
         </Link>
       </div>
 
@@ -105,11 +105,11 @@ export default function ProductCard({ product, className }: ProductCardProps) {
           <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-primary-400">
             {product.discipline?.replace(/_/g, " ") ||
               product.category?.name ||
-              "Saddle"}
+              "Sattel"}
           </span>
           {product.seat_size && (
             <span className="text-[10px] font-semibold bg-cream-200 text-primary-500 px-2 py-0.5 rounded-full">
-              {product.seat_size}&quot; seat
+              {product.seat_size}&quot; Sitzfläche
             </span>
           )}
         </div>
@@ -172,7 +172,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
                 : "bg-primary-500 hover:bg-primary-600 text-white",
             )}
             aria-label={
-              product.stock_quantity === 0 ? "Out of stock" : "Add to cart"
+              product.stock_quantity === 0 ? "Nicht verfügbar" : "In den Warenkorb"
             }
           >
             <ShoppingCart size={16} />

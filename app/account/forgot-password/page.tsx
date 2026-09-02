@@ -9,7 +9,7 @@ import api, { getErrorMessage } from "@/lib/api";
 import { ArrowLeft, Mail, CheckCircle } from "lucide-react";
 
 const schema = z.object({
-  email: z.string().email("Please enter a valid email address"),
+  email: z.string().email("Bitte geben Sie eine gültige E-Mail-Adresse ein"),
 });
 
 type FormData = z.infer<typeof schema>;
@@ -49,7 +49,7 @@ export default function ForgotPasswordPage() {
           className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary-500 mb-8 transition-colors"
         >
           <ArrowLeft size={16} />
-          Back to login
+          Zurück zur Anmeldung
         </Link>
 
         <div className="bg-white rounded-3xl shadow-card p-8 md:p-10">
@@ -59,11 +59,11 @@ export default function ForgotPasswordPage() {
                 <Mail size={26} className="text-primary-500" />
               </div>
               <h1 className="font-serif text-3xl font-bold text-primary-500 mb-2">
-                Forgot your password?
+                Passwort vergessen?
               </h1>
               <p className="text-gray-500 mb-8 leading-relaxed">
-                Enter your email address and we&apos;ll send you a link to reset
-                your password.
+                Geben Sie Ihre E-Mail-Adresse ein. Wir senden Ihnen einen Link
+                zum Zurücksetzen Ihres Passworts.
               </p>
 
               {error && (
@@ -75,7 +75,7 @@ export default function ForgotPasswordPage() {
               <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1.5">
-                    Email address *
+                    E-Mail-Adresse *
                   </label>
                   <input
                     type="email"
@@ -96,17 +96,17 @@ export default function ForgotPasswordPage() {
                   disabled={loading}
                   className="btn-primary w-full py-3.5"
                 >
-                  {loading ? "Sending..." : "Send Reset Link"}
+                  {loading ? "Wird gesendet ..." : "Link senden"}
                 </button>
               </form>
 
               <p className="text-center text-sm text-gray-500 mt-6">
-                Remembered it?{" "}
+                Wieder eingefallen?{" "}
                 <Link
                   href="/account/login"
                   className="text-primary-500 font-medium hover:underline"
                 >
-                  Log in
+                  Anmelden
                 </Link>
               </p>
             </>
@@ -116,27 +116,27 @@ export default function ForgotPasswordPage() {
                 <CheckCircle size={30} className="text-green-500" />
               </div>
               <h2 className="font-serif text-2xl font-bold text-primary-500 mb-3">
-                Check your inbox
+                Prüfen Sie Ihren Posteingang
               </h2>
               <p className="text-gray-500 mb-2">
-                We&apos;ve sent a password reset link to:
+                Wir haben einen Link zum Zurücksetzen des Passworts gesendet an:
               </p>
               <p className="font-medium text-gray-900 mb-6">
                 {getValues("email")}
               </p>
               <p className="text-sm text-gray-400 mb-8">
-                Didn&apos;t receive it? Check your spam folder or try again with
-                a different email address.
+                Nicht erhalten? Prüfen Sie Ihren Spam-Ordner oder versuchen Sie es
+                mit einer anderen E-Mail-Adresse.
               </p>
               <div className="flex flex-col gap-3">
                 <button
                   onClick={() => setSent(false)}
                   className="btn-secondary"
                 >
-                  Try a different email
+                  Andere E-Mail-Adresse verwenden
                 </button>
                 <Link href="/account/login" className="btn-primary">
-                  Back to Login
+                  Zur Anmeldung
                 </Link>
               </div>
             </div>

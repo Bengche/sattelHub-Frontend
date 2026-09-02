@@ -43,10 +43,10 @@ function LoginForm() {
       >
         <div className="text-center mb-8">
           <h1 className="font-serif text-3xl font-bold text-primary-500 mb-2">
-            Welcome Back
+            Willkommen zurück
           </h1>
           <p className="text-gray-500 text-sm">
-            Sign in to your Saddles Market account.
+            Melden Sie sich bei Ihrem Sattelhub.de-Konto an.
           </p>
         </div>
 
@@ -59,7 +59,7 @@ function LoginForm() {
         <form onSubmit={onSubmit} className="space-y-5">
           <div>
             <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-              Email Address
+              E-Mail-Adresse
             </label>
             <div className="relative">
               <Mail
@@ -81,13 +81,13 @@ function LoginForm() {
           <div>
             <div className="flex items-center justify-between mb-1.5">
               <label className="text-sm font-medium text-gray-700">
-                Password
+                Passwort
               </label>
               <Link
                 href="/account/forgot-password"
                 className="text-xs text-primary-500 hover:underline"
               >
-                Forgot password?
+                Passwort vergessen?
               </Link>
             </div>
             <div className="relative">
@@ -99,7 +99,7 @@ function LoginForm() {
                 type={showPassword ? "text" : "password"}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                placeholder="Your password"
+                placeholder="Ihr Passwort"
                 required
                 className="input-field pl-10 pr-12"
               />
@@ -118,17 +118,17 @@ function LoginForm() {
             disabled={loading}
             className="btn-primary w-full py-4 text-base disabled:opacity-60"
           >
-            {loading ? "Signing In..." : "Sign In"}
+            {loading ? "Anmeldung läuft ..." : "Anmelden"}
           </button>
         </form>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Don&apos;t have an account?{" "}
+          Noch kein Konto?{" "}
           <Link
             href="/account/register"
             className="text-primary-500 font-medium hover:underline"
           >
-            Create one free
+            Kostenlos registrieren
           </Link>
         </p>
       </motion.div>

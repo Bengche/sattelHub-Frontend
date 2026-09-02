@@ -34,13 +34,13 @@ import ProductCard from "@/components/product/ProductCard";
 
 // Standard horse saddle width options — shown on every product
 const SADDLE_WIDTHS = [
-  { value: "Narrow (C)", label: "Narrow", sub: 'C / 4.5"' },
-  { value: "Regular / Medium (D)", label: "Regular / Medium", sub: 'D / 5"' },
-  { value: "Wide (W)", label: "Wide", sub: 'W / 5.5"' },
-  { value: "Extra Wide (XW)", label: "Extra Wide", sub: 'XW / 6"' },
+  { value: "Narrow (C)", label: "Schmal", sub: 'C / 4.5"' },
+  { value: "Regular / Medium (D)", label: "Normal / Medium", sub: 'D / 5"' },
+  { value: "Wide (W)", label: "Weit", sub: 'W / 5.5"' },
+  { value: "Extra Wide (XW)", label: "Extra weit", sub: 'XW / 6"' },
   {
     value: "Extra Extra Wide (XXW)",
-    label: "Extra Extra Wide",
+    label: "Extra extra weit",
     sub: 'XXW / 6.5"',
   },
 ];
@@ -51,7 +51,7 @@ interface Props {
 }
 
 const CONDITION_LABELS: Record<string, string> = {
-  new: "Brand New",
+  new: "Neu",
   excellent: "Excellent",
   good: "Good",
   fair: "Fair",
@@ -120,15 +120,15 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
   const handleAddToCart = () => {
     // Validate required selections
     if (hasSeatSizes && !selectedSeatSize) {
-      showToast("Please select a seat size.", "info");
+      showToast("Bitte wählen Sie eine Sitzgröße.", "info");
       return;
     }
     if (hasColors && !selectedColor) {
-      showToast("Please select a color.", "info");
+      showToast("Bitte wählen Sie eine Farbe.", "info");
       return;
     }
     if (!selectedWidth) {
-      showToast("Please select a saddle width.", "info");
+      showToast("Bitte wählen Sie eine Sattelweite.", "info");
       return;
     }
     addToCart(product.id, qty, {
@@ -142,35 +142,35 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
   const handleSubmitReview = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!isAuthenticated) {
-      showToast("Please log in to leave a review", "info");
+      showToast("Bitte melden Sie sich an, um eine Bewertung abzugeben", "info");
       return;
     }
     setSubmittingReview(true);
     try {
       await api.post("/reviews", { productId: product.id, ...reviewForm });
-      showToast("Review submitted — pending approval", "success");
+      showToast("Bewertung gesendet - wartet auf Freigabe", "success");
       setReviewForm({ rating: 5, title: "", body: "" });
     } catch {
-      showToast("Could not submit review", "error");
+      showToast("Bewertung konnte nicht gesendet werden", "error");
     } finally {
       setSubmittingReview(false);
     }
   };
 
   const specRows = [
-    { label: "Brand", value: product.brand },
-    { label: "Discipline", value: product.discipline?.replace("_", " ") },
-    { label: "Condition", value: CONDITION_LABELS[product.condition] },
-    { label: "Seat Size", value: product.seat_size },
-    { label: "Gullet Width", value: product.gullet_width },
-    { label: "Tree Type", value: product.tree_type },
-    { label: "Leather Type", value: product.leather_type },
-    { label: "Color", value: product.color },
+    { label: "Marke", value: product.brand },
+    { label: "Disziplin", value: product.discipline?.replace("_", " ") },
+    { label: "Zustand", value: CONDITION_LABELS[product.condition] },
+    { label: "Sitzgröße", value: product.seat_size },
+    { label: "Kammerweite", value: product.gullet_width },
+    { label: "Kopfeisen", value: product.tree_type },
+    { label: "Lederart", value: product.leather_type },
+    { label: "Farbe", value: product.color },
     {
-      label: "Weight",
+      label: "Gewicht",
       value: product.weight_kg ? `${product.weight_kg} kg` : null,
     },
-    { label: "SKU", value: product.sku },
+    { label: "Artikelnummer", value: product.sku },
   ].filter((r) => r.value);
 
   return (
@@ -354,7 +354,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
               </div>
             ) : (
               <p className="text-red-600 font-medium mb-6 text-sm">
-                Out of stock
+                Nicht verfügbar
               </p>
             )}
 
@@ -494,7 +494,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
               </div>
             )}
 
-            {/* Quantity + Add to cart */}
+            {/* Menge + in den Warenkorb */}
             <div className="mb-6">
               {/* Row 1: qty stepper + wishlist */}
               <div className="flex items-center gap-3 mb-3">
@@ -526,14 +526,14 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                 </button>
               </div>
 
-              {/* Row 2: full-width add to cart */}
+              {/* Zeile 2: vollständige Warenkorbaktion */}
               <button
                 onClick={handleAddToCart}
                 disabled={cartLoading || product.stock_quantity === 0}
                 className="btn-primary w-full py-4 text-base disabled:opacity-60"
               >
                 <ShoppingCart size={20} />
-                {product.stock_quantity === 0 ? "Out of Stock" : "Add to Cart"}
+                {product.stock_quantity === 0 ? "Nicht verfügbar" : "In den Warenkorb"}
               </button>
             </div>
 
@@ -552,7 +552,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                 },
                 {
                   icon: Truck,
-                  text: "Free Shipping $2,000+",
+                  text: "Kostenloser Versand ab 2.000 EUR",
                   sub: "Fast, insured delivery",
                 },
                 {

@@ -42,17 +42,17 @@ export default function FeaturedProducts() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
             <p className="text-gold-500 text-sm font-medium tracking-widest uppercase mb-3">
-              Handpicked Selection
+              Handverlesene Auswahl
             </p>
             <h2 className="section-heading font-bold text-primary-500 pb-4">
-              Featured Saddles
+              Empfohlene Sättel
             </h2>
           </div>
           <Link
             href="/products"
             className="flex items-center gap-2 text-primary-500 font-medium text-sm hover:text-primary-700 group transition-colors"
           >
-            View all saddles
+            Alle Sättel ansehen
             <ArrowRight
               size={16}
               className="group-hover:translate-x-1 transition-transform duration-200"
@@ -75,14 +75,14 @@ export default function FeaturedProducts() {
             animate={{ opacity: 1 }}
             className="text-center py-16 text-gray-500"
           >
-            <p>No featured products at the moment. Check back soon.</p>
+            <p>Derzeit keine empfohlenen Produkte. Schauen Sie bald wieder vorbei.</p>
           </motion.div>
         )}
 
         {/* CTA */}
         <div className="text-center mt-12">
           <Link href="/products" className="btn-primary px-10 py-4 text-base">
-            Explore All Saddles
+            Alle Sättel entdecken
           </Link>
         </div>
       </div>

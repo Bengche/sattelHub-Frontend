@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Home, ArrowLeft } from "lucide-react";
 import type { Metadata } from "next";
 
-export const metadata: Metadata = { title: "Page Not Found" };
+export const metadata: Metadata = { title: "Seite nicht gefunden" };
 
 export default function NotFound() {
   return (
@@ -55,21 +55,21 @@ export default function NotFound() {
         </div>
 
         <h1 className="font-serif text-4xl font-bold text-primary-500 mb-4">
-          This saddle has wandered off
+          Dieser Sattel ist nicht auffindbar
         </h1>
         <p className="text-gray-500 text-lg mb-10 leading-relaxed">
-          The page you&apos;re looking for doesn&apos;t exist or may have been
-          moved. Let&apos;s get you back on track.
+          Die gesuchte Seite existiert nicht oder wurde verschoben. Kehren Sie
+          zurück zur Übersicht.
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link href="/" className="btn-primary gap-2">
             <Home size={18} />
-            Back to Home
+            Zur Startseite
           </Link>
           <Link href="/products" className="btn-secondary gap-2">
             <ArrowLeft size={18} />
-            Browse Saddles
+            Sättel entdecken
           </Link>
         </div>
       </div>

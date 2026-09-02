@@ -14,15 +14,15 @@ import { z } from "zod";
 import { ChevronRight, Lock, Tag, Truck, Zap, CheckCircle } from "lucide-react";
 
 const addressSchema = z.object({
-  firstName: z.string().min(1, "Required"),
-  lastName: z.string().min(1, "Required"),
-  email: z.string().email("Invalid email"),
-  phone: z.string().min(7, "Invalid phone"),
-  street: z.string().min(5, "Required"),
-  city: z.string().min(2, "Required"),
-  state: z.string().min(2, "Required"),
-  zipCode: z.string().min(3, "Required").max(20, "Too long"),
-  country: z.string().min(2, "Required"),
+  firstName: z.string().min(1, "Pflichtfeld"),
+  lastName: z.string().min(1, "Pflichtfeld"),
+  email: z.string().email("Ungültige E-Mail-Adresse"),
+  phone: z.string().min(7, "Ungültige Telefonnummer"),
+  street: z.string().min(5, "Pflichtfeld"),
+  city: z.string().min(2, "Pflichtfeld"),
+  state: z.string().min(2, "Pflichtfeld"),
+  zipCode: z.string().min(3, "Pflichtfeld").max(20, "Zu lang"),
+  country: z.string().min(2, "Pflichtfeld"),
 });
 
 const checkoutSchema = z
@@ -46,7 +46,7 @@ const checkoutSchema = z
     if (data.paymentMethod === "other" && !data.paymentOtherDetails?.trim()) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
-        message: "Please describe your payment method",
+        message: "Bitte beschreiben Sie Ihre Zahlungsmethode",
         path: ["paymentOtherDetails"],
       });
     }
@@ -57,14 +57,14 @@ type CheckoutFormData = z.infer<typeof checkoutSchema>;
 const SHIPPING_OPTIONS = [
   {
     id: "standard",
-    label: "Standard Shipping",
-    desc: "3–5 business days",
+    label: "Standardversand",
+    desc: "3-5 Werktage",
     price: SITE_CONFIG.shipping.standardRate,
   },
   {
     id: "express",
-    label: "Express Shipping",
-    desc: "1–3 business days",
+    label: "Expressversand",
+    desc: "1-3 Werktage",
     price: SITE_CONFIG.shipping.expressRate,
   },
 ];
@@ -147,7 +147,7 @@ export default function CheckoutPage() {
 
   const onSubmit = async (data: CheckoutFormData) => {
     if (!cart?.items.length) {
-      showToast("Your cart is empty", "error");
+      showToast("Ihr Warenkorb ist leer", "error");
       return;
     }
     setPlacingOrder(true);
@@ -178,12 +178,12 @@ export default function CheckoutPage() {
             data.paymentMethod === "other" &&
             data.paymentOtherDetails?.trim()
           ) {
-            return `Payment method: ${data.paymentOtherDetails.trim()}${
+            return `Zahlungsmethode: ${data.paymentOtherDetails.trim()}${
               data.notes ? `\n${data.notes}` : ""
             }`;
           }
           if (methodLabel[data.paymentMethod]) {
-            return `Payment method: ${methodLabel[data.paymentMethod]}${
+            return `Zahlungsmethode: ${methodLabel[data.paymentMethod]}${
               data.notes ? `\n${data.notes}` : ""
             }`;
           }
@@ -307,7 +307,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="sm:col-span-2">
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Street Address *
+                      Straße *
                     </label>
                     <input
                       {...register("shipping.street")}
@@ -336,7 +336,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      State / Province *
+                      Bundesland *
                     </label>
                     <input
                       {...register("shipping.state")}
@@ -350,7 +350,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      ZIP / Postal Code *
+                      PLZ *
                     </label>
                     <input
                       {...register("shipping.zipCode")}
@@ -364,7 +364,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Country *
+                      Land *
                     </label>
                     <input
                       {...register("shipping.country")}
@@ -390,7 +390,7 @@ export default function CheckoutPage() {
                     htmlFor="billingSame"
                     className="text-sm text-gray-600 cursor-pointer select-none"
                   >
-                    Billing address same as shipping
+                    Rechnungsadresse entspricht Lieferadresse
                   </label>
                 </div>
 
@@ -398,7 +398,7 @@ export default function CheckoutPage() {
                 {!billingSame && (
                   <div className="mt-6 pt-6 border-t border-gray-100">
                     <h3 className="font-semibold text-gray-900 mb-4">
-                      Billing Address
+                      Rechnungsadresse
                     </h3>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                       {(
@@ -435,16 +435,16 @@ export default function CheckoutPage() {
               {/* Shipping Method */}
               <div className="bg-white rounded-2xl shadow-card p-7">
                 <h2 className="font-serif text-xl font-semibold text-gray-900 mb-4">
-                  Shipping Method
+                  Versandart
                 </h2>
 
                 {freeShip && (
                   <div className="flex items-start gap-2 text-sm text-green-700 bg-green-50 border border-green-200 rounded-xl px-4 py-3 mb-4">
                     <CheckCircle size={15} className="flex-shrink-0 mt-0.5" />
                     <span>
-                      Your order qualifies for <strong>free shipping</strong>.
-                      It is pre-selected below. You may choose a faster option
-                      if you prefer.
+                      Ihre Bestellung erhält <strong>kostenlosen Versand</strong>.
+                      Dieser ist unten vorausgewählt. Sie können eine schnellere
+                      Option wählen.
                     </span>
                   </div>
                 )}
@@ -467,10 +467,10 @@ export default function CheckoutPage() {
                       <Truck size={18} className="text-green-500" />
                       <div className="flex-1">
                         <p className="font-medium text-gray-900">
-                          Free Shipping
+                          Kostenloser Versand
                         </p>
                         <p className="text-sm text-gray-500">
-                          3–5 business days
+                          3-5 Werktage
                         </p>
                       </div>
                       <span className="font-semibold text-green-600">FREE</span>
@@ -505,22 +505,22 @@ export default function CheckoutPage() {
                 </div>
               </div>
 
-              {/* Payment Method */}
+              {/* Zahlungsmethode */}
               <div className="bg-white rounded-2xl shadow-card p-7">
                 <h2 className="font-serif text-xl font-semibold text-gray-900 mb-6">
-                  Payment Method
+                  Zahlungsmethode
                 </h2>
                 <div className="space-y-3">
                   {[
                     {
                       id: "bank_transfer",
-                      label: "Bank Transfer",
-                      desc: "Our team will email payment details after you place your order",
+                      label: "Banküberweisung",
+                      desc: "Unser Team sendet Ihnen nach der Bestellung die Zahlungsdetails",
                     },
                     {
                       id: "paypal",
                       label: "PayPal",
-                      desc: "Pay with your PayPal account",
+                      desc: "Mit Ihrem PayPal-Konto bezahlen",
                     },
                     {
                       id: "zelle",
@@ -529,13 +529,13 @@ export default function CheckoutPage() {
                     },
                     {
                       id: "crypto",
-                      label: "Cryptocurrency",
+                      label: "Kryptowährung",
                       desc: "Pay with Bitcoin, Ethereum, or other crypto — details emailed after order",
                     },
                     {
                       id: "other",
-                      label: "Other",
-                      desc: "Venmo, Western Union, or any other method",
+                      label: "Andere",
+                      desc: "Venmo, Western Union oder eine andere Methode",
                     },
                   ].map((pm) => (
                     <label
@@ -563,7 +563,7 @@ export default function CheckoutPage() {
                     <div className="pt-1">
                       <input
                         {...register("paymentOtherDetails")}
-                        placeholder="Describe your payment method (e.g. Zelle, Venmo, Western Union...)"
+                        placeholder="Beschreiben Sie Ihre Zahlungsmethode (z. B. Zelle, Venmo, Western Union ...)"
                         className="input-field"
                       />
                       {errors.paymentOtherDetails && (
@@ -593,11 +593,11 @@ export default function CheckoutPage() {
               </div>
             </div>
 
-            {/* RIGHT — Order Summary */}
+            {/* RECHTS - Bestellübersicht */}
             <div className="lg:col-span-1">
               <div className="bg-white rounded-2xl shadow-card p-6 sticky top-24">
                 <h2 className="font-serif text-xl font-semibold text-gray-900 mb-5">
-                  Order Summary
+                  Bestellübersicht
                 </h2>
 
                 {/* Items */}
@@ -667,7 +667,7 @@ export default function CheckoutPage() {
                           {appliedCouponCode}
                         </span>
                         <span className="text-green-600 font-normal">
-                          applied
+                          angewendet
                         </span>
                       </div>
                       <button
@@ -679,7 +679,7 @@ export default function CheckoutPage() {
                         }}
                         className="text-xs text-gray-400 hover:text-red-500 transition-colors ml-2"
                       >
-                        Remove
+                        Entfernen
                       </button>
                     </div>
                   ) : (
@@ -699,7 +699,7 @@ export default function CheckoutPage() {
                             e.key === "Enter" &&
                             (e.preventDefault(), applyCoupon())
                           }
-                          placeholder="Coupon code"
+                          placeholder="Gutscheincode"
                           className="input-field pl-9 text-sm h-9"
                         />
                       </div>
@@ -709,7 +709,7 @@ export default function CheckoutPage() {
                         disabled={couponLoading || !couponCode.trim()}
                         className="btn-secondary px-3 py-1 text-sm h-9"
                       >
-                        {couponLoading ? "..." : "Apply"}
+                        {couponLoading ? "..." : "Anwenden"}
                       </button>
                     </div>
                   )}
@@ -721,10 +721,10 @@ export default function CheckoutPage() {
                       <span>{formatPrice(subtotal)}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
-                      <span>Shipping</span>
+                      <span>Versand</span>
                       <span>
                         {shippingCost === 0 ? (
-                          <span className="text-green-600">FREE</span>
+                          <span className="text-green-600">KOSTENLOS</span>
                         ) : (
                           formatPrice(shippingCost)
                         )}
@@ -732,7 +732,7 @@ export default function CheckoutPage() {
                     </div>
                     {couponDiscount > 0 && (
                       <div className="flex justify-between text-green-600">
-                        <span>Discount ({appliedCouponCode})</span>
+                        <span>Rabatt ({appliedCouponCode})</span>
                         <span>- {formatPrice(couponDiscount)}</span>
                       </div>
                     )}
@@ -749,12 +749,12 @@ export default function CheckoutPage() {
                   className="btn-gold w-full py-4 text-base flex items-center justify-center gap-2"
                 >
                   <Lock size={16} />
-                  {placingOrder ? "Placing Order..." : "Place Order"}
+                  {placingOrder ? "Bestellung wird aufgegeben ..." : "Bestellung aufgeben"}
                 </button>
 
                 <div className="flex items-center justify-center gap-2 text-xs text-gray-400 mt-4">
                   <Lock size={12} />
-                  <span>SSL encrypted. Your data is secure.</span>
+                  <span>SSL-verschlüsselt. Ihre Daten sind sicher.</span>
                 </div>
 
                 <p className="text-xs text-gray-400 text-center mt-3">
@@ -763,14 +763,14 @@ export default function CheckoutPage() {
                     href="/terms-conditions"
                     className="underline hover:text-primary-500"
                   >
-                    Terms
+                    AGB
                   </Link>{" "}
                   and{" "}
                   <Link
                     href="/privacy-policy"
                     className="underline hover:text-primary-500"
                   >
-                    Privacy Policy
+                    Datenschutzerklärung
                   </Link>
                   .
                 </p>

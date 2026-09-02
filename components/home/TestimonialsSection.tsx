@@ -72,7 +72,7 @@ export default function TestimonialsSection() {
             Real Experiences, Real Riders
           </h2>
           <p className="text-white/65 max-w-lg mx-auto">
-            Over a thousand riders trust Saddles Market for their most important
+            Über tausend Reiter vertrauen Sattelhub.de bei ihrer wichtigsten
             equipment.
           </p>
         </div>

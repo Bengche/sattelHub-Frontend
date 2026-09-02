@@ -268,7 +268,7 @@ export default function ProfilePage() {
                 >
                   {profileForm.formState.isSubmitting
                     ? "Saving..."
-                    : "Save Changes"}
+                    : "Änderungen speichern"}
                 </button>
               </div>
             </form>
@@ -279,7 +279,7 @@ export default function ProfilePage() {
         {tab === "security" && (
           <div className="bg-white rounded-2xl shadow-card p-7">
             <h2 className="font-serif text-xl font-semibold text-gray-900 mb-6">
-              Change Password
+              Passwort ändern
             </h2>
             <form
               onSubmit={passwordForm.handleSubmit(changePassword)}
@@ -356,7 +356,7 @@ export default function ProfilePage() {
                 >
                   {passwordForm.formState.isSubmitting
                     ? "Changing..."
-                    : "Change Password"}
+                    : "Passwort ändern"}
                 </button>
               </div>
             </form>

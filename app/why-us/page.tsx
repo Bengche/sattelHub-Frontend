@@ -5,68 +5,68 @@ import { SITE_CONFIG } from "@/lib/siteConfig";
 import { Shield, Repeat, Truck, Star, UserCheck, Award } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Why Choose Saddles Market",
+  title: "Warum Sattelhub.de",
   description:
-    "Discover why thousands of riders trust Saddles Market for premium horse saddles — 30-day free trial, expert curation, free shipping, and unmatched support.",
+    "Entdecken Sie, warum tausende Reiter Sattelhub.de vertrauen: hochwertige Reitsättel, 30 Tage kostenlos testen, fachkundige Auswahl und persönlicher Service.",
   alternates: { canonical: "/why-us" },
 };
 
 const pillars = [
   {
     icon: Shield,
-    title: "30-Day Free Trial",
+    title: "30 Tage kostenlos testen",
     desc: `We're the only saddle retailer offering a genuine 30-day free trial on every purchase. Ride at home, at your barn, on the trail. If it's not the perfect fit, return it — no fee, no argument. This exists because we believe confidence should come before commitment.`,
     stat: "30 days",
-    statLabel: "risk-free trial",
+    statLabel: "risikofreier Test",
   },
   {
     icon: Award,
-    title: "Expert-Curated Selection",
+    title: "Fachkundige Auswahl",
     desc: "Every saddle in our collection has been vetted by our team of working equestrians. We don't list every saddle we're offered — we list the ones we'd actually ride in. Quality, not quantity.",
     stat: "500+",
-    statLabel: "curated saddles",
+    statLabel: "ausgewählte Sättel",
   },
   {
     icon: Truck,
-    title: `Free Shipping Over $${SITE_CONFIG.shipping.freeShippingThreshold}`,
-    desc: `Premium saddles deserve white-glove delivery. Orders over $${SITE_CONFIG.shipping.freeShippingThreshold} ship free. Express delivery available. Every shipment is fully insured and tracked end-to-end.`,
-    stat: "Free",
-    statLabel: `over $${SITE_CONFIG.shipping.freeShippingThreshold}`,
+    title: `Kostenloser Versand ab ${SITE_CONFIG.shipping.freeShippingThreshold} EUR`,
+    desc: `Hochwertige Sättel verdienen einen erstklassigen Versand. Bestellungen ab ${SITE_CONFIG.shipping.freeShippingThreshold} EUR werden kostenlos versendet. Expressversand ist verfügbar; jede Sendung ist versichert und wird verfolgt.`,
+    stat: "Kostenlos",
+    statLabel: `ab ${SITE_CONFIG.shipping.freeShippingThreshold} EUR`,
   },
   {
     icon: Repeat,
-    title: "Hassle-Free Returns",
+    title: "Unkomplizierte Rückgabe",
     desc: "Changed your mind? Saddle doesn't fit? Contact us within the trial window and we'll send a prepaid return label same day. Refunds are processed within 3–5 business days. No restocking fees, ever.",
     stat: "100%",
-    statLabel: "free returns",
+    statLabel: "kostenlose Rückgabe",
   },
   {
     icon: UserCheck,
-    title: "Real Expert Guidance",
+    title: "Echte Fachberatung",
     desc: `Our customer support team are active equestrians — not call-center agents reading scripts. When you ask about tree width or panel fit, you get a real answer from someone who rides. Reach us at ${SITE_CONFIG.phone} or via WhatsApp at ${SITE_CONFIG.whatsapp}.`,
     stat: "< 24h",
-    statLabel: "response time",
+    statLabel: "Antwortzeit",
   },
   {
     icon: Star,
-    title: "98% Satisfaction Rate",
+    title: "98% Zufriedenheit",
     desc: "Over 1,200 riders have found their perfect saddle with us. Our satisfaction rate isn't a marketing number — it's the result of a selection process, a trial policy, and a team that genuinely cares.",
     stat: "98%",
-    statLabel: "satisfaction rate",
+    statLabel: "Zufriedenheitsquote",
   },
 ];
 
 const comparisons = [
-  { label: "30-day free trial", us: true, others: false },
-  { label: "Expert equestrian support", us: true, others: false },
+  { label: "30 Tage kostenlos testen", us: true, others: false },
+  { label: "Fachberatung im Reitsport", us: true, others: false },
   {
-    label: `Free shipping over $${SITE_CONFIG.shipping.freeShippingThreshold}`,
+    label: `Kostenloser Versand ab ${SITE_CONFIG.shipping.freeShippingThreshold} EUR`,
     us: true,
     others: false,
   },
-  { label: "No restocking fees", us: true, others: false },
-  { label: "Curated, tested selection", us: true, others: false },
-  { label: "Same-day return labels", us: true, others: false },
+  { label: "Keine Wiedereinlagerungsgebühren", us: true, others: false },
+  { label: "Ausgewählte, geprüfte Sättel", us: true, others: false },
+  { label: "Rücksendeetikett am selben Tag", us: true, others: false },
 ];
 
 export default function WhyUsPage() {
@@ -84,7 +84,7 @@ export default function WhyUsPage() {
         <div className="absolute inset-0 bg-gradient-to-b from-primary-900/80 to-primary-900/50" />
         <div className="container-custom relative z-10 text-center">
           <p className="text-gold-400 text-sm font-medium tracking-widest uppercase mb-4">
-            The Saddles Market Difference
+            Der Unterschied von Sattelhub.de
           </p>
           <h1 className="font-serif text-5xl md:text-6xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
             Why Thousands of Riders Choose Us
@@ -135,12 +135,12 @@ export default function WhyUsPage() {
             How We Compare
           </h2>
           <p className="text-gray-500 text-center mb-10">
-            Saddles Market vs. typical online saddle stores
+            Sattelhub.de im Vergleich zu gewöhnlichen Online-Sattelshops
           </p>
           <div className="rounded-2xl border border-gray-100 shadow-card overflow-hidden">
             <div className="grid grid-cols-3 bg-primary-500 text-white px-6 py-3 text-sm font-medium">
               <span>Feature</span>
-              <span className="text-center">Saddles Market</span>
+              <span className="text-center">Sattelhub.de</span>
               <span className="text-center">Others</span>
             </div>
             {comparisons.map((row, idx) => (
@@ -167,7 +167,7 @@ export default function WhyUsPage() {
       <section className="py-16">
         <div className="container-custom text-center">
           <h2 className="font-serif text-4xl font-bold text-primary-500 mb-4">
-            Ready to Find Your Perfect Saddle?
+            Bereit für Ihren perfekten Sattel?
           </h2>
           <p className="text-gray-500 text-lg mb-8">
             Browse over{" "}
@@ -175,17 +175,17 @@ export default function WhyUsPage() {
               require("@/lib/siteConfig").SITE_CONFIG.shipping
                 .freeShippingThreshold
             }
-            + saddles — all backed by our 30-day free trial.
+            + Sättel - alle mit 30-tägigem Testzeitraum.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/products" className="btn-gold px-10 py-4 text-base">
-              Shop Saddles
+              Sättel entdecken
             </Link>
             <Link
               href="/contact"
               className="btn-secondary px-10 py-4 text-base"
             >
-              Talk to an Expert
+              Mit einem Experten sprechen
             </Link>
           </div>
         </div>

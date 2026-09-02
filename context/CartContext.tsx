@@ -96,7 +96,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     try {
       await api.post("/cart/add", { productId, quantity, ...selections });
       await refreshCart();
-      showToast("Item added to cart", "success");
+      showToast("Artikel zum Warenkorb hinzugefügt", "success");
     } catch (err) {
       showToast(getErrorMessage(err), "error");
     } finally {
@@ -121,7 +121,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     try {
       await api.delete(`/cart/item/${itemId}`);
       await refreshCart();
-      showToast("Item removed from cart", "success");
+      showToast("Artikel aus dem Warenkorb entfernt", "success");
     } catch (err) {
       showToast(getErrorMessage(err), "error");
     } finally {

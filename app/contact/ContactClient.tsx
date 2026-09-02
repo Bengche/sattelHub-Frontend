@@ -8,22 +8,22 @@ import api, { getErrorMessage } from "@/lib/api";
 import { CheckCircle } from "lucide-react";
 
 const schema = z.object({
-  name: z.string().min(2, "Please enter your name"),
-  email: z.string().email("Invalid email address"),
+  name: z.string().min(2, "Bitte geben Sie Ihren Namen ein"),
+  email: z.string().email("Ungültige E-Mail-Adresse"),
   phone: z.string().optional(),
-  subject: z.string().min(3, "Please enter a subject"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  subject: z.string().min(3, "Bitte geben Sie einen Betreff ein"),
+  message: z.string().min(10, "Die Nachricht muss mindestens 10 Zeichen enthalten"),
 });
 
 type FormData = z.infer<typeof schema>;
 
 const SUBJECTS = [
-  "Saddle Selection Help",
-  "Order Status / Tracking",
-  "Returns & Trial Policy",
-  "Saddle Fitting",
-  "Wholesale Inquiry",
-  "Other",
+  "Hilfe bei der Sattelauswahl",
+  "Bestellstatus / Sendungsverfolgung",
+  "Rückgabe und Testzeitraum",
+  "Sattelanpassung",
+  "Großhandelsanfrage",
+  "Sonstiges",
 ];
 
 export default function ContactClient() {
@@ -51,11 +51,11 @@ export default function ContactClient() {
           <CheckCircle size={30} className="text-green-500" />
         </div>
         <h3 className="font-serif text-2xl font-bold text-primary-500 mb-3">
-          Message Sent!
+          Nachricht gesendet
         </h3>
         <p className="text-gray-500 leading-relaxed">
-          Thanks for reaching out. Our team will get back to you within 1
-          business day.
+          Vielen Dank für Ihre Nachricht. Unser Team meldet sich innerhalb eines
+          Werktags bei Ihnen.
         </p>
       </div>
     );
@@ -64,7 +64,7 @@ export default function ContactClient() {
   return (
     <div className="bg-white rounded-2xl shadow-card p-8">
       <h2 className="font-serif text-2xl font-bold text-gray-900 mb-6">
-        Send a Message
+        Nachricht senden
       </h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         {(errors as { root?: { message?: string } }).root?.message && (
@@ -75,7 +75,7 @@ export default function ContactClient() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Your Name *
+              Ihr Name *
             </label>
             <input
               {...register("name")}
@@ -88,7 +88,7 @@ export default function ContactClient() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Email *
+              E-Mail *
             </label>
             <input
               type="email"
@@ -106,7 +106,7 @@ export default function ContactClient() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Phone (Optional)
+              Telefon (optional)
             </label>
             <input
               type="tel"
@@ -117,10 +117,10 @@ export default function ContactClient() {
           </div>
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
-              Subject *
+              Betreff *
             </label>
             <select {...register("subject")} className="input-field">
-              <option value="">Select a topic...</option>
+              <option value="">Thema auswählen ...</option>
               {SUBJECTS.map((s) => (
                 <option key={s} value={s}>
                   {s}
@@ -136,12 +136,12 @@ export default function ContactClient() {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
-            Message *
+              Nachricht *
           </label>
           <textarea
             {...register("message")}
             rows={5}
-            placeholder="Tell us how we can help..."
+            placeholder="Wie können wir Ihnen helfen?"
             className="input-field resize-none"
           />
           {errors.message && (
@@ -155,7 +155,7 @@ export default function ContactClient() {
           disabled={isSubmitting}
           className="btn-primary w-full py-3.5"
         >
-          {isSubmitting ? "Sending..." : "Send Message"}
+          {isSubmitting ? "Wird gesendet ..." : "Nachricht senden"}
         </button>
       </form>
     </div>

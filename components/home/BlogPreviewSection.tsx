@@ -43,17 +43,17 @@ export default function BlogPreviewSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
           <div>
             <p className="text-gold-500 text-sm font-medium tracking-widest uppercase mb-3">
-              Equestrian Insights
+              Reitsport-Wissen
             </p>
             <h2 className="section-heading font-bold text-primary-500 pb-4">
-              From the Tack Room Blog
+              Aus unserem Sattelkammer-Ratgeber
             </h2>
           </div>
           <Link
             href="/blog"
             className="flex items-center gap-2 text-primary-500 font-medium text-sm hover:text-primary-700 group transition-colors"
           >
-            All articles
+            Alle Artikel
             <ArrowRight
               size={16}
               className="group-hover:translate-x-1 transition-transform duration-200"
@@ -100,7 +100,7 @@ export default function BlogPreviewSection() {
                         {post.category}
                       </span>
                       <span className="flex items-center gap-1 text-xs text-gray-400">
-                        <Clock size={12} /> {post.reading_time} min read
+                        <Clock size={12} /> {post.reading_time} Min. Lesezeit
                       </span>
                     </div>
 
@@ -122,7 +122,7 @@ export default function BlogPreviewSection() {
                         href={`/blog/${post.slug}`}
                         className="text-xs font-medium text-primary-500 hover:text-primary-700 flex items-center gap-1 group/link"
                       >
-                        Read more
+                        Mehr lesen
                         <ArrowRight
                           size={12}
                           className="group-hover/link:translate-x-0.5 transition-transform"

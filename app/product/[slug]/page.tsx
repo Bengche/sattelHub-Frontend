@@ -26,7 +26,7 @@ async function getProduct(slug: string) {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const product = await getProduct(params.slug);
-  if (!product) return { title: "Product Not Found" };
+  if (!product) return { title: "Produkt nicht gefunden" };
 
   return {
     title: product.name,

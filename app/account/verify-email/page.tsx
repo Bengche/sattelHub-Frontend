@@ -105,10 +105,10 @@ function VerifyEmailForm() {
             <CheckCircle size={40} className="text-green-500" />
           </div>
           <h1 className="font-serif text-3xl font-bold text-primary-500 mb-3">
-            Email Verified!
+            E-Mail bestätigt
           </h1>
           <p className="text-gray-500">
-            Welcome to Saddles Market. Redirecting you now...
+            Willkommen bei Sattelhub.de. Sie werden weitergeleitet ...
           </p>
         </motion.div>
       </div>
@@ -126,9 +126,9 @@ function VerifyEmailForm() {
           <span className="text-3xl">📧</span>
         </div>
         <h1 className="font-serif text-2xl font-bold text-primary-500 mb-2">
-          Check Your Email
+          Prüfen Sie Ihre E-Mail
         </h1>
-        <p className="text-gray-500 text-sm mb-2">We sent a 6-digit code to:</p>
+        <p className="text-gray-500 text-sm mb-2">Wir haben einen sechsstelligen Code gesendet an:</p>
         <p className="font-semibold text-gray-900 mb-8">{emailParam}</p>
 
         {error && (
@@ -163,7 +163,7 @@ function VerifyEmailForm() {
           disabled={otp.join("").length !== 6 || loading}
           className="btn-primary w-full py-4 text-base mb-4 disabled:opacity-60"
         >
-          {loading ? "Verifying..." : "Verify Email"}
+          {loading ? "Wird geprüft ..." : "E-Mail bestätigen"}
         </button>
 
         <button
@@ -173,8 +173,8 @@ function VerifyEmailForm() {
         >
           <RefreshCw size={14} className={resending ? "animate-spin" : ""} />
           {resendCooldown > 0
-            ? `Resend in ${resendCooldown}s`
-            : "Didn't receive it? Resend code"}
+            ? `Erneut senden in ${resendCooldown}s`
+            : "Nicht erhalten? Code erneut senden"}
         </button>
       </motion.div>
     </div>

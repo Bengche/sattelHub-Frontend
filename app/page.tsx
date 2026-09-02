@@ -8,7 +8,7 @@ import BlogPreviewSection from "@/components/home/BlogPreviewSection";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: `${SITE_CONFIG.name} — Premium Horse Saddles`,
+  title: SITE_CONFIG.seo.defaultTitle,
   description: SITE_CONFIG.seo.defaultDescription,
   alternates: { canonical: SITE_CONFIG.url },
   openGraph: {

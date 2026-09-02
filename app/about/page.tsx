@@ -14,9 +14,9 @@ import {
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "About Us",
+  title: "Über uns",
   description:
-    "Learn the story behind Saddles Market — our passion for equestrians and our commitment to premium horse saddles.",
+    "Erfahren Sie mehr über Sattelhub.de, unsere Leidenschaft für den Reitsport und unser Engagement für hochwertige Reitsättel.",
   alternates: { canonical: "/about" },
 };
 
@@ -58,14 +58,14 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-gradient-to-r from-primary-900/90 to-primary-900/40" />
         <div className="container-custom relative z-10">
           <p className="text-gold-400 text-sm font-medium tracking-widest uppercase mb-4">
-            Our Story
+            Unsere Geschichte
           </p>
           <h1 className="font-serif text-5xl md:text-6xl font-bold text-white max-w-2xl leading-tight mb-6">
-            Built by Equestrians, for Equestrians
+            Von Reitern für Reiter entwickelt
           </h1>
           <p className="text-white/70 text-lg max-w-xl leading-relaxed">
-            Saddles Market was born from a simple frustration: finding a great
-            saddle online shouldn&apos;t require a leap of faith.
+            Sattelhub.de entstand aus einer einfachen Erkenntnis: Einen guten
+            Sattel online zu finden, sollte kein Vertrauenssprung sein.
           </p>
         </div>
       </div>
@@ -83,7 +83,7 @@ export default function AboutPage() {
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Saddles Market was founded in Lexington, Kentucky — the heart
+                  Sattelhub.de wurde in London gegründet und verbindet
                   of American horse country — by a team of lifelong riders who
                   were tired of subpar saddle-buying experiences. We combined
                   our passion for horses with deep product knowledge to create a

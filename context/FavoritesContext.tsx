@@ -53,7 +53,7 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
 
   const toggle = async (productId: string) => {
     if (!isAuthenticated) {
-      showToast("Please log in to save favorites", "info");
+      showToast("Bitte melden Sie sich an, um Favoriten zu speichern", "info");
       return;
     }
     setLoading(true);
@@ -67,10 +67,10 @@ export function FavoritesProvider({ children }: { children: React.ReactNode }) {
     try {
       if (isFav) {
         await api.delete(`/favorites/${productId}`);
-        showToast("Removed from favorites", "success");
+        showToast("Aus Favoriten entfernt", "success");
       } else {
         await api.post("/favorites", { productId });
-        showToast("Added to favorites", "success");
+        showToast("Zu Favoriten hinzugefügt", "success");
       }
     } catch (err) {
       // Revert

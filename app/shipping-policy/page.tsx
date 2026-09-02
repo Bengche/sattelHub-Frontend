@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { SITE_CONFIG, formatPrice } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Shipping Policy",
-  description: `Saddles Market shipping information — free shipping over $${SITE_CONFIG.shipping.freeShippingThreshold}, standard and express options, timelines and tracking.`,
+  title: "Versandinformationen",
+  description: `Versandinformationen von Sattelhub.de: kostenloser Versand ab ${SITE_CONFIG.shipping.freeShippingThreshold} EUR sowie Standard- und Expressversand mit Sendungsverfolgung.`,
   alternates: { canonical: "/shipping-policy" },
 };
 
@@ -24,7 +24,7 @@ export default function ShippingPolicyPage() {
             <p className="font-serif text-2xl font-bold text-green-600 mb-1">
               FREE
             </p>
-            <p className="text-sm font-medium text-gray-900">Free Shipping</p>
+            <p className="text-sm font-medium text-gray-900">Kostenloser Versand</p>
             <p className="text-xs text-gray-400 mt-1">
               Orders over{" "}
               {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)}
@@ -61,7 +61,7 @@ export default function ShippingPolicyPage() {
               {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)} or more
             </strong>{" "}
             qualify for free standard shipping within the United States. The
-            free shipping option is automatically applied at checkout.
+            die kostenlose Versandoption wird an der Kasse automatisch angewendet.
           </p>
 
           <h2>

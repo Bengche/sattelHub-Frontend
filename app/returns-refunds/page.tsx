@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Returns & Refunds Policy",
-  description: `Learn about Saddles Market's 30-day free trial and hassle-free return policy. Full refunds, no restocking fees.`,
+  title: "Rückgabe und Erstattung",
+  description: `Erfahren Sie mehr über den 30-tägigen Testzeitraum und die unkomplizierte Rückgabe bei Sattelhub.de. Volle Erstattung ohne Wiedereinlagerungsgebühr.`,
   alternates: { canonical: "/returns-refunds" },
 };
 
@@ -22,7 +22,7 @@ export default function ReturnsRefundsPage() {
             Our Commitment: 30-Day Free Trial
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Every saddle purchased through Saddles Market comes with a{" "}
+            Jeder bei Sattelhub.de gekaufte Sattel beinhaltet einen{" "}
             <strong>30-day free trial</strong>. If for any reason you are not
             completely satisfied, return it for a <strong>full refund</strong> —
             no questions asked, no restocking fee.
@@ -39,7 +39,7 @@ export default function ReturnsRefundsPage() {
 
           <h2>What Can Be Returned</h2>
           <p>
-            Any saddle purchased from Saddles Market may be returned within the
+            Jeder bei Sattelhub.de gekaufte Sattel kann innerhalb des
             30-day trial window, including:
           </p>
           <ul>
@@ -62,7 +62,7 @@ export default function ReturnsRefundsPage() {
           <h2>How to Initiate a Return</h2>
           <ol>
             <li>
-              Log into your account and visit <strong>My Orders</strong>.
+              Melden Sie sich an und öffnen Sie <strong>Meine Bestellungen</strong>.
             </li>
             <li>
               Click <strong>Request Return</strong> on the order you want to
@@ -93,7 +93,7 @@ export default function ReturnsRefundsPage() {
           <p>
             Once we receive your return and inspect it (typically within 2
             business days of receipt), we will process your refund. Refunds are
-            issued to your <strong>original payment method</strong> and
+            über Ihre <strong>ursprüngliche Zahlungsmethode</strong> ausgezahlt und
             typically appear within <strong>3–5 business days</strong>,
             depending on your bank.
           </p>

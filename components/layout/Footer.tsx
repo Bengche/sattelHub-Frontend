@@ -18,25 +18,25 @@ import api, { getErrorMessage } from "@/lib/api";
 
 const footerLinks = {
   Shop: [
-    { label: "All Saddles", href: "/products" },
-    { label: "Western Saddles", href: "/products?discipline=western" },
-    { label: "English Saddles", href: "/products?discipline=english" },
-    { label: "Dressage Saddles", href: "/products?discipline=dressage" },
-    { label: "Jumping Saddles", href: "/products?discipline=jumping" },
-    { label: "Youth Saddles", href: "/products?discipline=youth" },
+    { label: "Alle Sättel", href: "/products" },
+    { label: "Western-Sättel", href: "/products?discipline=western" },
+    { label: "Englische Sättel", href: "/products?discipline=english" },
+    { label: "Dressursättel", href: "/products?discipline=dressage" },
+    { label: "Springsättel", href: "/products?discipline=jumping" },
+    { label: "Jugendsättel", href: "/products?discipline=youth" },
   ],
   Company: [
-    { label: "About Us", href: "/about" },
-    { label: "Why Choose Us", href: "/why-us" },
-    { label: "Blog", href: "/blog" },
-    { label: "Contact", href: "/contact" },
+    { label: "Über uns", href: "/about" },
+    { label: "Warum wir", href: "/why-us" },
+    { label: "Ratgeber", href: "/blog" },
+    { label: "Kontakt", href: "/contact" },
     { label: "FAQ", href: "/faq" },
   ],
   Support: [
-    { label: "Shipping Policy", href: "/shipping-policy" },
-    { label: "Returns & Refunds", href: "/returns-refunds" },
-    { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Terms & Conditions", href: "/terms-conditions" },
+    { label: "Versand", href: "/shipping-policy" },
+    { label: "Rückgabe und Erstattung", href: "/returns-refunds" },
+    { label: "Datenschutz", href: "/privacy-policy" },
+    { label: "AGB", href: "/terms-conditions" },
   ],
 };
 
@@ -72,11 +72,11 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-8">
             <div>
               <h3 className="font-serif text-2xl font-semibold text-white mb-2">
-                Join Our Newsletter
+                Newsletter abonnieren
               </h3>
               <p className="text-white/70 text-sm">
-                Saddle care tips, new arrivals, and exclusive offers — delivered
-                to your inbox.
+                Tipps zur Sattelpflege, Neuheiten und exklusive Angebote direkt in
+                Ihr Postfach.
               </p>
             </div>
             <form
@@ -87,7 +87,7 @@ export default function Footer() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email address"
+                placeholder="Ihre E-Mail-Adresse"
                 disabled={subStatus === "loading" || subStatus === "success"}
                 className="w-full md:flex-1 px-5 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/40 focus:outline-none focus:border-gold-400 focus:bg-white/15 transition-all text-sm"
                 required
@@ -98,7 +98,7 @@ export default function Footer() {
                 className="w-full md:w-auto px-6 py-3 bg-gold-400 hover:bg-gold-500 text-white font-medium text-sm rounded-lg transition-colors flex items-center gap-2 disabled:opacity-60"
               >
                 <Send size={16} />
-                {subStatus === "loading" ? "Sending..." : "Subscribe"}
+                {subStatus === "loading" ? "Wird gesendet ..." : "Abonnieren"}
               </button>
             </form>
           </div>
@@ -120,15 +120,15 @@ export default function Footer() {
             <Link href="/" className="block mb-6">
               <Image
                 src="/logo-white.svg"
-                alt="Saddles Market"
+                alt="Sattelhub.de"
                 width={200}
                 height={54}
                 className="h-10 w-auto"
               />
             </Link>
             <p className="text-white/60 text-sm leading-relaxed mb-6 max-w-xs">
-              The premier destination for high-quality horse saddles. Serving
-              equestrians with craftsmanship and passion since our founding.
+              Ihre Adresse für hochwertige Reitsättel. Wir verbinden
+              traditionelles Handwerk mit Leidenschaft für den Reitsport.
             </p>
 
             {/* Contact Info */}
@@ -235,7 +235,7 @@ export default function Footer() {
             </Link>
           </div>
           <p className="text-white/30 text-xs">
-            30-day free trial on all saddles
+            30 Tage kostenlos testen - bei jedem Sattel
           </p>
         </div>
       </div>

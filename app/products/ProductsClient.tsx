@@ -28,11 +28,11 @@ const DISCIPLINES = [
 ];
 const CONDITIONS = ["new", "excellent", "good", "fair"];
 const SORT_OPTIONS = [
-  { value: "random", label: "Featured" },
-  { value: "newest", label: "Newest First" },
-  { value: "price_asc", label: "Price: Low to High" },
-  { value: "price_desc", label: "Price: High to Low" },
-  { value: "rating", label: "Top Rated" },
+  { value: "random", label: "Empfohlen" },
+  { value: "newest", label: "Neueste zuerst" },
+  { value: "price_asc", label: "Preis: aufsteigend" },
+  { value: "price_desc", label: "Preis: absteigend" },
+  { value: "rating", label: "Bestbewertet" },
   { value: "name_asc", label: "Name A-Z" },
 ];
 
@@ -146,7 +146,7 @@ export default function ProductsClient() {
       ? filters.discipline
           .replace(/_/g, " ")
           .replace(/\b\w/g, (l) => l.toUpperCase()) + " Saddles"
-      : "Horse Saddles";
+      : "Reitsättel";
 
   const hasActiveFilters =
     filters.category ||
@@ -166,8 +166,8 @@ export default function ProductsClient() {
           </h1>
           <p className="text-white/70 text-lg max-w-lg">
             {total > 0
-              ? `${total.toLocaleString()} saddles available`
-              : "Browse our complete collection"}
+              ? `${total.toLocaleString("de-DE")} Sättel verfügbar`
+              : "Entdecken Sie unsere vollständige Kollektion"}
           </p>
         </div>
       </div>
@@ -181,7 +181,7 @@ export default function ProductsClient() {
               className="flex items-center gap-2 btn-secondary text-sm py-2.5"
             >
               <SlidersHorizontal size={16} />
-              Filters
+              Filter
               {hasActiveFilters && (
                 <span className="w-2 h-2 bg-gold-400 rounded-full" />
               )}
@@ -200,7 +200,7 @@ export default function ProductsClient() {
                   if (e.key === "Enter")
                     setParam("search", (e.target as HTMLInputElement).value);
                 }}
-                placeholder="Search saddles..."
+                placeholder="Sättel suchen ..."
                 className="pl-9 pr-4 py-2.5 text-sm border border-gray-200 rounded-lg bg-white focus:border-primary-300 focus:ring-2 focus:ring-primary-100 outline-none w-64"
               />
             </div>
@@ -210,7 +210,7 @@ export default function ProductsClient() {
                 onClick={clearFilters}
                 className="flex items-center gap-1.5 text-sm text-red-500 hover:text-red-700"
               >
-                <X size={14} /> Clear filters
+                <X size={14} /> Filter löschen
               </button>
             )}
           </div>

@@ -11,12 +11,12 @@ import { formatDate } from "@/lib/utils";
 import { Metadata } from "next";
 
 const CATEGORIES = [
-  "All",
-  "Saddle Guides",
-  "Saddle Care",
-  "Disciplines",
-  "Buying Advice",
-  "Equine Health",
+  "Alle",
+  "Sattelratgeber",
+  "Sattelpflege",
+  "Disziplinen",
+  "Kaufberatung",
+  "Pferdegesundheit",
 ];
 
 function BlogSkeleton() {
@@ -36,7 +36,7 @@ function BlogSkeleton() {
 export default function BlogPage() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Alle");
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -44,7 +44,7 @@ export default function BlogPage() {
   useEffect(() => {
     setLoading(true);
     const params = new URLSearchParams({ page: String(page), limit: "9" });
-    if (activeCategory !== "All") params.set("category", activeCategory);
+    if (activeCategory !== "Alle") params.set("category", activeCategory);
     api
       .get(`/blog?${params.toString()}`)
       .then((r) => {
@@ -84,14 +84,14 @@ export default function BlogPage() {
         </div>
         <div className="container-custom relative z-10 text-center">
           <p className="text-gold-400 text-sm font-medium tracking-widest uppercase mb-4">
-            Knowledge Hub
+            Wissensbereich
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-            The Tack Room Blog
+            Der Sattelkammer-Ratgeber
           </h1>
           <p className="text-white/70 max-w-xl mx-auto text-lg">
-            Expert guides, saddle care tips, and equestrian insights from our
-            team of riders.
+            Fachkundige Ratgeber, Tipps zur Sattelpflege und Reitsportwissen
+            von unserem Reiterteam.
           </p>
 
           {/* Search */}
@@ -104,7 +104,7 @@ export default function BlogPage() {
               type="text"
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              placeholder="Search articles..."
+              placeholder="Artikel suchen ..."
               className="w-full pl-12 pr-5 py-4 rounded-xl bg-white text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gold-400 text-sm shadow-luxury"
             />
           </div>
@@ -171,7 +171,7 @@ export default function BlogPage() {
                         {post.category}
                       </span>
                       <span className="flex items-center gap-1 text-xs text-gray-400">
-                        <Clock size={12} /> {post.reading_time} min read
+                        <Clock size={12} /> {post.reading_time} Min. Lesezeit
                       </span>
                     </div>
 
@@ -193,7 +193,7 @@ export default function BlogPage() {
                         href={`/blog/${post.slug}`}
                         className="flex items-center gap-1 text-xs font-medium text-primary-500 hover:text-primary-700 transition-colors"
                       >
-                        Read More <ChevronRight size={14} />
+                        Mehr lesen <ChevronRight size={14} />
                       </Link>
                     </div>
                   </div>
@@ -204,10 +204,10 @@ export default function BlogPage() {
         {!loading && filtered.length === 0 && (
           <div className="text-center py-16">
             <p className="font-serif text-xl text-gray-600">
-              No articles found
+              Keine Artikel gefunden
             </p>
             <p className="text-gray-400 text-sm mt-2">
-              Try a different search term or category.
+              Versuchen Sie einen anderen Suchbegriff oder eine andere Kategorie.
             </p>
           </div>
         )}

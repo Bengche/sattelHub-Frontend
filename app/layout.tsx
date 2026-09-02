@@ -29,7 +29,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_CONFIG.url),
   title: {
-    default: `${SITE_CONFIG.name} — Premium Horse Saddles`,
+    default: SITE_CONFIG.seo.defaultTitle,
     template: `%s | ${SITE_CONFIG.name}`,
   },
   description: SITE_CONFIG.seo.defaultDescription,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     siteName: SITE_CONFIG.name,
-    title: `${SITE_CONFIG.name} — Premium Horse Saddles`,
+    title: SITE_CONFIG.seo.defaultTitle,
     description: SITE_CONFIG.seo.defaultDescription,
     url: SITE_CONFIG.url,
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_CONFIG.name} — Premium Horse Saddles`,
+    title: SITE_CONFIG.seo.defaultTitle,
     description: SITE_CONFIG.seo.defaultDescription,
   },
   robots: { index: true, follow: true },
@@ -75,7 +75,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${inter.variable}`}>
+    <html lang="de" className={`${playfair.variable} ${inter.variable}`}>
       <body
         className="bg-cream-100 font-sans antialiased"
         suppressHydrationWarning

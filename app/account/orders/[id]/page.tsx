@@ -131,7 +131,7 @@ export default function OrderDetailPage() {
             This order does not exist or does not belong to your account.
           </p>
           <Link href="/account/orders" className="btn-primary">
-            Back to My Orders
+            Zurück zu meinen Bestellungen
           </Link>
         </div>
       </div>
@@ -152,7 +152,7 @@ export default function OrderDetailPage() {
           className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 mb-6 transition-colors"
         >
           <ArrowLeft size={15} />
-          Back to My Orders
+          Zurück zu meinen Bestellungen
         </Link>
 
         {/* Header */}

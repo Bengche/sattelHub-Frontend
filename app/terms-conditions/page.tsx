@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions",
+  title: "Allgemeine Geschäftsbedingungen",
   description:
-    "Read the Saddles Market terms and conditions governing your use of our website and purchase of products.",
+    "Lesen Sie die Allgemeinen Geschäftsbedingungen von Sattelhub.de für die Nutzung unserer Website und den Kauf von Produkten.",
   alternates: { canonical: "/terms-conditions" },
 };
 
@@ -44,9 +44,9 @@ export default function TermsConditionsPage() {
 
           <h2>3. Pricing</h2>
           <p>
-            All prices are displayed in US Dollars (USD) and are subject to
-            change without notice. Applicable taxes are calculated at checkout
-            based on your shipping address.
+            Alle Preise werden in Euro (EUR) angezeigt und können ohne
+            Vorankündigung geändert werden. Anwendbare Steuern werden an der
+            Kasse anhand Ihrer Lieferadresse berechnet.
           </p>
 
           <h2>4. Orders & Payment</h2>

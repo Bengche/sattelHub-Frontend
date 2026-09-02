@@ -6,6 +6,7 @@ import { X, Send, Sparkles, ChevronRight, RotateCcw } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
 import api from "@/lib/api";
+import { formatPrice } from "@/lib/siteConfig";
 
 interface ProductResult {
   id: string;
@@ -29,14 +30,14 @@ interface Message {
 const GREETING: Message = {
   id: "greeting",
   role: "assistant",
-  text: "Hello! I'm Sterling, your personal equestrian advisor at Saddles Market. I can help you find the perfect saddle, answer questions about fit, pricing, our 30-day trial, and more — all based on what we actually have available. What are you looking for today?",
+  text: "Hallo! Ich bin Sterling, Ihr persönlicher Reitsportberater bei Sattelhub.de. Ich helfe Ihnen, den passenden Sattel zu finden, und beantworte Fragen zu Passform, Preisen und unserem 30-tägigen Testzeitraum. Wonach suchen Sie heute?",
 };
 
 const QUICK_PROMPTS = [
-  "What western saddles do you have?",
-  "How does the 30-day trial work?",
-  "Do you have dressage saddles?",
-  "Tell me about free shipping",
+  "Welche Western-Sättel haben Sie?",
+  "Wie funktioniert der 30-tägige Testzeitraum?",
+  "Haben Sie Dressursättel?",
+  "Wie funktioniert der kostenlose Versand?",
 ];
 
 function TypingIndicator() {
@@ -106,19 +107,11 @@ function ProductCard({
         </p>
         <div className="flex items-baseline gap-1.5 mt-0.5">
           <span className="text-sm font-bold text-primary-600">
-            $
-            {product.price.toLocaleString("en-US", {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
+            {formatPrice(product.price)}
           </span>
           {product.compare_price && (
             <span className="text-[10px] text-gray-400 line-through">
-              $
-              {product.compare_price.toLocaleString("en-US", {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2,
-              })}
+              {formatPrice(product.compare_price)}
             </span>
           )}
         </div>
@@ -198,7 +191,7 @@ export default function AiChat() {
         };
         setMessages((prev) => [...prev, aiMsg]);
       } catch {
-        setError("Something went wrong. Please try again.");
+        setError("Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.");
         // Remove the user message on error so they can retry
         setMessages((prev) => prev.filter((m) => m.id !== userMsg.id));
       } finally {
@@ -381,13 +374,13 @@ export default function AiChat() {
                   type="submit"
                   disabled={!input.trim() || loading}
                   className="w-9 h-9 rounded-xl bg-[#1C3557] flex items-center justify-center text-white disabled:opacity-35 disabled:cursor-not-allowed hover:bg-[#16293f] active:scale-95 transition-all flex-shrink-0"
-                  aria-label="Send message"
+                  aria-label="Nachricht senden"
                 >
                   <Send size={15} />
                 </button>
               </form>
               <p className="text-[10px] text-gray-300 text-center mt-2 tracking-wide">
-                Powered by Saddles Market AI · Responses based on live inventory
+                Sattelhub.de AI · Antworten basieren auf dem aktuellen Bestand
               </p>
             </div>
           </motion.div>

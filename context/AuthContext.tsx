@@ -96,7 +96,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         )
         .catch(() => {});
     }
-    showToast(`Welcome back, ${newUser.first_name}!`, "success");
+    showToast(`Willkommen zurück, ${newUser.first_name}!`, "success");
   };
 
   const register = async (data: RegisterData) => {
@@ -114,7 +114,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     localStorage.removeItem("sm_token");
     setToken(null);
     setUser(null);
-    showToast("You have been logged out.", "info");
+    showToast("Sie wurden abgemeldet.", "info");
   };
 
   return (

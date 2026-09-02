@@ -64,14 +64,14 @@ export default function CategoriesSection() {
       <div className="container-custom">
         <div className="text-center mb-14">
           <p className="text-gold-500 text-sm font-medium tracking-widest uppercase mb-3">
-            By Discipline
+            Nach Disziplin
           </p>
           <h2 className="section-heading section-heading-center font-bold text-primary-500 inline-block pb-4">
-            Shop by Category
+            Nach Kategorie einkaufen
           </h2>
           <p className="text-gray-500 mt-6 max-w-xl mx-auto text-base leading-relaxed">
-            Whether you ride Western, English, or everything in between — we
-            have the perfect saddle for your discipline.
+            Ob Westernreiten, englisches Reiten oder eine andere Disziplin - bei
+            uns finden Sie den passenden Sattel.
           </p>
         </div>
 

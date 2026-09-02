@@ -125,10 +125,10 @@ export default async function BlogPostPage({ params }: Props) {
                 href="/blog"
                 className="flex items-center gap-2 text-sm font-medium text-primary-500 hover:text-primary-700 transition-colors"
               >
-                <ArrowLeft size={16} /> All Articles
+                <ArrowLeft size={16} /> Alle Artikel
               </Link>
               <div className="flex items-center gap-3">
-                <span className="text-sm text-gray-500">Share:</span>
+                <span className="text-sm text-gray-500">Teilen:</span>
                 {[
                   {
                     label: "Twitter",
@@ -157,7 +157,7 @@ export default async function BlogPostPage({ params }: Props) {
           {related?.length > 0 && (
             <div className="mb-16">
               <h2 className="font-serif text-2xl font-bold text-primary-500 mb-6">
-                Related Articles
+                Ähnliche Artikel
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
                 {related.map((p) => (

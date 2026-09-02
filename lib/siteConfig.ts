@@ -1,19 +1,19 @@
 /**
- * SADDLES MARKET — SINGLE SOURCE OF TRUTH (Frontend)
+ * SATTELHUB.DE — SINGLE SOURCE OF TRUTH (Frontend)
  * All site-wide contact info, branding, and constants live here.
  * Update here once and it propagates across the entire frontend.
  */
 
 export const SITE_CONFIG = {
-  name: "Saddles Market",
-  tagline: "Premium Horse Saddles for the Discerning Equestrian",
+  name: "Sattelhub.de",
+  tagline: "Hochwertige Reitsättel für anspruchsvolle Reiter",
   description:
-    "Saddles Market offers the finest selection of premium horse saddles, expertly crafted for Western, English, dressage, jumping, and trail riding disciplines. Free 30-day trial on all saddles.",
-  url: "https://saddlesmarket.com",
+    "Sattelhub.de bietet eine hochwertige Auswahl an Reitsätteln für Westernreiten, englisches Reiten, Dressur, Springen und Ausritte. 30 Tage kostenlos testen.",
+  url: "https://sattelhub.de",
 
   contact: {
-    supportEmail: "support@saddlesmarket.com",
-    salesEmail: "sales@saddlesmarket.com",
+    supportEmail: "support@sattelhub.de",
+    salesEmail: "sales@sattelhub.de",
     phone: "+1 (914) 432-9936",
     phoneDisplay: "+1 (914) 432-9936",
     whatsapp: "+1 (669) 247-2718",
@@ -22,34 +22,34 @@ export const SITE_CONFIG = {
   },
 
   address: {
-    street: "4001 Wing Commander Way",
-    city: "Lexington",
-    state: "KY",
-    zip: "40511",
-    country: "USA",
-    countryFull: "United States",
-    full: "4001 Wing Commander Way, Lexington, KY 40511, USA",
+    street: "8 Thackeray St",
+    city: "London",
+    state: "",
+    zip: "W8 5ET",
+    country: "UK",
+    countryFull: "United Kingdom",
+    full: "8 Thackeray St, London W8 5ET, United Kingdom",
     mapsLink:
       "https://maps.google.com/?q=4001+Wing+Commander+Way+Lexington+KY+40511",
   },
 
   social: {
-    facebook: "https://facebook.com/saddlesmarket",
-    instagram: "https://instagram.com/saddlesmarket",
-    twitter: "https://twitter.com/saddlesmarket",
-    pinterest: "https://pinterest.com/saddlesmarket",
-    youtube: "https://youtube.com/@saddlesmarket",
+    facebook: "https://facebook.com/sattelhub",
+    instagram: "https://instagram.com/sattelhub",
+    twitter: "https://twitter.com/sattelhub",
+    pinterest: "https://pinterest.com/sattelhub",
+    youtube: "https://youtube.com/@sattelhub",
   },
 
   trial: {
     days: 30,
-    description: "30-Day Free Trial — Try your saddle risk-free.",
+    description: "30 Tage kostenlos testen - risikofrei probereiten.",
   },
 
   currency: {
-    code: "USD",
-    symbol: "$",
-    locale: "en-US",
+    code: "EUR",
+    symbol: "€",
+    locale: "de-DE",
   },
 
   shipping: {
@@ -69,33 +69,33 @@ export const SITE_CONFIG = {
   },
 
   seo: {
-    defaultTitle: "Saddles Market — Premium Horse Saddles",
-    titleTemplate: "%s | Saddles Market",
+    defaultTitle: "Sattelhub.de - Hochwertige Reitsättel",
+    titleTemplate: "%s | Sattelhub.de",
     defaultDescription:
-      "Shop premium horse saddles at Saddles Market. Western, English, dressage, jumping & trail saddles. Expert quality, 30-day free trial, free shipping on orders over $2000.",
+      "Hochwertige Reitsättel bei Sattelhub.de kaufen: Western-, Englisch-, Dressur-, Spring- und Wandersättel. 30 Tage kostenlos testen und ab 2.000 EUR versandkostenfrei bestellen.",
     keywords: [
-      "horse saddles",
-      "buy horse saddles",
-      "western saddles",
-      "english saddles",
-      "dressage saddles",
-      "jumping saddles",
-      "trail saddles",
-      "horse saddles for sale",
-      "premium horse saddles",
-      "saddles market",
-      "horse riding saddles",
-      "custom horse saddles",
-      "leather horse saddles",
+      "Reitsättel",
+      "Reitsattel kaufen",
+      "Westernreitsättel",
+      "englische Reitsättel",
+      "Dressursättel",
+      "Springsättel",
+      "Wandersättel",
+      "Reitsättel kaufen",
+      "hochwertige Reitsättel",
+      "Sattelhub",
+      "Pferdesättel",
+      "maßgefertigte Reitsättel",
+      "Ledersättel",
     ],
     ogImage: "/og-image.jpg",
     twitterCard: "summary_large_image",
-    twitterSite: "@saddlesmarket",
+    twitterSite: "@sattelhub",
   },
 
   pwa: {
-    name: "Saddles Market",
-    shortName: "Saddles Market",
+    name: "SattelHub",
+    shortName: "SattelHub",
     themeColor: "#1C3557",
     backgroundColor: "#FAFAF7",
   },
@@ -103,14 +103,14 @@ export const SITE_CONFIG = {
   phone: "+1 (914) 432-9936",
   whatsapp: "+1 (669) 247-2718",
   email: {
-    support: "support@saddlesmarket.com",
-    sales: "sales@saddlesmarket.com",
+    support: "support@sattelhub.de",
+    sales: "sales@sattelhub.de",
   },
 } as const;
 
 export type SiteConfig = typeof SITE_CONFIG;
 
-// Helper: Format price in USD
+// Helper: Format price in EUR
 export const formatPrice = (amount: number): string =>
   new Intl.NumberFormat(SITE_CONFIG.currency.locale, {
     style: "currency",
@@ -118,6 +118,6 @@ export const formatPrice = (amount: number): string =>
     minimumFractionDigits: 2,
   }).format(amount);
 
-// Helper: Check if free shipping applies
+  // Hilfsfunktion: Prüft, ob kostenloser Versand gilt
 export const isFreeShipping = (subtotal: number): boolean =>
   subtotal >= SITE_CONFIG.shipping.freeShippingThreshold;

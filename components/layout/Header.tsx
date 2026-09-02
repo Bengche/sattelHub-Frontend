@@ -23,35 +23,35 @@ import { useFavorites } from "@/context/FavoritesContext";
 import { cn } from "@/lib/utils";
 
 const navLinks = [
-  { label: "Home", href: "/" },
+  { label: "Startseite", href: "/" },
   {
-    label: "Saddles",
+    label: "Sättel",
     href: "/products",
     children: [
-      { label: "All Saddles", href: "/products" },
-      { label: "Western Saddles", href: "/products?discipline=western" },
-      { label: "English Saddles", href: "/products?discipline=english" },
-      { label: "Dressage Saddles", href: "/products?discipline=dressage" },
-      { label: "Jumping Saddles", href: "/products?discipline=jumping" },
-      { label: "Trail Saddles", href: "/products?category=trail-saddles" },
-      { label: "Youth Saddles", href: "/products?discipline=youth" },
+      { label: "Alle Sättel", href: "/products" },
+      { label: "Western-Sättel", href: "/products?discipline=western" },
+      { label: "Englische Sättel", href: "/products?discipline=english" },
+      { label: "Dressursättel", href: "/products?discipline=dressage" },
+      { label: "Springsättel", href: "/products?discipline=jumping" },
+      { label: "Wandersättel", href: "/products?category=trail-saddles" },
+      { label: "Jugendsättel", href: "/products?discipline=youth" },
       {
-        label: "Barrel Racing Saddles",
+        label: "Barrel-Racing-Sättel",
         href: "/products?category=barrel-racing-saddles",
       },
       {
-        label: "All Purpose Saddles",
+        label: "Vielseitigkeitssättel",
         href: "/products?discipline=all_purpose",
       },
       {
-        label: "Saddle Accessories",
+        label: "Sattelzubehör",
         href: "/products?category=saddle-accessories",
       },
     ],
   },
-  { label: "Blog", href: "/blog" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "Ratgeber", href: "/blog" },
+  { label: "Über uns", href: "/about" },
+  { label: "Kontakt", href: "/contact" },
 ];
 
 export default function Header() {
@@ -122,7 +122,7 @@ export default function Header() {
           <Link href="/" className="flex-shrink-0 relative z-10">
             <Image
               src={isTransparent ? "/logo-white.svg" : "/logo.svg"}
-              alt="Saddles Market"
+              alt="Sattelhub.de"
               width={200}
               height={54}
               priority
@@ -214,7 +214,7 @@ export default function Header() {
                   ? "text-white/80 hover:text-white hover:bg-white/10"
                   : "text-gray-600 hover:text-primary-600 hover:bg-primary-50",
               )}
-              aria-label="Search"
+              aria-label="Suche"
             >
               <Search size={20} />
             </button>
@@ -228,7 +228,7 @@ export default function Header() {
                   ? "text-white/80 hover:text-white hover:bg-white/10"
                   : "text-gray-600 hover:text-primary-600 hover:bg-primary-50",
               )}
-              aria-label="Favorites"
+              aria-label="Favoriten"
             >
               <Heart size={20} />
               {favorites.size > 0 && (
@@ -245,7 +245,7 @@ export default function Header() {
                   ? "text-white/80 hover:text-white hover:bg-white/10"
                   : "text-gray-600 hover:text-primary-600 hover:bg-primary-50",
               )}
-              aria-label="Shopping cart"
+              aria-label="Warenkorb"
             >
               <ShoppingCart size={20} />
               {cart.item_count > 0 && (
@@ -302,13 +302,13 @@ export default function Header() {
                         href="/account/profile"
                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
                       >
-                        <User size={15} /> My Profile
+                          <User size={15} /> Mein Profil
                       </Link>
                       <Link
                         href="/account/orders"
                         className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 transition-colors"
                       >
-                        <Package size={15} /> My Orders
+                          <Package size={15} /> Meine Bestellungen
                       </Link>
                       {isAdmin && (
                         <Link
@@ -323,7 +323,7 @@ export default function Header() {
                           onClick={logout}
                           className="w-full flex items-center gap-3 px-4 py-2.5 text-sm text-red-600 hover:bg-red-50 transition-colors"
                         >
-                          <LogOut size={15} /> Sign Out
+                            <LogOut size={15} /> Abmelden
                         </button>
                       </div>
                     </motion.div>
@@ -339,7 +339,7 @@ export default function Header() {
                     "bg-white/15 border border-white/30 hover:bg-white/25 backdrop-blur-sm shadow-none",
                 )}
               >
-                Sign In
+                  Anmelden
               </Link>
             )}
           </div>
@@ -366,7 +366,7 @@ export default function Header() {
                 "p-2.5 rounded-lg",
                 isTransparent ? "text-white" : "text-gray-700",
               )}
-              aria-label="Toggle menu"
+                  aria-label="Menü öffnen"
             >
               {mobileOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -404,7 +404,7 @@ export default function Header() {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Search saddles by name, brand, discipline..."
+                  placeholder="Sättel nach Name, Marke oder Disziplin suchen ..."
                   className="w-full pl-14 pr-16 py-5 text-lg bg-white rounded-2xl shadow-luxury-lg border border-gray-200 focus:border-primary-300 focus:ring-2 focus:ring-primary-100 outline-none"
                 />
                 <button
@@ -416,7 +416,7 @@ export default function Header() {
                 </button>
               </form>
               <p className="text-center text-sm text-white/70 mt-3">
-                Press Enter to search
+                  Mit Enter suchen
               </p>
             </motion.div>
           </motion.div>
@@ -444,7 +444,7 @@ export default function Header() {
               <div className="flex items-center justify-between p-5 border-b border-gray-100">
                 <Image
                   src="/logo.svg"
-                  alt="Saddles Market"
+                  alt="Sattelhub.de"
                   width={160}
                   height={44}
                   className="h-8 w-auto"
@@ -509,7 +509,7 @@ export default function Header() {
                           href="/account/profile"
                           className="text-xs text-primary-500"
                         >
-                          View profile
+                          Profil ansehen
                         </Link>
                       </div>
                     </div>
@@ -517,13 +517,13 @@ export default function Header() {
                       href="/account/orders"
                       className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium"
                     >
-                      <Package size={18} /> My Orders
+                      <Package size={18} /> Meine Bestellungen
                     </Link>
                     <Link
                       href="/account/favorites"
                       className="w-full flex items-center gap-3 px-4 py-3 rounded-lg text-gray-700 hover:bg-primary-50 hover:text-primary-600 font-medium"
                     >
-                      <Heart size={18} /> My Favorites
+                      <Heart size={18} /> Meine Favoriten
                     </Link>
                     {isAdmin && (
                       <Link
@@ -537,7 +537,7 @@ export default function Header() {
                       onClick={logout}
                       className="w-full btn-secondary text-red-600 border-red-200 hover:bg-red-50"
                     >
-                      <LogOut size={16} /> Sign Out
+                      <LogOut size={16} /> Abmelden
                     </button>
                   </>
                 ) : (
@@ -546,13 +546,13 @@ export default function Header() {
                       href="/account/login"
                       className="w-full btn-primary text-center"
                     >
-                      Sign In
+                      Anmelden
                     </Link>
                     <Link
                       href="/account/register"
                       className="w-full btn-secondary text-center"
                     >
-                      Create Account
+                      Konto erstellen
                     </Link>
                   </div>
                 )}

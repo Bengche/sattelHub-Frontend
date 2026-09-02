@@ -31,14 +31,14 @@ export default function CartPage() {
             <ShoppingBag size={40} className="text-primary-300" />
           </div>
           <h1 className="font-serif text-2xl font-bold text-gray-900 mb-3">
-            Your cart is empty
+            Ihr Warenkorb ist leer
           </h1>
           <p className="text-gray-500 mb-8">
-            Discover our premium saddle collection and find the perfect fit for
-            you and your horse.
+            Entdecken Sie unsere hochwertige Sattelkollektion und finden Sie die
+            passende Lösung für Sie und Ihr Pferd.
           </p>
           <Link href="/products" className="btn-primary">
-            Browse Saddles
+            Sättel entdecken
           </Link>
         </div>
       </div>
@@ -50,10 +50,10 @@ export default function CartPage() {
       <div className="bg-white border-b border-gray-100 py-6">
         <div className="container-custom">
           <h1 className="font-serif text-3xl font-bold text-primary-500">
-            Shopping Cart
+            Warenkorb
           </h1>
           <p className="text-gray-500 text-sm mt-1">
-            {cart.item_count} item{cart.item_count !== 1 ? "s" : ""}
+            {cart.item_count} Artikel
           </p>
         </div>
       </div>
@@ -62,13 +62,13 @@ export default function CartPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Items */}
           <div className="lg:col-span-2 space-y-4">
-            {/* Free shipping banner */}
+            {/* Hinweis zum kostenlosen Versand */}
             {remaining > 0 ? (
               <div className="bg-amber-50 border border-amber-200 rounded-xl px-5 py-4">
                 <p className="text-sm text-amber-700">
                   Add{" "}
                   <span className="font-bold">{formatPrice(remaining)}</span>{" "}
-                  more to qualify for <strong>free shipping</strong>!
+                  mehr für <strong>kostenlosen Versand</strong>!
                 </p>
                 <div className="mt-2 h-2 bg-amber-100 rounded-full overflow-hidden">
                   <div
@@ -83,7 +83,7 @@ export default function CartPage() {
               <div className="bg-green-50 border border-green-200 rounded-xl px-5 py-4 flex items-center gap-3">
                 <Shield size={18} className="text-green-500 flex-shrink-0" />
                 <p className="text-sm text-green-700 font-medium">
-                  You qualify for free shipping!
+                  Sie erhalten kostenlosen Versand!
                 </p>
               </div>
             )}
@@ -128,22 +128,22 @@ export default function CartPage() {
                     <div className="flex flex-wrap gap-1.5 mb-2">
                       {item.selected_seat_size && (
                         <span className="text-xs bg-primary-50 text-primary-700 border border-primary-100 rounded-full px-2.5 py-0.5">
-                          Seat: {item.selected_seat_size}
+                          Sitzfläche: {item.selected_seat_size}
                         </span>
                       )}
                       {item.selected_width && (
                         <span className="text-xs bg-primary-50 text-primary-700 border border-primary-100 rounded-full px-2.5 py-0.5">
-                          Width: {item.selected_width}
+                          Weite: {item.selected_width}
                         </span>
                       )}
                       {item.selected_color && (
                         <span className="text-xs bg-primary-50 text-primary-700 border border-primary-100 rounded-full px-2.5 py-0.5">
-                          Color: {item.selected_color}
+                          Farbe: {item.selected_color}
                         </span>
                       )}
                       {item.selected_tree_size && (
                         <span className="text-xs bg-primary-50 text-primary-700 border border-primary-100 rounded-full px-2.5 py-0.5">
-                          Tree: {item.selected_tree_size}
+                          Kopfeisen: {item.selected_tree_size}
                         </span>
                       )}
                     </div>
@@ -185,7 +185,7 @@ export default function CartPage() {
                         onClick={() => removeItem(item.id)}
                         disabled={loading}
                         className="p-2 text-gray-400 hover:text-red-500 transition-colors"
-                        aria-label="Remove item"
+                        aria-label="Artikel entfernen"
                       >
                         <Trash2 size={16} />
                       </button>
@@ -196,24 +196,24 @@ export default function CartPage() {
             ))}
           </div>
 
-          {/* Order summary */}
+          {/* Bestellübersicht */}
           <div>
             <div className="bg-white rounded-2xl shadow-card p-6 sticky top-24">
               <h2 className="font-serif text-xl font-bold text-gray-900 mb-6">
-                Order Summary
+                Bestellübersicht
               </h2>
 
               <div className="space-y-3 mb-6">
                 <div className="flex justify-between text-sm">
                   <span className="text-gray-600">
-                    Subtotal ({cart.item_count} items)
+                    Zwischensumme ({cart.item_count} Artikel)
                   </span>
                   <span className="font-semibold">
                     {formatPrice(cart.subtotal)}
                   </span>
                 </div>
                 <div className="flex justify-between text-sm">
-                  <span className="text-gray-600">Shipping</span>
+                    <span className="text-gray-600">Versand</span>
                   <span
                     className={
                       cart.subtotal >= freeShippingThreshold
@@ -222,13 +222,13 @@ export default function CartPage() {
                     }
                   >
                     {cart.subtotal >= freeShippingThreshold
-                      ? "Free"
+                      ? "Kostenlos"
                       : formatPrice(SITE_CONFIG.shipping.standardRate)}
                   </span>
                 </div>
                 <div className="border-t border-gray-100 pt-3 flex justify-between">
                   <span className="font-bold text-gray-900">
-                    Estimated Total
+                    Voraussichtliche Gesamtsumme
                   </span>
                   <span className="font-bold text-xl text-primary-600">
                     {formatPrice(
@@ -245,14 +245,14 @@ export default function CartPage() {
                 href="/checkout"
                 className="btn-primary w-full py-4 text-base"
               >
-                Proceed to Checkout
+                Zur Kasse
                 <ArrowRight size={18} />
               </Link>
 
               <div className="mt-5 space-y-3">
                 {[
-                  { icon: Shield, text: "30-day free trial on all saddles" },
-                  { icon: RotateCcw, text: "Hassle-free returns" },
+                  { icon: Shield, text: "30 Tage kostenlos testen" },
+                  { icon: RotateCcw, text: "Unkomplizierte Rückgabe" },
                 ].map(({ icon: Icon, text }) => (
                   <div
                     key={text}
@@ -270,7 +270,7 @@ export default function CartPage() {
                 href="/products"
                 className="flex items-center justify-center gap-2 text-sm text-primary-500 hover:text-primary-700 transition-colors"
               >
-                Continue Shopping
+                Weiter einkaufen
               </Link>
             </div>
           </div>

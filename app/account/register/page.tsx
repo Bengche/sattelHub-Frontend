@@ -14,16 +14,16 @@ import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const schema = z
   .object({
-    first_name: z.string().min(2, "First name required"),
-    last_name: z.string().min(2, "Last name required"),
-    email: z.string().email("Enter a valid email"),
+    first_name: z.string().min(2, "Vorname erforderlich"),
+    last_name: z.string().min(2, "Nachname erforderlich"),
+    email: z.string().email("Gültige E-Mail-Adresse erforderlich"),
     phone: z.string().optional(),
-    password: z.string().min(8, "Password must be at least 8 characters"),
+    password: z.string().min(8, "Das Passwort muss mindestens 8 Zeichen enthalten"),
     confirm_password: z.string(),
     newsletter: z.boolean().optional(),
   })
   .refine((d) => d.password === d.confirm_password, {
-    message: "Passwords don't match",
+    message: "Die Passwörter stimmen nicht überein",
     path: ["confirm_password"],
   });
 
@@ -76,11 +76,11 @@ export default function RegisterPage() {
         {/* Logo / brand */}
         <div className="text-center mb-8">
           <h1 className="font-serif text-3xl font-bold text-primary-500 mb-2">
-            Create Account
+            Konto erstellen
           </h1>
           <p className="text-gray-500 text-sm">
-            Join {SITE_CONFIG.name} for exclusive access and a 30-day free trial
-            on your first saddle.
+            Werden Sie Teil von {SITE_CONFIG.name} und testen Sie Ihren ersten
+            Sattel 30 Tage kostenlos.
           </p>
         </div>
 
@@ -94,7 +94,7 @@ export default function RegisterPage() {
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-                First Name
+                Vorname
               </label>
               <div className="relative">
                 <User
@@ -115,7 +115,7 @@ export default function RegisterPage() {
             </div>
             <div>
               <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-                Last Name
+                Nachname
               </label>
               <input
                 {...register("last_name")}
@@ -132,7 +132,7 @@ export default function RegisterPage() {
 
           <div>
             <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-              Email Address
+              E-Mail-Adresse
             </label>
             <div className="relative">
               <Mail
@@ -155,7 +155,7 @@ export default function RegisterPage() {
 
           <div>
             <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-              Phone{" "}
+              Telefon{" "}
               <span className="text-gray-400 font-normal">(optional)</span>
             </label>
             <div className="relative">
@@ -174,7 +174,7 @@ export default function RegisterPage() {
 
           <div>
             <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-              Password
+              Passwort
             </label>
             <div className="relative">
               <Lock
@@ -184,7 +184,7 @@ export default function RegisterPage() {
               <input
                 {...register("password")}
                 type={showPassword ? "text" : "password"}
-                placeholder="At least 8 characters"
+                placeholder="Mindestens 8 Zeichen"
                 className="input-field pl-10 pr-12"
               />
               <button
@@ -204,7 +204,7 @@ export default function RegisterPage() {
 
           <div>
             <label className="text-sm font-medium text-gray-700 mb-1.5 block">
-              Confirm Password
+              Passwort bestätigen
             </label>
             <div className="relative">
               <Lock
@@ -214,7 +214,7 @@ export default function RegisterPage() {
               <input
                 {...register("confirm_password")}
                 type={showPassword ? "text" : "password"}
-                placeholder="Repeat your password"
+                placeholder="Passwort wiederholen"
                 className="input-field pl-10"
               />
             </div>
@@ -232,8 +232,7 @@ export default function RegisterPage() {
               className="mt-0.5 rounded text-primary-500"
             />
             <span className="text-sm text-gray-600">
-              Subscribe to our newsletter for saddle care tips, new arrivals,
-              and exclusive offers.
+              Newsletter mit Sattelpflegetipps, Neuheiten und exklusiven Angeboten abonnieren.
             </span>
           </label>
 
@@ -242,17 +241,17 @@ export default function RegisterPage() {
             disabled={loading}
             className="btn-primary w-full py-4 text-base mt-2 disabled:opacity-60"
           >
-            {loading ? "Creating Account..." : "Create Account"}
+            {loading ? "Konto wird erstellt ..." : "Konto erstellen"}
           </button>
         </form>
 
         <p className="text-center text-sm text-gray-500 mt-6">
-          Already have an account?{" "}
+          Sie haben bereits ein Konto?{" "}
           <Link
             href="/account/login"
             className="text-primary-500 font-medium hover:underline"
           >
-            Sign in
+            Anmelden
           </Link>
         </p>
 

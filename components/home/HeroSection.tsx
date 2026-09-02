@@ -24,7 +24,7 @@ export default function HeroSection() {
       <motion.div className="absolute inset-0" style={{ y: bgY }}>
         <Image
           src="https://media.istockphoto.com/id/2163238499/photo/brown-leather-saddle-hanging-on-wooden-wall-at-stable-or-barn-professional-equestrian-horse.jpg?s=612x612&w=0&k=20&c=ASLzmKjV2AzNgYVwyjRMqSnsPLDDxnMOK7oU0TYGQkQ="
-          alt="Premium horse saddle in use"
+          alt="Hochwertiger Reitsattel"
           fill
           className="object-cover"
           priority
@@ -48,7 +48,7 @@ export default function HeroSection() {
           >
             <div className="h-px w-12 bg-gold-400" />
             <span className="text-gold-400 text-sm font-medium tracking-widest uppercase">
-              Premium Equestrian
+              Reitsport auf höchstem Niveau
             </span>
           </motion.div>
 
@@ -59,8 +59,8 @@ export default function HeroSection() {
             transition={{ delay: 0.35, duration: 0.8 }}
             className="font-serif text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6"
           >
-            Saddles Crafted{" "}
-            <span className="text-gradient-gold italic">for Excellence</span>
+            Sättel für{" "}
+            <span className="text-gradient-gold italic">höchste Ansprüche</span>
           </motion.h1>
 
           {/* Sub */}
@@ -70,9 +70,9 @@ export default function HeroSection() {
             transition={{ delay: 0.5, duration: 0.7 }}
             className="text-white/75 text-lg md:text-xl leading-relaxed mb-10 max-w-lg"
           >
-            Discover our curated collection of premium horse saddles — from
-            Western to Dressage, handpicked for quality, comfort, and
-            performance.
+            Entdecken Sie unsere ausgewählte Kollektion hochwertiger Reitsättel
+            - von Western bis Dressur, sorgfältig ausgesucht für Qualität,
+            Komfort und Leistung.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -87,14 +87,14 @@ export default function HeroSection() {
               className="btn-gold text-base px-8 py-4 shadow-gold"
             >
               <ShoppingBag size={20} />
-              Shop Now
+              Jetzt entdecken
             </Link>
             <Link
               href="/about"
               className="btn-outline text-white border-white/50 hover:bg-white/10 text-base px-8 py-4"
             >
               <Award size={20} />
-              Our Story
+              Unsere Geschichte
             </Link>
           </motion.div>
 
@@ -106,12 +106,12 @@ export default function HeroSection() {
             className="flex flex-wrap items-center gap-6 mt-12 pt-10 border-t border-white/15"
           >
             {[
-              { value: "500+", label: "Saddles in Stock" },
-              { value: "30-Day", label: "Free Trial" },
-              { value: "4.9/5", label: "Customer Rating" },
+              { value: "500+", label: "Sättel auf Lager" },
+              { value: "30 Tage", label: "Kostenlos testen" },
+              { value: "4,9/5", label: "Kundenbewertung" },
               {
                 value: "Free",
-                label: `Shipping $${require("@/lib/siteConfig").SITE_CONFIG.shipping.freeShippingThreshold}+`,
+                label: `Versand ab ${require("@/lib/siteConfig").SITE_CONFIG.shipping.freeShippingThreshold} EUR kostenlos`,
               },
             ].map((stat) => (
               <div key={stat.label}>

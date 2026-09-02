@@ -46,13 +46,13 @@ export default function FavoritesPage() {
   const handleRemove = async (product: Product) => {
     await toggle(product.id);
     setProducts((prev) => prev.filter((p) => p.id !== product.id));
-    showToast(`${product.name} removed from favorites`, "info");
+    showToast(`${product.name} aus Favoriten entfernt`, "info");
   };
 
   const handleAddToCart = async (product: Product) => {
     try {
       await addToCart(product.id, 1);
-      showToast("Added to cart", "success");
+      showToast("Zum Warenkorb hinzugefügt", "success");
     } catch (err) {
       showToast(getErrorMessage(err), "error");
     }
@@ -65,11 +65,11 @@ export default function FavoritesPage() {
       <div className="container-custom">
         <div className="flex items-center justify-between mb-8">
           <h1 className="font-serif text-4xl font-bold text-primary-500">
-            My Favorites
+            Meine Favoriten
           </h1>
           {products.length > 0 && (
             <span className="text-gray-500 text-sm">
-              {products.length} {products.length === 1 ? "item" : "items"}
+              {products.length} {products.length === 1 ? "Artikel" : "Artikel"}
             </span>
           )}
         </div>
@@ -82,14 +82,14 @@ export default function FavoritesPage() {
           <div className="bg-white rounded-3xl shadow-card p-16 text-center">
             <Heart size={48} className="text-gray-200 mx-auto mb-5" />
             <h2 className="font-serif text-2xl font-bold text-gray-900 mb-3">
-              No favorites yet
+              Noch keine Favoriten
             </h2>
             <p className="text-gray-500 mb-8">
-              Browse our collection and tap the heart icon to save saddles you
-              love.
+              Entdecken Sie unsere Kollektion und speichern Sie Ihre Lieblingssättel
+              mit dem Herzsymbol.
             </p>
             <Link href="/products" className="btn-primary inline-flex">
-              Browse Saddles
+              Sättel entdecken
             </Link>
           </div>
         ) : (
@@ -120,7 +120,7 @@ export default function FavoritesPage() {
                   <button
                     onClick={() => handleRemove(product)}
                     className="absolute top-3 right-3 w-8 h-8 bg-white rounded-full shadow flex items-center justify-center group/btn hover:bg-red-50 transition-colors"
-                    aria-label="Remove from favorites"
+                    aria-label="Aus Favoriten entfernen"
                   >
                     <Heart size={16} className="text-red-500 fill-red-500" />
                   </button>
@@ -160,7 +160,7 @@ export default function FavoritesPage() {
                       size={15}
                       className="group-hover/btn:scale-110 transition-transform"
                     />
-                    Add to Cart
+                    In den Warenkorb
                   </button>
                 </div>
               </div>

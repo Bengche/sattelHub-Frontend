@@ -1,7 +1,7 @@
 {
-  "name": "Saddles Market",
-  "short_name": "Saddles",
-  "description": "Premium horse saddles for the discerning equestrian",
+  "name": "SattelHub",
+  "short_name": "SattelHub",
+  "description": "Hochwertige Reitsättel für anspruchsvolle Reiter",
   "theme_color": "#1C3557",
   "background_color": "#1C3557",
   "display": "standalone",

@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
+  title: "Datenschutzerklärung",
   description:
-    "Read the Saddles Market privacy policy to understand how we collect, use, and protect your personal information.",
+    "Erfahren Sie, wie Sattelhub.de Ihre personenbezogenen Daten erhebt, verwendet und schützt.",
   alternates: { canonical: "/privacy-policy" },
 };
 
@@ -21,7 +21,7 @@ export default function PrivacyPolicyPage() {
         </div>
         <div className="prose-luxury">
           <p>
-            This Privacy Policy describes how <strong>Saddles Market</strong> ("
+            Diese Datenschutzerklärung beschreibt, wie <strong>Sattelhub.de</strong> ("
             {SITE_CONFIG.name}", "we", "us", or "our"), located at{" "}
             {SITE_CONFIG.address.full}, collects, uses, and shares information
             when you visit or make a purchase from{" "}
@@ -41,7 +41,7 @@ export default function PrivacyPolicyPage() {
             </li>
             <li>
               <strong>Order information:</strong> Shipping and billing
-              addresses, payment method type (not card numbers — see Payment
+              addresses, Art der Zahlungsmethode (keine Kartennummern - siehe Abschnitt zur Zahlungsabwicklung
               Processing below), and order history.
             </li>
             <li>

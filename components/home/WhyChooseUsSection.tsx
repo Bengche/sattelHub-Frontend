@@ -15,48 +15,48 @@ import Link from "next/link";
 const features = [
   {
     icon: Shield,
-    title: "30-Day Free Trial",
+    title: "30 Tage kostenlos testen",
     description:
-      "Ride with your new saddle for 30 days. If it's not right for you or your horse, return it for a full refund — no questions asked.",
+      "Reiten Sie 30 Tage mit Ihrem neuen Sattel. Wenn er nicht zu Ihnen oder Ihrem Pferd passt, erhalten Sie eine vollständige Erstattung.",
     color: "text-primary-500",
     bg: "bg-primary-50",
   },
   {
     icon: Award,
-    title: "Expert Curation",
+    title: "Fachkundige Auswahl",
     description:
-      "Every saddle in our collection is hand-selected by our team of experienced equestrians. We only carry what we would use ourselves.",
+      "Jeder Sattel wird von erfahrenen Reitsportlern ausgewählt. Wir führen nur Produkte, die wir selbst verwenden würden.",
     color: "text-gold-500",
     bg: "bg-gold-50",
   },
   {
     icon: Truck,
-    title: `Free Shipping Over $${require("@/lib/siteConfig").SITE_CONFIG.shipping.freeShippingThreshold}`,
-    description: `Orders over $${require("@/lib/siteConfig").SITE_CONFIG.shipping.freeShippingThreshold} ship free anywhere in the United States. Express shipping available on all orders at checkout.`,
+    title: `Kostenloser Versand ab ${require("@/lib/siteConfig").SITE_CONFIG.shipping.freeShippingThreshold} EUR`,
+    description: `Bestellungen ab ${require("@/lib/siteConfig").SITE_CONFIG.shipping.freeShippingThreshold} EUR werden innerhalb Deutschlands kostenlos versendet. Expressversand ist an der Kasse verfügbar.`,
     color: "text-green-600",
     bg: "bg-green-50",
   },
   {
     icon: RotateCcw,
-    title: "Hassle-Free Returns",
+    title: "Unkomplizierte Rückgabe",
     description:
-      "Our return process is simple and rider-friendly. We understand that saddle fit can be complex, so we make returns easy.",
+      "Unser Rückgabeprozess ist einfach und reiterfreundlich. Wir wissen, dass Sattelpassform komplex sein kann, und machen Rückgaben unkompliziert.",
     color: "text-blue-600",
     bg: "bg-blue-50",
   },
   {
     icon: MessageSquare,
-    title: "Expert Saddle Fitting",
+    title: "Fachkundige Sattelberatung",
     description:
-      "Not sure what saddle is right? Our equestrian specialists are available via phone and chat to guide your decision.",
+      "Nicht sicher, welcher Sattel passt? Unsere Reitsport-Experten beraten Sie telefonisch und per Chat.",
     color: "text-purple-600",
     bg: "bg-purple-50",
   },
   {
     icon: Zap,
-    title: "Fast, Secure Checkout",
+    title: "Schneller, sicherer Kauf",
     description:
-      "Multiple payment options, SSL-encrypted checkout, and real-time order tracking from warehouse to your barn.",
+      "Mehrere Zahlungsmöglichkeiten, SSL-verschlüsselte Kasse und Sendungsverfolgung in Echtzeit bis zu Ihrem Stall.",
     color: "text-amber-600",
     bg: "bg-amber-50",
   },
@@ -69,14 +69,14 @@ export default function WhyChooseUsSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <p className="text-gold-500 text-sm font-medium tracking-widest uppercase mb-3">
-            Why Saddles Market
+            Warum Sattelhub.de
           </p>
           <h2 className="section-heading section-heading-center font-bold text-primary-500 inline-block pb-4">
-            The Equestrian Standard
+            Der Standard im Reitsport
           </h2>
           <p className="text-gray-500 mt-6 max-w-2xl mx-auto text-base leading-relaxed">
-            We&apos;ve built our business on a simple principle: equestrians
-            deserve a saddle buying experience as refined as the sport itself.
+            Unser Unternehmen basiert auf einem einfachen Grundsatz: Reiter
+            verdienen ein ebenso hochwertiges Einkaufserlebnis wie der Sport selbst.
           </p>
         </div>
 
@@ -110,17 +110,17 @@ export default function WhyChooseUsSection() {
         <div className="bg-primary-500 rounded-3xl p-10 md:p-14">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
             {[
-              { value: "1,200+", label: "Happy Riders", sub: "and counting" },
+              { value: "1.200+", label: "Zufriedene Reiter", sub: "und mehr" },
               {
                 value: "500+",
-                label: "Saddles in Stock",
-                sub: "all disciplines",
+                label: "Sättel auf Lager",
+                sub: "alle Disziplinen",
               },
-              { value: "30-Day", label: "Free Trial", sub: "no risk" },
+              { value: "30 Tage", label: "Kostenlos testen", sub: "ohne Risiko" },
               {
                 value: "98%",
-                label: "Satisfaction Rate",
-                sub: "from verified buyers",
+                label: "Zufriedenheitsquote",
+                sub: "von bestätigten Käufern",
               },
             ].map((stat, i) => (
               <motion.div

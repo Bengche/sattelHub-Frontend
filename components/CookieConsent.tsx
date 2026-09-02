@@ -64,9 +64,9 @@ export default function CookieConsent() {
                 </div>
                 <div>
                   <p className="font-semibold text-gray-900 text-sm">
-                    Cookie Preferences
+                    Cookie-Einstellungen
                   </p>
-                  <p className="text-xs text-gray-500">We value your privacy</p>
+                  <p className="text-xs text-gray-500">Ihre Privatsphäre ist uns wichtig</p>
                 </div>
               </div>
               <button
@@ -79,13 +79,14 @@ export default function CookieConsent() {
 
             <div className="p-5">
               <p className="text-sm text-gray-600 leading-relaxed">
-                We use cookies to enhance your experience and analyze site
-                traffic. You can manage your preferences or learn more in our{" "}
+                Wir verwenden Cookies, um Ihr Erlebnis zu verbessern und den
+                Website-Traffic zu analysieren. Sie können Ihre Einstellungen verwalten
+                oder mehr in unserer{" "}
                 <Link
                   href="/privacy-policy"
                   className="text-primary-600 underline underline-offset-2"
                 >
-                  Privacy Policy
+                  Datenschutzerklärung
                 </Link>
                 .
               </p>
@@ -103,21 +104,21 @@ export default function CookieConsent() {
                         {
                           key: "essential",
                           icon: Shield,
-                          label: "Essential",
-                          desc: "Required for the site to work. Cannot be disabled.",
+                          label: "Essenziell",
+                          desc: "Für den Betrieb der Website erforderlich und nicht deaktivierbar.",
                           disabled: true,
                         },
                         {
                           key: "analytics",
                           icon: BarChart3,
-                          label: "Analytics",
-                          desc: "Help us understand how visitors use the site.",
+                          label: "Analyse",
+                          desc: "Hilft uns zu verstehen, wie Besucher die Website nutzen.",
                         },
                         {
                           key: "marketing",
                           icon: Cookie,
                           label: "Marketing",
-                          desc: "Used to deliver relevant advertisements.",
+                          desc: "Wird für relevante Werbung verwendet.",
                         },
                       ].map(({ key, icon: Icon, label, desc, disabled }) => (
                         <label
@@ -153,7 +154,7 @@ export default function CookieConsent() {
                               </span>
                               {disabled && (
                                 <span className="text-xs px-1.5 py-0.5 bg-gray-100 text-gray-500 rounded">
-                                  Always on
+                                  Immer aktiv
                                 </span>
                               )}
                             </div>
@@ -171,21 +172,21 @@ export default function CookieConsent() {
                   onClick={acceptAll}
                   className="btn-primary text-sm py-2.5 w-full sm:flex-1 sm:min-w-[140px]"
                 >
-                  Accept All
+                  Alle akzeptieren
                 </button>
                 {showDetails ? (
                   <button
                     onClick={saveCustom}
                     className="btn-secondary text-sm py-2.5 w-full sm:flex-1 sm:min-w-[120px]"
                   >
-                    Save Preferences
+                    Einstellungen speichern
                   </button>
                 ) : (
                   <button
                     onClick={() => setShowDetails(true)}
                     className="btn-secondary text-sm py-2.5 w-full sm:flex-1 sm:min-w-[120px]"
                   >
-                    Manage
+                    Verwalten
                   </button>
                 )}
                 <button
