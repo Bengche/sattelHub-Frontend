@@ -9,170 +9,172 @@ export const metadata: Metadata = {
 };
 
 export default function PrivacyPolicyPage() {
-  const lastUpdated = "January 1, 2025";
+  const lastUpdated = "1. Januar 2025";
   return (
     <div className="bg-cream-100 min-h-screen py-16">
       <div className="container-custom max-w-3xl">
         <div className="mb-10">
           <h1 className="font-serif text-5xl font-bold text-primary-500 mb-3">
-            Privacy Policy
+            Datenschutzerklärung
           </h1>
-          <p className="text-gray-400 text-sm">Last updated: {lastUpdated}</p>
+          <p className="text-gray-400 text-sm">
+            Zuletzt aktualisiert: {lastUpdated}
+          </p>
         </div>
         <div className="prose-luxury">
           <p>
             Diese Datenschutzerklärung beschreibt, wie{" "}
-            <strong>Sattelhub.de</strong> ("
-            {SITE_CONFIG.name}", "we", "us", or "our"), located at{" "}
-            {SITE_CONFIG.address.full}, collects, uses, and shares information
-            when you visit or make a purchase from{" "}
-            <strong>{SITE_CONFIG.url}</strong>.
+            <strong>Sattelhub.de</strong>
+            Ihre personenbezogenen Daten erhebt, verwendet und weitergibt. Dies
+            gilt für Ihren Besuch auf <strong>{SITE_CONFIG.url}</strong> und für
+            Einkäufe bei uns. Unser Sitz befindet sich unter{" "}
+            {SITE_CONFIG.address.full}.
           </p>
 
-          <h2>1. Information We Collect</h2>
-          <p>When you use our site, we may collect:</p>
+          <h2>1. Welche Daten wir erheben</h2>
+          <p>
+            Bei der Nutzung unserer Website können wir folgende Daten erheben:
+          </p>
           <ul>
             <li>
-              <strong>Device &amp; log data:</strong> IP address, browser type,
-              operating system, referring URLs, pages visited, and timestamps.
+              <strong>Geräte- und Protokolldaten:</strong> IP-Adresse,
+              Browsertyp, Betriebssystem, verweisende URLs, besuchte Seiten und
+              Zeitpunkte.
             </li>
             <li>
-              <strong>Account information:</strong> First name, last name, email
-              address, phone number, and password (stored as a one-way hash).
+              <strong>Kontodaten:</strong> Vorname, Nachname, E-Mail-Adresse,
+              Telefonnummer und Passwort, das als Einweg-Hash gespeichert wird.
             </li>
             <li>
-              <strong>Order information:</strong> Shipping and billing
-              addresses, Art der Zahlungsmethode (keine Kartennummern - siehe
-              Abschnitt zur Zahlungsabwicklung Processing below), and order
-              history.
+              <strong>Bestelldaten:</strong> Liefer- und Rechnungsadressen,
+              Zahlungsart ohne Kartennummern sowie Bestellhistorie.
             </li>
             <li>
-              <strong>Communications:</strong> Any messages you send us via
-              contact forms, email, or WhatsApp.
+              <strong>Kommunikation:</strong> Nachrichten, die Sie uns über
+              Kontaktformulare, E-Mail oder WhatsApp senden.
             </li>
             <li>
-              <strong>Marketing preferences:</strong> Whether you have opted in
-              or out of our newsletter.
+              <strong>Marketing-Einstellungen:</strong> Ob Sie unseren
+              Newsletter abonniert haben oder nicht.
             </li>
             <li>
-              <strong>Cookies &amp; tracking data:</strong> With your consent,
-              analytics cookies to understand usage patterns.
+              <strong>Cookies und Trackingdaten:</strong> Mit Ihrer Einwilligung
+              Analyse-Cookies zur Auswertung der Nutzung.
             </li>
           </ul>
 
-          <h2>2. How We Use Your Information</h2>
+          <h2>2. Wie wir Ihre Daten verwenden</h2>
           <ul>
             <li>
-              To process and fulfill your orders, including sending order
-              confirmation and shipping updates.
+              Zur Bearbeitung und Erfüllung Ihrer Bestellungen, einschließlich
+              Bestellbestätigungen und Versandinformationen.
             </li>
-            <li>To authenticate your account and keep it secure.</li>
-            <li>To respond to your support inquiries.</li>
+            <li>Zur Anmeldung und zum Schutz Ihres Kontos.</li>
+            <li>Zur Beantwortung Ihrer Supportanfragen.</li>
             <li>
-              To send you marketing emails if you have subscribed (you can
-              unsubscribe at any time).
+              Zum Versand von Marketing-E-Mails, wenn Sie diese abonniert haben.
+              Sie können sich jederzeit abmelden.
             </li>
             <li>
-              To improve our website and product selection using anonymized
-              analytics.
+              Zur Verbesserung unserer Website und Produktauswahl mithilfe
+              anonymisierter Analysen.
             </li>
-            <li>To comply with legal obligations.</li>
+            <li>Zur Erfüllung gesetzlicher Pflichten.</li>
           </ul>
 
-          <h2>3. Payment Processing</h2>
+          <h2>3. Zahlungsabwicklung</h2>
           <p>
-            We do not store your credit card or bank account numbers on our
-            servers. Payments are processed by third-party payment processors.
-            Please review their privacy policies for details on how your payment
-            data is handled.
+            Wir speichern keine Kreditkarten- oder Kontonummern auf unseren
+            Servern. Zahlungen werden von externen Zahlungsdienstleistern
+            verarbeitet. Bitte lesen Sie deren Datenschutzerklärungen für
+            weitere Informationen zum Umgang mit Ihren Zahlungsdaten.
           </p>
 
-          <h2>4. Sharing Your Information</h2>
+          <h2>4. Weitergabe Ihrer Daten</h2>
           <p>
-            We do not sell your personal information. We may share your data
-            with:
+            Wir verkaufen Ihre personenbezogenen Daten nicht. Wir können Daten
+            weitergeben an:
           </p>
           <ul>
             <li>
-              <strong>Shipping carriers</strong> to fulfill your orders (name,
-              address, phone).
+              <strong>Versanddienstleister</strong> zur Erfüllung Ihrer
+              Bestellungen (Name, Adresse, Telefonnummer).
             </li>
             <li>
-              <strong>Email service providers</strong> (SendGrid) to send
-              transactional and marketing emails.
+              <strong>E-Mail-Dienstleister</strong> wie SendGrid zum Versand von
+              Transaktions- und Marketing-E-Mails.
             </li>
             <li>
-              <strong>Analytics providers</strong> (with consent) to understand
-              site usage.
+              <strong>Analyseanbieter</strong> mit Ihrer Einwilligung zur
+              Auswertung der Websitenutzung.
             </li>
             <li>
-              <strong>Law enforcement or regulators</strong> if required by law.
+              <strong>Behörden oder Aufsichtsstellen</strong>, wenn dies
+              gesetzlich vorgeschrieben ist.
             </li>
           </ul>
 
           <h2>5. Cookies</h2>
           <p>
-            We use essential cookies required for the site to function (cart,
-            authentication). With your consent, we also use analytics cookies.
-            You can manage your cookie preferences at any time using the cookie
-            consent banner.
+            Wir verwenden notwendige Cookies für den Betrieb der Website,
+            beispielsweise für Warenkorb und Anmeldung. Mit Ihrer Einwilligung
+            nutzen wir außerdem Analyse-Cookies. Sie können Ihre Einstellungen
+            jederzeit über das Cookie-Banner verwalten.
           </p>
 
-          <h2>6. Data Retention</h2>
+          <h2>6. Speicherdauer</h2>
           <p>
-            We retain your account information for as long as your account is
-            active or as required for legal purposes. Order data is retained for
-            a minimum of 7 years for accounting compliance. You may request
-            deletion of your account and personal data at any time — see Section
-            7.
+            Wir speichern Ihre Kontodaten, solange Ihr Konto aktiv ist oder dies
+            gesetzlich erforderlich ist. Bestelldaten werden aus steuerlichen
+            Gründen mindestens sieben Jahre aufbewahrt. Sie können jederzeit die
+            Löschung Ihres Kontos und Ihrer Daten verlangen; siehe Abschnitt 7.
           </p>
 
-          <h2>7. Your Rights</h2>
-          <p>You have the right to:</p>
+          <h2>7. Ihre Rechte</h2>
+          <p>Sie haben das Recht auf:</p>
           <ul>
-            <li>Access the personal data we hold about you.</li>
-            <li>Request correction of inaccurate data.</li>
+            <li>Auskunft über die zu Ihrer Person gespeicherten Daten.</li>
+            <li>Berichtigung unrichtiger Daten.</li>
             <li>
-              Request deletion of your account and personal data (subject to
-              legal retention requirements).
+              Löschung Ihres Kontos und Ihrer personenbezogenen Daten, soweit
+              keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
             </li>
-            <li>Opt out of marketing communications at any time.</li>
-            <li>
-              Lodge a complaint with your local data protection authority.
-            </li>
+            <li>Jederzeitiger Widerspruch gegen Marketingkommunikation.</li>
+            <li>Beschwerde bei der zuständigen Datenschutzaufsichtsbehörde.</li>
           </ul>
           <p>
-            To exercise these rights, contact us at{" "}
+            Zur Ausübung dieser Rechte kontaktieren Sie uns unter{" "}
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
             </a>
             .
           </p>
 
-          <h2>8. Security</h2>
+          <h2>8. Datensicherheit</h2>
           <p>
-            We use industry-standard security measures including SSL encryption,
-            secure password hashing, and access controls to protect your data.
-            No system is 100% secure, and we cannot guarantee absolute security.
+            Wir verwenden branchenübliche Sicherheitsmaßnahmen wie SSL-
+            Verschlüsselung, sichere Passwort-Hashing-Verfahren und
+            Zugriffskontrollen. Kein System ist vollständig sicher; eine
+            absolute Sicherheit können wir nicht garantieren.
           </p>
 
-          <h2>9. Children&apos;s Privacy</h2>
+          <h2>9. Datenschutz für Kinder</h2>
           <p>
-            Our site is not directed to children under 13. We do not knowingly
-            collect personal information from children. If we learn that we have
-            collected data from a child under 13, we will delete it promptly.
+            Unsere Website richtet sich nicht an Kinder unter 13 Jahren. Wir
+            erheben wissentlich keine personenbezogenen Daten von Kindern. Wenn
+            wir davon erfahren, löschen wir diese Daten umgehend.
           </p>
 
-          <h2>10. Changes to This Policy</h2>
+          <h2>10. Änderungen dieser Datenschutzerklärung</h2>
           <p>
-            We may update this policy from time to time. Changes will be posted
-            on this page with an updated date. Continued use of our site after
-            changes constitutes acceptance.
+            Wir können diese Datenschutzerklärung gelegentlich aktualisieren.
+            Änderungen werden mit einem aktualisierten Datum auf dieser Seite
+            veröffentlicht. Die weitere Nutzung der Website gilt als Zustimmung.
           </p>
 
-          <h2>11. Contact Us</h2>
+          <h2>11. Kontakt</h2>
           <p>
-            For privacy-related questions or to exercise your rights:
+            Für Datenschutzfragen oder zur Ausübung Ihrer Rechte:
             <br />
             <strong>{SITE_CONFIG.name}</strong>
             <br />

@@ -13,122 +13,135 @@ export default function ReturnsRefundsPage() {
       <div className="container-custom max-w-3xl">
         <div className="mb-10">
           <h1 className="font-serif text-5xl font-bold text-primary-500 mb-3">
-            Returns &amp; Refunds
+            Rückgabe und Erstattung
           </h1>
-          <p className="text-gray-400 text-sm">Last updated: January 1, 2025</p>
+          <p className="text-gray-400 text-sm">
+            Zuletzt aktualisiert: 1. Januar 2025
+          </p>
         </div>
         <div className="bg-gold-50 border border-gold-200 rounded-2xl p-6 mb-10">
           <p className="font-serif text-xl font-semibold text-primary-500 mb-2">
-            Our Commitment: 30-Day Free Trial
+            Unser Versprechen: 30 Tage kostenlos testen
           </p>
           <p className="text-gray-700 leading-relaxed">
-            Jeder bei Sattelhub.de gekaufte Sattel beinhaltet einen{" "}
-            <strong>30-day free trial</strong>. If for any reason you are not
-            completely satisfied, return it for a <strong>full refund</strong> —
-            no questions asked, no restocking fee.
+            Jeder bei Sattelhub.de gekaufte Sattel kann{" "}
+            <strong>30 Tage kostenlos getestet</strong> werden. Wenn Sie aus
+            irgendeinem Grund nicht vollständig zufrieden sind, geben Sie ihn
+            für eine
+            <strong>vollständige Erstattung</strong> zurück - ohne Fragen und
+            ohne Wiedereinlagerungsgebühr.
           </p>
         </div>
 
         <div className="prose-luxury">
-          <h2>Trial Period</h2>
+          <h2>Testzeitraum</h2>
           <p>
-            Your 30-day trial period begins on the{" "}
-            <strong>date of delivery</strong> as confirmed by the carrier. You
-            have 30 full calendar days to try the saddle and decide.
+            Ihr 30-tägiger Testzeitraum beginnt am vom Versanddienstleister
+            bestätigten <strong>Lieferdatum</strong>. Sie haben 30 volle
+            Kalendertage, um den Sattel auszuprobieren und sich zu entscheiden.
           </p>
 
-          <h2>What Can Be Returned</h2>
+          <h2>Was kann zurückgegeben werden?</h2>
           <p>
-            Jeder bei Sattelhub.de gekaufte Sattel kann innerhalb des 30-day
-            trial window, including:
+            Jeder bei Sattelhub.de gekaufte Sattel kann innerhalb des 30-tägigen
+            Testzeitraums zurückgegeben werden, einschließlich:
           </p>
           <ul>
-            <li>New saddles</li>
-            <li>Pre-owned / used saddles listed on our platform</li>
+            <li>Neue Sättel</li>
             <li>
-              Saddles that show normal trial wear (light sweat marks, saddle
-              soap residue)
+              Gebrauchte Sättel, die auf unserer Plattform angeboten werden
+            </li>
+            <li>
+              Sättel mit normalen Gebrauchsspuren vom Testen, etwa leichten
+              Schweißspuren oder Sattelseifenrückständen
             </li>
           </ul>
           <p>
-            <strong>Items not eligible for return:</strong>
+            <strong>Nicht zur Rückgabe zugelassen:</strong>
           </p>
           <ul>
-            <li>Custom-made or bespoke saddles (unless defective)</li>
-            <li>Saddles that have been structurally damaged through misuse</li>
-            <li>Accessories, pads, or consumables that have been used</li>
+            <li>
+              Maßgefertigte oder individuell angefertigte Sättel, außer bei
+              Mängeln
+            </li>
+            <li>Durch unsachgemäße Nutzung strukturell beschädigte Sättel</li>
+            <li>
+              Benutztes Zubehör, Sattelunterlagen oder Verbrauchsmaterialien
+            </li>
           </ul>
 
-          <h2>How to Initiate a Return</h2>
+          <h2>So leiten Sie eine Rückgabe ein</h2>
           <ol>
             <li>
               Melden Sie sich an und öffnen Sie{" "}
               <strong>Meine Bestellungen</strong>.
             </li>
             <li>
-              Click <strong>Request Return</strong> on the order you want to
-              return.
+              Klicken Sie bei der gewünschten Bestellung auf
+              <strong>Rückgabe anfordern</strong>.
             </li>
             <li>
-              Select a reason (optional — all reasons are accepted within the
-              trial period).
+              Wählen Sie einen Grund aus, falls gewünscht. Während des
+              Testzeitraums werden alle Gründe akzeptiert.
             </li>
             <li>
-              We will email you a <strong>prepaid return shipping label</strong>{" "}
-              within 1 business day.
+              Wir senden Ihnen innerhalb eines Werktags ein
+              <strong>frankiertes Rücksendeetikett</strong> per E-Mail.
             </li>
             <li>
-              Pack the saddle securely and drop it at any authorized carrier
-              location.
+              Verpacken Sie den Sattel sicher und geben Sie ihn bei einem
+              autorisierten Versanddienstleister ab.
             </li>
           </ol>
           <p>
-            Alternatively, email{" "}
+            Alternativ schreiben Sie an{" "}
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
             </a>{" "}
-            with your order number and we will arrange everything.
+            mit Ihrer Bestellnummer. Wir kümmern uns um alles Weitere.
           </p>
 
-          <h2>Refund Processing</h2>
+          <h2>Bearbeitung der Erstattung</h2>
           <p>
-            Once we receive your return and inspect it (typically within 2
-            business days of receipt), we will process your refund. Refunds are
-            über Ihre <strong>ursprüngliche Zahlungsmethode</strong> ausgezahlt
-            und typically appear within <strong>3–5 business days</strong>,
-            depending on your bank.
+            Sobald wir Ihre Rückgabe erhalten und geprüft haben, in der Regel
+            innerhalb von zwei Werktagen, veranlassen wir die Erstattung. Diese
+            wird über Ihre <strong>ursprüngliche Zahlungsmethode</strong>
+            ausgezahlt und erscheint je nach Bank innerhalb von
+            <strong>3-5 Werktagen</strong> auf Ihrem Konto.
           </p>
 
-          <h2>Exchanges</h2>
+          <h2>Umtausch</h2>
           <p>
-            Would you like to exchange your saddle for a different model?
-            Contact us at{" "}
+            Möchten Sie Ihren Sattel gegen ein anderes Modell tauschen?
+            Kontaktieren Sie uns unter{" "}
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
             </a>{" "}
             or call <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>{" "}
-            within your 30-day trial window. We will arrange an exchange at no
-            additional shipping charge.
+            innerhalb Ihres 30-tägigen Testzeitraums. Wir organisieren den
+            Umtausch ohne zusätzliche Versandkosten.
           </p>
 
-          <h2>Damaged or Defective Items</h2>
+          <h2>Beschädigte oder fehlerhafte Artikel</h2>
           <p>
-            If your saddle arrives damaged or has a manufacturing defect,
-            contact us within <strong>48 hours of delivery</strong> with photos.
-            We will arrange a replacement or full refund at no cost to you —
-            outside the standard trial window if needed.
+            Wenn Ihr Sattel beschädigt ankommt oder einen Herstellungsfehler
+            aufweist, kontaktieren Sie uns innerhalb von{" "}
+            <strong>48 Stunden nach der Lieferung</strong> mit Fotos. Wir
+            organisieren kostenlos Ersatz oder eine vollständige Erstattung, bei
+            Bedarf auch außerhalb des regulären Testzeitraums.
           </p>
 
-          <h2>Contact Us</h2>
+          <h2>Kontakt</h2>
           <p>
-            Questions? We&apos;re here to help.
+            Fragen? Wir helfen Ihnen gerne.
             <br />
             Email:{" "}
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
             </a>
             <br />
-            Phone: <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>
+            Telefon:{" "}
+            <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>
             <br />
             WhatsApp:{" "}
             <a

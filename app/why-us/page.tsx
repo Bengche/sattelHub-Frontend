@@ -15,14 +15,14 @@ const pillars = [
   {
     icon: Shield,
     title: "30 Tage kostenlos testen",
-    desc: `We're the only saddle retailer offering a genuine 30-day free trial on every purchase. Ride at home, at your barn, on the trail. If it's not the perfect fit, return it — no fee, no argument. This exists because we believe confidence should come before commitment.`,
-    stat: "30 days",
+    desc: `Wir sind der einzige Sattelhandel mit einem echten 30-tägigen Testzeitraum für jeden Kauf. Reiten Sie zu Hause, im Stall oder im Gelände. Passt der Sattel nicht perfekt, geben Sie ihn kostenlos zurück.`,
+    stat: "30 Tage",
     statLabel: "risikofreier Test",
   },
   {
     icon: Award,
     title: "Fachkundige Auswahl",
-    desc: "Every saddle in our collection has been vetted by our team of working equestrians. We don't list every saddle we're offered — we list the ones we'd actually ride in. Quality, not quantity.",
+    desc: "Jeder Sattel unserer Kollektion wird von erfahrenen Reitern geprüft. Wir listen nicht jeden angebotenen Sattel, sondern nur die, in denen wir selbst reiten würden. Qualität statt Quantität.",
     stat: "500+",
     statLabel: "ausgewählte Sättel",
   },
@@ -36,21 +36,21 @@ const pillars = [
   {
     icon: Repeat,
     title: "Unkomplizierte Rückgabe",
-    desc: "Changed your mind? Saddle doesn't fit? Contact us within the trial window and we'll send a prepaid return label same day. Refunds are processed within 3–5 business days. No restocking fees, ever.",
+    desc: "Ihre Meinung geändert oder passt der Sattel nicht? Kontaktieren Sie uns während des Testzeitraums. Wir senden Ihnen noch am selben Tag ein frankiertes Rücksendeetikett. Keine Wiedereinlagerungsgebühren.",
     stat: "100%",
     statLabel: "kostenlose Rückgabe",
   },
   {
     icon: UserCheck,
     title: "Echte Fachberatung",
-    desc: `Our customer support team are active equestrians — not call-center agents reading scripts. When you ask about tree width or panel fit, you get a real answer from someone who rides. Reach us at ${SITE_CONFIG.phone} or via WhatsApp at ${SITE_CONFIG.whatsapp}.`,
+    desc: `Unser Kundenservice besteht aus aktiven Reitern, nicht aus Callcenter-Mitarbeitern mit Skripten. Bei Fragen zu Kammerweite oder Pauschen erhalten Sie eine echte Antwort von einem Reiter. Sie erreichen uns unter ${SITE_CONFIG.phone} oder per WhatsApp unter ${SITE_CONFIG.whatsapp}.`,
     stat: "< 24h",
     statLabel: "Antwortzeit",
   },
   {
     icon: Star,
     title: "98% Zufriedenheit",
-    desc: "Over 1,200 riders have found their perfect saddle with us. Our satisfaction rate isn't a marketing number — it's the result of a selection process, a trial policy, and a team that genuinely cares.",
+    desc: "Über 1.200 Reiter haben bei uns ihren perfekten Sattel gefunden. Unsere Zufriedenheitsquote ist keine Marketingzahl, sondern das Ergebnis sorgfältiger Auswahl, eines fairen Testzeitraums und eines engagierten Teams.",
     stat: "98%",
     statLabel: "Zufriedenheitsquote",
   },
@@ -76,7 +76,7 @@ export default function WhyUsPage() {
       <div className="relative bg-primary-900 py-28 overflow-hidden">
         <Image
           src="https://i.ebayimg.com/images/g/3jkAAOSwYQ9j4AgD/s-l1200.jpg"
-          alt="Equestrian riding"
+          alt="Reiten im Reitsport"
           fill
           className="object-cover opacity-20"
           priority
@@ -87,11 +87,12 @@ export default function WhyUsPage() {
             Der Unterschied von Sattelhub.de
           </p>
           <h1 className="font-serif text-5xl md:text-6xl font-bold text-white mb-6 max-w-3xl mx-auto leading-tight">
-            Why Thousands of Riders Choose Us
+            Warum tausende Reiter uns wählen
           </h1>
           <p className="text-white/60 text-xl max-w-2xl mx-auto">
-            We built the saddle-buying experience we always wished existed —
-            transparent, risk-free, and backed by real equestrians.
+            Wir haben das Einkaufserlebnis für Sättel geschaffen, das wir uns
+            immer gewünscht haben: transparent, risikofrei und von echten
+            Reitern getragen.
           </p>
         </div>
       </div>
@@ -132,16 +133,16 @@ export default function WhyUsPage() {
       <section className="py-16 bg-white">
         <div className="container-custom max-w-3xl">
           <h2 className="font-serif text-4xl font-bold text-primary-500 text-center mb-2">
-            How We Compare
+            Unser Vergleich
           </h2>
           <p className="text-gray-500 text-center mb-10">
             Sattelhub.de im Vergleich zu gewöhnlichen Online-Sattelshops
           </p>
           <div className="rounded-2xl border border-gray-100 shadow-card overflow-hidden">
             <div className="grid grid-cols-3 bg-primary-500 text-white px-6 py-3 text-sm font-medium">
-              <span>Feature</span>
+              <span>Leistung</span>
               <span className="text-center">Sattelhub.de</span>
-              <span className="text-center">Others</span>
+              <span className="text-center">Andere</span>
             </div>
             {comparisons.map((row, idx) => (
               <div
@@ -170,7 +171,7 @@ export default function WhyUsPage() {
             Bereit für Ihren perfekten Sattel?
           </h2>
           <p className="text-gray-500 text-lg mb-8">
-            Browse over{" "}
+            Entdecken Sie über{" "}
             {
               require("@/lib/siteConfig").SITE_CONFIG.shipping
                 .freeShippingThreshold

@@ -7,45 +7,59 @@ import { motion } from "framer-motion";
 
 const categories = [
   {
-    name: "Western",
+    name: "Western-Sättel",
     href: "/products?discipline=western",
     image:
       "https://saddleonlineshop.com/cdn/shop/products/9075PonySS_2.jpg?v=1640371922",
-    desc: "Classic comfort for trail and ranch",
+    desc: "Klassischer Komfort für Gelände und Ranch",
   },
   {
-    name: "English",
+    name: "Englische Sättel",
     href: "/products?discipline=english",
     image: "https://i.ebayimg.com/images/g/C7AAAOSwgjxlAEVo/s-l400.jpg",
-    desc: "Elegant tradition and performance",
+    desc: "Eleganz, Tradition und Leistung",
   },
   {
-    name: "Dressage",
+    name: "Dressursättel",
     href: "/products?discipline=dressage",
     image:
       "https://batessaddles.eu/cdn/shop/files/900f5e982bd95b47f29f9206e397d759.png?v=1729221812",
-    desc: "Precision for the art of dressage",
+    desc: "Präzision für anspruchsvolle Dressur",
   },
   {
-    name: "Jumping",
+    name: "Springsättel",
     href: "/products?discipline=jumping",
     image:
       "https://oursaddlery.com/wp-content/uploads/2021/05/Jumping_Saddle_Prestige_Paris_Classic_Black_1.jpg",
-    desc: "Freedom and security over fences",
+    desc: "Freiheit und Sicherheit über dem Sprung",
   },
   {
-    name: "Trail",
+    name: "Wandersättel",
     href: "/products?category=trail-saddles",
     image:
       "https://farmandranchdepot.com/images/product/KS-Braden-Trail-Saddle-KS2634.jpeg",
-    desc: "Built for long-distance adventures",
+    desc: "Für lange Ausritte und Abenteuer",
   },
   {
-    name: "Youth",
+    name: "Jugendsättel",
     href: "/products?discipline=youth",
     image:
       "https://www.chicksaddlery.com/Merchant2/graphics/00000001/WT5394_271x380_2.jpg",
-    desc: "Safe and comfortable for young riders",
+    desc: "Sicher und bequem für junge Reiter",
+  },
+  {
+    name: "Barocksattel",
+    href: "/products?category=barocksattel",
+    image:
+      "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=900&q=80",
+    desc: "Klassischer Sitz für barocke Pferde und Dressur",
+  },
+  {
+    name: "Wanderreitsattel",
+    href: "/products?category=wanderreitsattel",
+    image:
+      "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=900&q=80",
+    desc: "Komfort für lange Ausritte und mehrtägige Touren",
   },
 ];
 

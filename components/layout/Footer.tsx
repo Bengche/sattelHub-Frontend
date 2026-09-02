@@ -24,6 +24,8 @@ const footerLinks = {
     { label: "Dressursättel", href: "/products?discipline=dressage" },
     { label: "Springsättel", href: "/products?discipline=jumping" },
     { label: "Jugendsättel", href: "/products?discipline=youth" },
+    { label: "Barocksättel", href: "/products?category=barocksattel" },
+    { label: "Wanderreitsättel", href: "/products?category=wanderreitsattel" },
   ],
   Company: [
     { label: "Über uns", href: "/about" },

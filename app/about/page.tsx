@@ -23,23 +23,23 @@ export const metadata: Metadata = {
 const values = [
   {
     icon: Award,
-    title: "Quality First",
-    desc: "Every saddle is hand-selected and inspected. We only carry products we would use ourselves.",
+    title: "Qualität an erster Stelle",
+    desc: "Jeder Sattel wird sorgfältig ausgewählt und geprüft. Wir führen nur Produkte, die wir selbst verwenden würden.",
   },
   {
     icon: Heart,
-    title: "Rider-Centric",
-    desc: "Our 30-day free trial exists because we believe you should be completely confident in your saddle before committing.",
+    title: "Im Mittelpunkt stehen die Reiter",
+    desc: "Unser 30-tägiger Testzeitraum gibt Ihnen die Sicherheit, die Sie vor dem Kauf brauchen.",
   },
   {
     icon: Users,
-    title: "Expert Guidance",
-    desc: "Our team consists of working equestrians — not just salespeople. Real advice from real riders.",
+    title: "Fachkundige Beratung",
+    desc: "Unser Team besteht aus aktiven Reitern, nicht nur aus Verkäufern. Echte Beratung von echten Reitern.",
   },
   {
     icon: Leaf,
-    title: "Sustainable Materials",
-    desc: "We prioritize makers who use responsibly-sourced leather and time-honored craftsmanship.",
+    title: "Nachhaltige Materialien",
+    desc: "Wir bevorzugen Hersteller, die verantwortungsvoll gewonnenes Leder und traditionelle Handwerkskunst verwenden.",
   },
 ];
 
@@ -50,7 +50,7 @@ export default function AboutPage() {
       <div className="relative bg-primary-900 py-24 md:py-32 overflow-hidden">
         <Image
           src="https://hilason.com/cdn/shop/files/108682-z_d1ce9c8d-682a-43cb-b10b-a9f1206d9162_grande.jpg?v=1762666209"
-          alt="Equestrian"
+          alt="Reitsport"
           fill
           className="object-cover opacity-25"
           priority
@@ -76,29 +76,28 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-gold-500 text-sm font-medium tracking-widest uppercase mb-4">
-                Who We Are
+                Wer wir sind
               </p>
               <h2 className="font-serif text-4xl font-bold text-primary-500 mb-6 leading-snug">
-                The Standard for Online Saddle Shopping
+                Der Maßstab für den Online-Sattelkauf
               </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
-                  Sattelhub.de wurde in London gegründet und verbindet of
-                  American horse country — by a team of lifelong riders who were
-                  tired of subpar saddle-buying experiences. We combined our
-                  passion for horses with deep product knowledge to create a
-                  marketplace defined by integrity and excellence.
+                  Sattelhub.de wurde von langjährigen Reitern gegründet, die
+                  unzureichende Einkaufserlebnisse satt hatten. Wir verbinden
+                  unsere Leidenschaft für Pferde mit umfassender Produktkenntnis
+                  und schaffen so einen Marktplatz für Integrität und Qualität.
                 </p>
                 <p>
-                  We handpick every saddle in our collection, test fit and
-                  materials personally, and stand behind each product with our
-                  signature 30-day free trial. No gimmicks — just honest saddles
-                  and honest service.
+                  Wir wählen jeden Sattel sorgfältig aus, prüfen Passform und
+                  Materialien persönlich und stehen mit unserem 30-tägigen
+                  Testzeitraum hinter jedem Produkt. Keine leeren Versprechen,
+                  sondern ehrliche Sättel und ehrlicher Service.
                 </p>
                 <p>
-                  From our first Western saddle to our 500th dressage saddle
-                  sale, one thing has never changed: we treat every customer
-                  like a fellow rider, because they are.
+                  Vom ersten Westernsattel bis zum 500. verkauften Dressursattel
+                  hat sich eines nie geändert: Wir behandeln jeden Kunden wie
+                  einen Mitreiter, denn genau das sind unsere Kunden.
                 </p>
               </div>
               <div className="flex gap-6 mt-8">
@@ -106,19 +105,23 @@ export default function AboutPage() {
                   <p className="font-serif text-4xl font-bold text-primary-500">
                     500<span className="text-gold-400">+</span>
                   </p>
-                  <p className="text-sm text-gray-500 mt-1">Saddles in stock</p>
+                  <p className="text-sm text-gray-500 mt-1">Sättel auf Lager</p>
                 </div>
                 <div>
                   <p className="font-serif text-4xl font-bold text-primary-500">
                     1,200<span className="text-gold-400">+</span>
                   </p>
-                  <p className="text-sm text-gray-500 mt-1">Happy riders</p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    Zufriedene Reiter
+                  </p>
                 </div>
                 <div>
                   <p className="font-serif text-4xl font-bold text-primary-500">
                     30
                   </p>
-                  <p className="text-sm text-gray-500 mt-1">Day free trial</p>
+                  <p className="text-sm text-gray-500 mt-1">
+                    Tage kostenlos testen
+                  </p>
                 </div>
               </div>
             </div>
@@ -126,7 +129,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-luxury-lg">
                 <Image
                   src="https://i.ebayimg.com/images/g/B5YAAOSwSTBkE2XH/s-l400.jpg"
-                  alt="Quality saddle craftsmanship"
+                  alt="Hochwertige Sattelanfertigung"
                   fill
                   className="object-cover"
                   sizes="(max-width: 1024px) 100vw, 50vw"
@@ -134,7 +137,9 @@ export default function AboutPage() {
               </div>
               <div className="absolute -bottom-5 -left-5 bg-gold-400 text-white rounded-2xl p-5 shadow-gold">
                 <p className="font-serif text-2xl font-bold">98%</p>
-                <p className="text-sm text-white/80 mt-1">Satisfaction rate</p>
+                <p className="text-sm text-white/80 mt-1">
+                  Zufriedenheitsquote
+                </p>
               </div>
             </div>
           </div>
@@ -146,10 +151,10 @@ export default function AboutPage() {
         <div className="container-custom">
           <div className="text-center mb-12">
             <p className="text-gold-500 text-sm font-medium tracking-widest uppercase mb-3">
-              What We Stand For
+              Wofür wir stehen
             </p>
             <h2 className="font-serif text-4xl font-bold text-primary-500">
-              Our Values
+              Unsere Werte
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -180,10 +185,11 @@ export default function AboutPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
               <div>
                 <h2 className="font-serif text-3xl font-bold text-white mb-4">
-                  Visit or Contact Us
+                  Besuchen oder kontaktieren Sie uns
                 </h2>
                 <p className="text-white/70 mb-8">
-                  We&apos;re always happy to talk saddles. Reach out any time.
+                  Wir sprechen gerne über Sättel. Kontaktieren Sie uns
+                  jederzeit.
                 </p>
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3 text-white/80">
@@ -229,13 +235,13 @@ export default function AboutPage() {
                   href="/contact"
                   className="btn-gold py-4 text-center text-base"
                 >
-                  Send Us a Message
+                  Nachricht senden
                 </Link>
                 <Link
                   href="/products"
                   className="btn-outline text-white border-white/30 hover:bg-white/10 py-4 text-center text-base"
                 >
-                  Shop Saddles
+                  Sättel entdecken
                 </Link>
               </div>
             </div>

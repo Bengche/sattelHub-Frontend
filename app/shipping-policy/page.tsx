@@ -13,133 +13,134 @@ export default function ShippingPolicyPage() {
       <div className="container-custom max-w-3xl">
         <div className="mb-10">
           <h1 className="font-serif text-5xl font-bold text-primary-500 mb-3">
-            Shipping Policy
+            Versandinformationen
           </h1>
-          <p className="text-gray-400 text-sm">Last updated: January 1, 2025</p>
+          <p className="text-gray-400 text-sm">
+            Zuletzt aktualisiert: 1. Januar 2025
+          </p>
         </div>
 
         {/* Shipping options summary */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10">
           <div className="bg-white rounded-2xl shadow-card p-5 text-center">
             <p className="font-serif text-2xl font-bold text-green-600 mb-1">
-              FREE
+              KOSTENLOS
             </p>
             <p className="text-sm font-medium text-gray-900">
               Kostenloser Versand
             </p>
             <p className="text-xs text-gray-400 mt-1">
-              Orders over{" "}
+              Bestellungen ab{" "}
               {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)}
             </p>
-            <p className="text-xs text-gray-400">3–5 business days</p>
+            <p className="text-xs text-gray-400">3-5 Werktage</p>
           </div>
           <div className="bg-white rounded-2xl shadow-card p-5 text-center">
             <p className="font-serif text-2xl font-bold text-primary-500 mb-1">
               {formatPrice(SITE_CONFIG.shipping.standardRate)}
             </p>
-            <p className="text-sm font-medium text-gray-900">
-              Standard Shipping
-            </p>
-            <p className="text-xs text-gray-400 mt-1">3–5 business days</p>
+            <p className="text-sm font-medium text-gray-900">Standardversand</p>
+            <p className="text-xs text-gray-400 mt-1">3-5 Werktage</p>
           </div>
           <div className="bg-white rounded-2xl shadow-card p-5 text-center">
             <p className="font-serif text-2xl font-bold text-gold-500 mb-1">
               {formatPrice(SITE_CONFIG.shipping.expressRate)}
             </p>
-            <p className="text-sm font-medium text-gray-900">
-              Express Shipping
-            </p>
-            <p className="text-xs text-gray-400 mt-1">1–3 business days</p>
+            <p className="text-sm font-medium text-gray-900">Expressversand</p>
+            <p className="text-xs text-gray-400 mt-1">1-3 Werktage</p>
           </div>
         </div>
 
         <div className="prose-luxury">
           <p className="text-xs text-gray-400 mt-1">
-            Orders over{" "}
+            Bestellungen ab{" "}
             {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)}
           </p>
           <p>
             <strong>
-              {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)} or more
+              Ab {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)}
             </strong>{" "}
-            qualify for free standard shipping within the United States. The die
+            erhalten Sie innerhalb Deutschlands kostenlosen Standardversand. Die
             kostenlose Versandoption wird an der Kasse automatisch angewendet.
           </p>
 
           <h2>
-            Standard Shipping — {formatPrice(SITE_CONFIG.shipping.standardRate)}
+            Standardversand - {formatPrice(SITE_CONFIG.shipping.standardRate)}
           </h2>
           <p>
-            Delivered in <strong>3–5 business days</strong> after order
-            processing. Business days are Monday–Friday, excluding US federal
-            holidays. Standard shipping applies to orders under{" "}
+            Lieferung innerhalb von <strong>3-5 Werktagen</strong> nach
+            Bearbeitung der Bestellung. Werktage sind Montag bis Freitag,
+            ausgenommen gesetzliche Feiertage. Der Standardversand gilt für
+            Bestellungen unter{" "}
             {formatPrice(SITE_CONFIG.shipping.freeShippingThreshold)}.
           </p>
 
           <h2>
-            Express Shipping — {formatPrice(SITE_CONFIG.shipping.expressRate)}
+            Expressversand - {formatPrice(SITE_CONFIG.shipping.expressRate)}
           </h2>
           <p>
-            Delivered in <strong>1–3 business days</strong> after order
-            processing. Express orders placed before 2pm EST on a business day
-            are typically processed same day.
+            Lieferung innerhalb von <strong>1-3 Werktagen</strong> nach
+            Bearbeitung der Bestellung. Expressbestellungen, die an Werktagen
+            vor 14 Uhr eingehen, werden in der Regel noch am selben Tag
+            bearbeitet.
           </p>
 
-          <h2>Processing Time</h2>
+          <h2>Bearbeitungszeit</h2>
           <p>
-            Orders are typically processed within{" "}
-            <strong>1 business day</strong> of being placed. You will receive an
-            email with your tracking number once your order ships.
+            Bestellungen werden in der Regel innerhalb von{" "}
+            <strong>einem Werktag</strong> bearbeitet. Sobald Ihre Bestellung
+            versendet wurde, erhalten Sie eine E-Mail mit der Sendungsnummer.
           </p>
 
-          <h2>Tracking</h2>
+          <h2>Sendungsverfolgung</h2>
           <p>
-            Every shipment is fully tracked. Your tracking number will be
-            emailed to you when your order ships. You can also view your
-            tracking number on your <strong>Orders</strong> page after logging
-            into your account.
+            Jede Sendung ist vollständig nachverfolgbar. Ihre Sendungsnummer
+            wird Ihnen beim Versand per E-Mail zugesandt. Sie können die Nummer
+            nach der Anmeldung auch im Bereich{" "}
+            <strong>Meine Bestellungen</strong> einsehen.
           </p>
 
-          <h2>Insurance</h2>
+          <h2>Versicherung</h2>
           <p>
-            All shipments are fully insured. If your saddle is lost or damaged
-            in transit, we will file the insurance claim on your behalf and send
-            a replacement or issue a refund.
+            Alle Sendungen sind vollständig versichert. Sollte Ihr Sattel auf
+            dem Versandweg verloren gehen oder beschädigt werden, melden wir den
+            Schaden für Sie und senden Ersatz oder erstatten den Kaufpreis.
           </p>
 
-          <h2>Shipping Address</h2>
+          <h2>Lieferadresse</h2>
           <p>
-            Please ensure your shipping address is correct before placing your
-            order. We are not responsible for orders shipped to incorrect
-            addresses provided at checkout. If you need to change your shipping
-            address after placing an order, contact us immediately at{" "}
+            Bitte prüfen Sie Ihre Lieferadresse vor dem Absenden der Bestellung.
+            Für Bestellungen an eine an der Kasse falsch angegebene Adresse
+            übernehmen wir keine Verantwortung. Wenn Sie die Lieferadresse nach
+            der Bestellung ändern müssen, kontaktieren Sie uns sofort unter{" "}
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
             </a>{" "}
-            — we can usually update the address if the order has not yet
-            shipped.
+            - in der Regel können wir die Adresse ändern, solange die Bestellung
+            noch nicht versendet wurde.
           </p>
 
-          <h2>International Shipping</h2>
+          <h2>Internationaler Versand</h2>
           <p>
-            We currently ship within the United States only. International
-            shipping is coming soon — sign up for our newsletter to be notified.
+            Derzeit versenden wir innerhalb Deutschlands. Der internationale
+            Versand wird erweitert. Abonnieren Sie unseren Newsletter, um
+            informiert zu werden.
           </p>
 
-          <h2>Shipping Carriers</h2>
+          <h2>Versanddienstleister</h2>
           <p>
-            We primarily use UPS, FedEx, and USPS depending on your location and
-            the selected shipping method.
+            Je nach Lieferort und gewählter Versandart nutzen wir vor allem UPS,
+            FedEx und lokale Versanddienstleister.
           </p>
 
-          <h2>Contact</h2>
+          <h2>Kontakt</h2>
           <p>
-            Shipping questions? Contact us at{" "}
+            Fragen zum Versand? Kontaktieren Sie uns unter{" "}
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
             </a>{" "}
-            or call <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>
-            .
+            oder rufen Sie uns unter{" "}
+            <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>.
           </p>
         </div>
       </div>

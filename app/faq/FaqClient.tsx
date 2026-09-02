@@ -17,75 +17,75 @@ export type FaqCategory = {
 
 export const FAQ_DATA: FaqCategory[] = [
   {
-    label: "Orders & Shipping",
+    label: "Bestellungen und Versand",
     items: [
       {
         question: "Wie lange dauert der Versand?",
-        answer: `Standard shipping takes 3–5 business days. Express shipping takes 1–3 business days. Orders over $${SITE_CONFIG.shipping.freeShippingThreshold} qualify for free standard shipping automatically.`,
+        answer: `Der Standardversand dauert 3-5 Werktage, der Expressversand 1-3 Werktage. Bestellungen ab ${SITE_CONFIG.shipping.freeShippingThreshold} EUR erhalten automatisch kostenlosen Standardversand.`,
       },
       {
         question: "Versenden Sie international?",
         answer:
-          "We currently ship within the United States. International shipping is being added — sign up for our newsletter to be notified when it launches.",
+          "Wir versenden derzeit innerhalb Deutschlands. Der internationale Versand wird erweitert. Abonnieren Sie unseren Newsletter, um über neue Versandgebiete informiert zu werden.",
       },
       {
         question: "Kann ich meine Bestellung verfolgen?",
         answer:
-          "Yes. Once your order ships, you will receive a tracking number by email. You can also view tracking from your Orders page in your account.",
+          "Ja. Sobald Ihre Bestellung versendet wurde, erhalten Sie die Sendungsnummer per E-Mail. Sie können die Sendung auch im Bereich Meine Bestellungen verfolgen.",
       },
       {
         question: "Was passiert, wenn mein Sattel beschädigt ankommt?",
-        answer: `Contact us at ${SITE_CONFIG.email.support} within 48 hours of delivery with photos of the damage. We'll arrange a replacement or full refund at no cost to you.`,
+        answer: `Kontaktieren Sie uns innerhalb von 48 Stunden nach der Lieferung unter ${SITE_CONFIG.email.support} und senden Sie Fotos des Schadens. Wir organisieren kostenlos einen Ersatz oder eine vollständige Erstattung.`,
       },
     ],
   },
   {
-    label: "30-Day Free Trial",
+    label: "30-tägiger Testzeitraum",
     items: [
       {
         question: "Wie funktioniert der 30-tägige Testzeitraum?",
         answer:
-          "Every saddle you purchase comes with a 30-day free trial. Ride it at home or at your barn. If you're not completely satisfied within 30 days, return it for a full refund — no restocking fee, no questions asked.",
+          "Jeder gekaufte Sattel kann 30 Tage kostenlos getestet werden. Reiten Sie zu Hause oder im Stall. Wenn Sie nicht vollständig zufrieden sind, geben Sie ihn innerhalb von 30 Tagen für eine vollständige Erstattung zurück - ohne Wiedereinlagerungsgebühr und ohne Fragen.",
       },
       {
         question: "Wann beginnt mein Testzeitraum?",
         answer:
-          "Your 30-day trial starts on the date your order is delivered, not the date you order.",
+          "Der 30-tägige Testzeitraum beginnt am Tag der Lieferung, nicht am Tag der Bestellung.",
       },
       {
         question: "In welchem Zustand muss der Sattel für eine Rückgabe sein?",
         answer:
-          "We expect normal trial wear — some saddle soap, light sweat marks. The saddle does not need to be returned in pristine condition. We simply ask that it isn't damaged through misuse.",
+          "Normale Gebrauchsspuren vom Testen sind in Ordnung, etwa etwas Sattelseife oder leichte Schweißspuren. Der Sattel muss nicht neuwertig zurückgegeben werden, darf aber nicht durch unsachgemäße Nutzung beschädigt sein.",
       },
     ],
   },
   {
-    label: "Saddle Selection & Fitting",
+    label: "Sattelauswahl und Anpassung",
     items: [
       {
         question: "Woher weiß ich, welcher Sattel zu meinem Pferd passt?",
         answer:
-          "The best way is to use our 30-day trial — try the saddle on your horse with the help of a qualified saddle fitter. We also recommend using a gullet gauge to measure your horse's withers. Our team can advise: email us photos of your horse's back and withers and we'll recommend options.",
+          "Am besten nutzen Sie unseren 30-tägigen Testzeitraum und probieren den Sattel mit einem qualifizierten Sattler auf Ihrem Pferd aus. Wir empfehlen außerdem, die Widerristhöhe Ihres Pferdes zu messen. Unser Team berät Sie gerne anhand von Fotos des Pferderückens und Widerrists.",
       },
       {
         question: "Können Sättel angepasst werden?",
         answer:
-          "Many saddles can have their tree width and panel flocking adjusted by a qualified saddle fitter. We note adjustability on each product page.",
+          "Viele Sättel können von einem qualifizierten Sattler in Kammerweite und Polsterung angepasst werden. Die Anpassbarkeit ist auf jeder Produktseite angegeben.",
       },
       {
         question:
-          "What's the difference between Western, English, Dressage, and Jumping saddles?",
+          "Was ist der Unterschied zwischen Western-, englischen, Dressur- und Springsätteln?",
         answer:
-          "Western saddles have a horn and deep seat, designed for ranch work and trail riding. English saddles are lighter with no horn — they include dressage saddles (deep seat, long flap for leg position) and jumping saddles (forward-cut flap for two-point position). We carry all disciplines — browse by category.",
+          "Westernsättel haben ein Horn und einen tiefen Sitz und eignen sich für Ranch- und Geländeritte. Englische Sättel sind leichter und haben kein Horn. Dazu gehören Dressursättel mit tiefem Sitz sowie Springsättel mit nach vorne geschnittenen Pauschen. Wir führen Sättel für alle Disziplinen.",
       },
     ],
   },
   {
-    label: "Returns & Refunds",
+    label: "Rückgabe und Erstattung",
     items: [
       {
         question: "Wie leite ich eine Rückgabe ein?",
-        answer: `Log into your account, go to Orders, and click "Return / Refund" on your order. Alternatively email ${SITE_CONFIG.email.support} with your order number. We'll send a prepaid return label within 1 business day.`,
+        answer: `Melden Sie sich an, öffnen Sie Meine Bestellungen und klicken Sie bei der gewünschten Bestellung auf "Rückgabe / Erstattung". Alternativ schreiben Sie an ${SITE_CONFIG.email.support}. Wir senden Ihnen innerhalb eines Werktags ein frankiertes Rücksendeetikett.`,
       },
       {
         question: "Wie lange dauert eine Erstattung?",
@@ -95,27 +95,27 @@ export const FAQ_DATA: FaqCategory[] = [
       {
         question: "Kann ich einen Sattel umtauschen statt ihn zurückzugeben?",
         answer:
-          "Yes. During your 30-day trial, you can exchange for a different saddle at no penalty. Contact us to arrange the exchange.",
+          "Ja. Während des 30-tägigen Testzeitraums können Sie den Sattel kostenlos gegen ein anderes Modell umtauschen. Kontaktieren Sie uns, um den Umtausch zu vereinbaren.",
       },
     ],
   },
   {
-    label: "Account & Payments",
+    label: "Konto und Zahlungen",
     items: [
       {
         question: "Benötige ich ein Konto für den Kauf?",
         answer:
-          "You can browse without an account, but an account is required at checkout to track your order, manage returns, and use your 30-day trial.",
+          "Sie können ohne Konto stöbern. Für den Kauf ist jedoch ein Konto erforderlich, damit Sie Ihre Bestellung verfolgen, Rückgaben verwalten und den 30-tägigen Testzeitraum nutzen können.",
       },
       {
         question: "Welche Zahlungsmethoden akzeptieren Sie?",
         answer:
-          "We accept all major credit and debit cards (Visa, Mastercard, Amex), PayPal, and bank transfer.",
+          "Wir akzeptieren alle gängigen Kredit- und Debitkarten (Visa, Mastercard, Amex), PayPal und Banküberweisung.",
       },
       {
         question: "Sind meine Zahlungsdaten sicher?",
         answer:
-          "Yes. All transactions are SSL-encrypted. We do not store card numbers on our servers.",
+          "Ja. Alle Transaktionen sind SSL-verschlüsselt. Wir speichern keine Kartennummern auf unseren Servern.",
       },
     ],
   },
