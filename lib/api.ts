@@ -1,7 +1,13 @@
 import axios, { AxiosError } from "axios";
 
+const configuredApiUrl = process.env.NEXT_PUBLIC_API_URL?.trim();
+const fallbackApiUrl =
+  typeof window !== "undefined"
+    ? `${window.location.origin}/api`
+    : "http://localhost:5000/api";
+
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api",
+  baseURL: configuredApiUrl || fallbackApiUrl,
   withCredentials: false,
   timeout: 15000,
 });

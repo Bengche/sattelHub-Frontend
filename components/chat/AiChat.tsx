@@ -182,6 +182,11 @@ export default function AiChat() {
           message: text.trim(),
           history,
         });
+        if (!res.data?.success || typeof res.data.reply !== "string") {
+          throw new Error(
+            res.data?.message || "Die KI hat keine gültige Antwort geliefert.",
+          );
+        }
         const aiMsg: Message = {
           id: crypto.randomUUID(),
           role: "assistant",
