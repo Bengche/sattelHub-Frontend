@@ -10,6 +10,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import AiChat from "@/components/chat/AiChat";
+import InstallPrompt from "@/components/InstallPrompt";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 const playfair = Playfair_Display({
@@ -90,6 +91,7 @@ export default function RootLayout({
                 </main>
                 <Footer />
                 <CookieConsent />
+                <InstallPrompt />
                 <AiChat />
               </FavoritesProvider>
             </CartProvider>
