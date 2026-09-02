@@ -12,12 +12,15 @@ function isIosDevice() {
 function isStandalone() {
   return (
     window.matchMedia("(display-mode: standalone)").matches ||
-    Boolean((window.navigator as Navigator & { standalone?: boolean }).standalone)
+    Boolean(
+      (window.navigator as Navigator & { standalone?: boolean }).standalone,
+    )
   );
 }
 
 export default function InstallPrompt() {
-  const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
+  const [deferredPrompt, setDeferredPrompt] =
+    useState<BeforeInstallPromptEvent | null>(null);
   const [visible, setVisible] = useState(false);
   const [ios, setIos] = useState(false);
 
@@ -45,7 +48,10 @@ export default function InstallPrompt() {
 
     return () => {
       window.clearTimeout(fallbackTimer);
-      window.removeEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt,
+      );
     };
   }, []);
 
@@ -73,11 +79,13 @@ export default function InstallPrompt() {
           <p className="font-semibold text-gray-900">SattelHub installieren</p>
           {ios ? (
             <p className="mt-1 text-sm leading-relaxed text-gray-600">
-              Tippen Sie auf <Share size={14} className="mx-1 inline" /> Teilen und anschließend auf „Zum Home-Bildschirm“.
+              Tippen Sie auf <Share size={14} className="mx-1 inline" /> Teilen
+              und anschließend auf „Zum Home-Bildschirm“.
             </p>
           ) : deferredPrompt ? (
             <p className="mt-1 text-sm leading-relaxed text-gray-600">
-              Installieren Sie SattelHub für schnellen Zugriff und ein App-Erlebnis.
+              Installieren Sie SattelHub für schnellen Zugriff und ein
+              App-Erlebnis.
             </p>
           ) : (
             <p className="mt-1 text-sm leading-relaxed text-gray-600">
@@ -96,7 +104,11 @@ export default function InstallPrompt() {
         </button>
       </div>
       {!ios && deferredPrompt && (
-        <button type="button" onClick={install} className="btn-primary mt-3 w-full py-2.5">
+        <button
+          type="button"
+          onClick={install}
+          className="btn-primary mt-3 w-full py-2.5"
+        >
           Jetzt installieren
         </button>
       )}
