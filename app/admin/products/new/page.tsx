@@ -207,9 +207,10 @@ export default function AdminNewProductPage() {
     try {
       const formData = new FormData();
       fileArray.forEach((file) => formData.append("images", file));
-      const res = await api.post("/upload/products", formData, {
-        headers: { "Content-Type": "multipart/form-data" },
-      });
+
+      // Fixed: Removed manual Content-Type header so Axios generates the multipart boundary
+      const res = await api.post("/upload/products", formData);
+
       const incoming: { cloudinaryId: string; url: string; altText: string }[] =
         res.data?.data?.images ?? [];
       setUploadedImages((prev) => {
