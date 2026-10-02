@@ -97,12 +97,11 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
       .get(`/reviews/product/${product.id}`)
       .then((r) => setReviews(r.data.data?.reviews || []))
       .catch(() => {});
-    // Recommend by discipline first; if no discipline, fall back to random pool
-    const disciplineParam = product.discipline
-      ? `discipline=${product.discipline}`
-      : "sort=random";
+    const categoryParam = product.category_slug
+      ? `category=${product.category_slug}`
+      : "";
     api
-      .get(`/products?${disciplineParam}&sort=random&limit=7`)
+      .get(`/products?${categoryParam}${categoryParam ? "&" : ""}sort=random&limit=7`)
       .then((r) =>
         setRelatedProducts(
           (r.data.data?.products || [])
@@ -111,7 +110,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
         ),
       )
       .catch(() => {});
-  }, [product.id, product.discipline]);
+  }, [product.id, product.category_slug]);
 
   const hasSeatSizes = (product.available_seat_sizes?.length ?? 0) > 0;
   const hasColors = (product.available_colors?.length ?? 0) > 0;
@@ -162,7 +161,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
 
   const specRows = [
     { label: "Marke", value: product.brand },
-    { label: "Disziplin", value: product.discipline?.replace("_", " ") },
+    { label: "Kategorie", value: product.category_name },
     { label: "Zustand", value: CONDITION_LABELS[product.condition] },
     { label: "Sitzgröße", value: product.seat_size },
     { label: "Kammerweite", value: product.gullet_width },
@@ -189,14 +188,14 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
             <Link href="/products" className="hover:text-primary-600">
               Saddles
             </Link>
-            {product.category && (
+            {product.category_name && (
               <>
                 <span>/</span>
                 <Link
-                  href={`/products?discipline=${product.discipline}`}
+                  href={`/products?category=${product.category_slug}`}
                   className="hover:text-primary-600 capitalize"
                 >
-                  {product.category.name}
+                  {product.category_name}
                 </Link>
               </>
             )}
@@ -274,12 +273,12 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
 
           {/* Info */}
           <div>
-            {product.category && (
+            {product.category_name && (
               <Link
-                href={`/products?discipline=${product.discipline}`}
+                href={`/products?category=${product.category_slug}`}
                 className="text-xs text-gold-500 font-semibold uppercase tracking-widest hover:text-gold-600 block mb-2"
               >
-                {product.category.name}
+                {product.category_name}
               </Link>
             )}
 
@@ -853,15 +852,15 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                   Riders Also Loved
                 </h2>
                 <p className="text-gray-400 text-sm mt-1">
-                  {product.discipline
-                    ? `More ${product.discipline.replace(/_/g, " ")} saddles curated for you`
+                  {product.category_name
+                    ? `Weitere Produkte aus ${product.category_name}`
                     : "Similar saddles curated for you"}
                 </p>
               </div>
               <Link
                 href={
-                  product.discipline
-                    ? `/products?discipline=${product.discipline}`
+                  product.category_slug
+                    ? `/products?category=${product.category_slug}`
                     : "/products"
                 }
                 className="flex items-center gap-1.5 text-sm text-primary-500 hover:text-primary-700 font-medium transition-colors group whitespace-nowrap"

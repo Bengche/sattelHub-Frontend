@@ -24,16 +24,6 @@ export interface Address {
 }
 
 // ─── Products ────────────────────────────────────────────────────────────────
-export type SaddleDiscipline =
-  | "western"
-  | "english"
-  | "dressage"
-  | "jumping"
-  | "trail"
-  | "barrel_racing"
-  | "youth"
-  | "all_purpose";
-
 export type SaddleCondition = "new" | "excellent" | "good" | "fair";
 
 export interface Category {
@@ -65,7 +55,8 @@ export interface Product {
   stock_quantity: number;
   category_id: string;
   category?: Category;
-  discipline: SaddleDiscipline;
+  category_name?: string;
+  category_slug?: string;
   condition: SaddleCondition;
   brand?: string;
   seat_size?: string;
@@ -90,7 +81,6 @@ export interface Product {
 
 export interface ProductFilters {
   category?: string;
-  discipline?: string;
   condition?: string;
   minPrice?: number;
   maxPrice?: number;

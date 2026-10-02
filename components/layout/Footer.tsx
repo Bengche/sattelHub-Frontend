@@ -19,13 +19,14 @@ import api, { getErrorMessage } from "@/lib/api";
 const footerLinks = {
   Shop: [
     { label: "Alle Sättel", href: "/products" },
-    { label: "Western-Sättel", href: "/products?discipline=western" },
-    { label: "Englische Sättel", href: "/products?discipline=english" },
-    { label: "Dressursättel", href: "/products?discipline=dressage" },
-    { label: "Springsättel", href: "/products?discipline=jumping" },
-    { label: "Jugendsättel", href: "/products?discipline=youth" },
-    { label: "Barocksättel", href: "/products?category=barocksattel" },
-    { label: "Wanderreitsättel", href: "/products?category=wanderreitsattel" },
+    { label: "Westernsättel", href: "/products?category=western-saettel" },
+    { label: "Englische Sättel", href: "/products?category=englische-saettel" },
+    { label: "Dressursättel", href: "/products?category=dressursaettel" },
+    { label: "Springsättel", href: "/products?category=springsaettel" },
+    { label: "Jugendsättel", href: "/products?category=jugendsaettel" },
+    { label: "Barocksättel", href: "/products?category=barocksaettel" },
+    { label: "Wanderreitsättel", href: "/products?category=wanderreitsaettel" },
+    { label: "Vielseitigkeitssättel", href: "/products?category=vielseitigkeitssaettel" },
   ],
   Company: [
     { label: "Über uns", href: "/about" },

@@ -14,7 +14,7 @@ interface ProductResult {
   slug: string;
   price: number;
   compare_price: number | null;
-  discipline: string | null;
+  category_name: string | null;
   condition: string | null;
   image_url: string | null;
   brand: string | null;
@@ -115,9 +115,9 @@ function ProductCard({
             </span>
           )}
         </div>
-        {product.discipline && (
+        {product.category_name && (
           <span className="text-[10px] text-gray-400 capitalize">
-            {product.discipline.replace(/_/g, " ")}
+            {product.category_name}
           </span>
         )}
       </div>

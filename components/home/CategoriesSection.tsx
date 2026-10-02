@@ -8,58 +8,65 @@ import { motion } from "framer-motion";
 const categories = [
   {
     name: "Western-Sättel",
-    href: "/products?discipline=western",
+    href: "/products?category=western-saettel",
     image:
       "https://saddleonlineshop.com/cdn/shop/products/9075PonySS_2.jpg?v=1640371922",
     desc: "Klassischer Komfort für Gelände und Ranch",
   },
   {
     name: "Englische Sättel",
-    href: "/products?discipline=english",
+    href: "/products?category=englische-saettel",
     image: "https://i.ebayimg.com/images/g/C7AAAOSwgjxlAEVo/s-l400.jpg",
     desc: "Eleganz, Tradition und Leistung",
   },
   {
     name: "Dressursättel",
-    href: "/products?discipline=dressage",
+    href: "/products?category=dressursaettel",
     image:
       "https://batessaddles.eu/cdn/shop/files/900f5e982bd95b47f29f9206e397d759.png?v=1729221812",
     desc: "Präzision für anspruchsvolle Dressur",
   },
   {
     name: "Springsättel",
-    href: "/products?discipline=jumping",
+    href: "/products?category=springsaettel",
     image:
       "https://oursaddlery.com/wp-content/uploads/2021/05/Jumping_Saddle_Prestige_Paris_Classic_Black_1.jpg",
     desc: "Freiheit und Sicherheit über dem Sprung",
   },
   {
-    name: "Wandersättel",
-    href: "/products?category=trail-saddles",
+    name: "Wanderreitsättel",
+    href: "/products?category=wanderreitsaettel",
     image:
       "https://farmandranchdepot.com/images/product/KS-Braden-Trail-Saddle-KS2634.jpeg",
     desc: "Für lange Ausritte und Abenteuer",
   },
   {
     name: "Jugendsättel",
-    href: "/products?discipline=youth",
+    href: "/products?category=jugendsaettel",
     image:
       "https://www.chicksaddlery.com/Merchant2/graphics/00000001/WT5394_271x380_2.jpg",
     desc: "Sicher und bequem für junge Reiter",
   },
   {
-    name: "Barocksattel",
-    href: "/products?category=barocksattel",
+    name: "Barocksättel",
+    href: "/products?category=barocksaettel",
     image:
       "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=900&q=80",
     desc: "Klassischer Sitz für barocke Pferde und Dressur",
   },
   {
-    name: "Wanderreitsattel",
-    href: "/products?category=wanderreitsattel",
+    name: "Vielseitigkeitssättel",
+    href: "/products?category=vielseitigkeitssaettel",
+    image:
+      "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=900&q=80",
+    desc: "Flexibilität für verschiedene Reitweisen",
+  },
+  {
+    name: "Barrel-Racing-Sättel",
+    href: "/products?category=barrel-racing-saettel",
     image:
       "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=900&q=80",
-    desc: "Komfort für lange Ausritte und mehrtägige Touren",
+    desc: "Sicherer Sitz für schnelle Wendungen",
   },
 ];
 
@@ -78,14 +85,14 @@ export default function CategoriesSection() {
       <div className="container-custom">
         <div className="text-center mb-14">
           <p className="text-gold-500 text-sm font-medium tracking-widest uppercase mb-3">
-            Nach Disziplin
+            Sattelarten
           </p>
           <h2 className="section-heading section-heading-center font-bold text-primary-500 inline-block pb-4">
             Nach Kategorie einkaufen
           </h2>
           <p className="text-gray-500 mt-6 max-w-xl mx-auto text-base leading-relaxed">
-            Ob Westernreiten, englisches Reiten oder eine andere Disziplin - bei
-            uns finden Sie den passenden Sattel.
+            Entdecken Sie den passenden Sattel für Ihren Bedarf und Ihre
+            Reitweise.
           </p>
         </div>
 

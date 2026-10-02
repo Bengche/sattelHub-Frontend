@@ -8,7 +8,7 @@ import Spinner from "@/components/ui/Spinner";
 import Image from "next/image";
 import api, { getErrorMessage } from "@/lib/api";
 import { useToast } from "@/context/ToastContext";
-import type { Category, SaddleCondition, SaddleDiscipline } from "@/types";
+import type { Category, SaddleCondition } from "@/types";
 
 interface UploadedImage {
   cloudinaryId: string;
@@ -16,17 +16,6 @@ interface UploadedImage {
   altText: string;
   isPrimary: boolean;
 }
-
-const disciplines: SaddleDiscipline[] = [
-  "western",
-  "english",
-  "dressage",
-  "jumping",
-  "trail",
-  "barrel_racing",
-  "youth",
-  "all_purpose",
-];
 
 const conditions: SaddleCondition[] = ["new", "excellent", "good", "fair"];
 
@@ -165,7 +154,6 @@ export default function AdminNewProductPage() {
   const [stockQuantity, setStockQuantity] = useState("1");
   const [brand, setBrand] = useState("");
   const [categoryId, setCategoryId] = useState("");
-  const [discipline, setDiscipline] = useState<SaddleDiscipline>("all_purpose");
   const [condition, setCondition] = useState<SaddleCondition>("new");
 
   // Variant option arrays
@@ -278,7 +266,6 @@ export default function AdminNewProductPage() {
         stockQuantity: Number(stockQuantity || 0),
         brand: brand.trim() || undefined,
         categoryId: categoryId || undefined,
-        discipline,
         condition,
         availableSeatSizes,
         availableColors,
@@ -379,29 +366,11 @@ export default function AdminNewProductPage() {
               value={categoryId}
               onChange={(e) => setCategoryId(e.target.value)}
               disabled={loadingCategories}
+              required
             >
               {categories.map((c) => (
                 <option key={c.id} value={c.id}>
                   {c.name}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <div>
-            <label className="mb-1 block text-sm font-medium text-gray-700">
-              Discipline
-            </label>
-            <select
-              className="input-field"
-              value={discipline}
-              onChange={(e) =>
-                setDiscipline(e.target.value as SaddleDiscipline)
-              }
-            >
-              {disciplines.map((d) => (
-                <option key={d} value={d}>
-                  {d.replace("_", " ")}
                 </option>
               ))}
             </select>

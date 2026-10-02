@@ -12,20 +12,10 @@ import {
   Search,
 } from "lucide-react";
 import ProductCard from "@/components/product/ProductCard";
-import { Product, ProductFilters } from "@/types";
+import { Category, Product, ProductFilters } from "@/types";
 import api from "@/lib/api";
 import { formatPrice } from "@/lib/utils";
 
-const DISCIPLINES = [
-  "western",
-  "english",
-  "dressage",
-  "jumping",
-  "trail",
-  "barrel_racing",
-  "youth",
-  "all_purpose",
-];
 const CONDITIONS = ["new", "excellent", "good", "fair"];
 const SORT_OPTIONS = [
   { value: "random", label: "Empfohlen" },
@@ -81,6 +71,7 @@ export default function ProductsClient() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [products, setProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
   const [loading, setLoading] = useState(true);
   const [total, setTotal] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
@@ -90,7 +81,6 @@ export default function ProductsClient() {
   const filters: ProductFilters = {
     category: searchParams.get("category") || "",
     search: searchParams.get("search") || "",
-    discipline: searchParams.get("discipline") || "",
     condition: searchParams.get("condition") || "",
     minPrice: Number(searchParams.get("minPrice") || 0),
     maxPrice: Number(searchParams.get("maxPrice") || 0),
@@ -121,6 +111,15 @@ export default function ProductsClient() {
     fetchProducts();
   }, [fetchProducts]);
 
+  useEffect(() => {
+    api
+      .get("/products/categories")
+      .then((response) =>
+        setCategories(response.data.data?.categories ?? []),
+      )
+      .catch(() => setCategories([]));
+  }, []);
+
   const setParam = (key: string, value: string) => {
     const params = new URLSearchParams(searchParams.toString());
     if (value) params.set(key, value);
@@ -138,19 +137,12 @@ export default function ProductsClient() {
 
   const clearFilters = () => router.push("/products");
 
-  const disciplineTitle = filters.category
-    ? filters.category
-        .replace(/-/g, " ")
-        .replace(/\b\w/g, (l) => l.toUpperCase())
-    : filters.discipline
-      ? filters.discipline
-          .replace(/_/g, " ")
-          .replace(/\b\w/g, (l) => l.toUpperCase()) + " Saddles"
-      : "Reitsättel";
+  const categoryTitle =
+    categories.find((category) => category.slug === filters.category)?.name ||
+    "Reitsättel";
 
   const hasActiveFilters =
     filters.category ||
-    filters.discipline ||
     filters.condition ||
     filters.search ||
     filters.minPrice ||
@@ -162,7 +154,7 @@ export default function ProductsClient() {
       <div className="bg-primary-500 py-14 md:py-20">
         <div className="container-custom">
           <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-4">
-            {disciplineTitle}
+            {categoryTitle}
           </h1>
           <p className="text-white/70 text-lg max-w-lg">
             {total > 0
@@ -264,31 +256,28 @@ export default function ProductsClient() {
             >
               <div className="bg-white rounded-2xl shadow-card p-6">
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-                  {/* Discipline */}
+                  {/* Category */}
                   <div>
                     <p className="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-3">
-                      Discipline
+                      Kategorie
                     </p>
                     <div className="space-y-2">
-                      {DISCIPLINES.map((d) => (
+                      {categories.map((category) => (
                         <label
-                          key={d}
+                          key={category.id}
                           className="flex items-center gap-2 cursor-pointer group"
                         >
                           <input
                             type="radio"
-                            name="discipline"
-                            checked={filters.discipline === d}
+                            name="category"
+                            checked={filters.category === category.slug}
                             onChange={() =>
-                              setParam(
-                                "discipline",
-                                filters.discipline === d ? "" : d,
-                              )
+                              setParam("category", filters.category === category.slug ? "" : category.slug)
                             }
                             className="text-primary-500"
                           />
-                          <span className="text-sm text-gray-700 group-hover:text-primary-600 capitalize">
-                            {d.replace("_", " ")}
+                          <span className="text-sm text-gray-700 group-hover:text-primary-600">
+                            {category.name}
                           </span>
                         </label>
                       ))}

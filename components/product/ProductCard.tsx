@@ -102,11 +102,10 @@ export default function ProductCard({ product, className }: ProductCardProps) {
 
       {/* Body */}
       <div className="p-5 flex-1 flex flex-col">
-        {/* Discipline + seat size */}
+        {/* Category + seat size */}
         <div className="flex items-center justify-between mb-2">
           <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-primary-400">
-            {product.discipline?.replace(/_/g, " ") ||
-              product.category?.name ||
+            {product.category_name || product.category?.name ||
               "Sattel"}
           </span>
           {product.seat_size && (
