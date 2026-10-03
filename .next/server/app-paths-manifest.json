@@ -1,6 +1,5 @@
 {
   "/page": "app/page.js",
-  "/blog/page": "app/blog/page.js",
-  "/sitemap.xml/[[...__metadata_id__]]/route": "app/sitemap.xml/[[...__metadata_id__]]/route.js",
-  "/blog/[slug]/page": "app/blog/[slug]/page.js"
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/sitemap.xml/[[...__metadata_id__]]/route": "app/sitemap.xml/[[...__metadata_id__]]/route.js"
 }

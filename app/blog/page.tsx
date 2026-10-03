@@ -99,68 +99,68 @@ export default function BlogPage() {
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((post, i) => (
-                <motion.article
-                  key={post.id}
-                  initial={{ opacity: 0, y: 18 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.06 }}
-                  className="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow flex flex-col"
-                >
+            <motion.article
+              key={post.id}
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: i * 0.06 }}
+              className="group bg-white rounded-2xl overflow-hidden shadow-card hover:shadow-card-hover transition-shadow flex flex-col"
+            >
+              <Link
+                href={`/blog/${post.slug}`}
+                className="relative block aspect-[16/9] overflow-hidden bg-cream-200 flex-shrink-0"
+              >
+                {post.cover_image ? (
+                  <Image
+                    src={post.cover_image}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-primary-100 to-cream-300 flex items-center justify-center">
+                    <span className="font-serif text-3xl font-bold text-primary-200">
+                      {post.title.charAt(0)}
+                    </span>
+                  </div>
+                )}
+              </Link>
+
+              <div className="flex flex-col flex-1 p-5">
+                <div className="flex items-center justify-between mb-3">
+                  <span className="badge bg-primary-50 text-primary-600 text-xs">
+                    {post.category}
+                  </span>
+                  <span className="flex items-center gap-1 text-xs text-gray-400">
+                    <Clock size={12} /> {post.reading_time} Min. Lesezeit
+                  </span>
+                </div>
+
+                <Link href={`/blog/${post.slug}`}>
+                  <h2 className="font-serif text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2 mb-2 leading-snug">
+                    {post.title}
+                  </h2>
+                </Link>
+
+                <p className="text-sm text-gray-500 line-clamp-2 flex-1 mb-4">
+                  {post.excerpt}
+                </p>
+
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
+                  <span className="text-xs text-gray-400">
+                    {formatDate(post.published_at)}
+                  </span>
                   <Link
                     href={`/blog/${post.slug}`}
-                    className="relative block aspect-[16/9] overflow-hidden bg-cream-200 flex-shrink-0"
+                    className="flex items-center gap-1 text-xs font-medium text-primary-500 hover:text-primary-700 transition-colors"
                   >
-                    {post.cover_image ? (
-                      <Image
-                        src={post.cover_image}
-                        alt={post.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                      />
-                    ) : (
-                      <div className="w-full h-full bg-gradient-to-br from-primary-100 to-cream-300 flex items-center justify-center">
-                        <span className="font-serif text-3xl font-bold text-primary-200">
-                          {post.title.charAt(0)}
-                        </span>
-                      </div>
-                    )}
+                    Mehr lesen <ChevronRight size={14} />
                   </Link>
-
-                  <div className="flex flex-col flex-1 p-5">
-                    <div className="flex items-center justify-between mb-3">
-                      <span className="badge bg-primary-50 text-primary-600 text-xs">
-                        {post.category}
-                      </span>
-                      <span className="flex items-center gap-1 text-xs text-gray-400">
-                        <Clock size={12} /> {post.reading_time} Min. Lesezeit
-                      </span>
-                    </div>
-
-                    <Link href={`/blog/${post.slug}`}>
-                      <h2 className="font-serif text-lg font-semibold text-gray-900 group-hover:text-primary-600 transition-colors line-clamp-2 mb-2 leading-snug">
-                        {post.title}
-                      </h2>
-                    </Link>
-
-                    <p className="text-sm text-gray-500 line-clamp-2 flex-1 mb-4">
-                      {post.excerpt}
-                    </p>
-
-                    <div className="flex items-center justify-between pt-4 border-t border-gray-100 mt-auto">
-                      <span className="text-xs text-gray-400">
-                        {formatDate(post.published_at)}
-                      </span>
-                      <Link
-                        href={`/blog/${post.slug}`}
-                        className="flex items-center gap-1 text-xs font-medium text-primary-500 hover:text-primary-700 transition-colors"
-                      >
-                        Mehr lesen <ChevronRight size={14} />
-                      </Link>
-                    </div>
-                  </div>
-                </motion.article>
-              ))}
+                </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
 
         {filtered.length === 0 && (
@@ -174,7 +174,6 @@ export default function BlogPage() {
             </p>
           </div>
         )}
-
       </div>
     </div>
   );
