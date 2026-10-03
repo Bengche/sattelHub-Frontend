@@ -10,36 +10,31 @@ const categories = [
   {
     name: "Dressursättel",
     href: "/products?category=dressursaettel",
-    image:
-      "https://batessaddles.eu/cdn/shop/files/900f5e982bd95b47f29f9206e397d759.png?v=1729221812",
+    image: "/dressage.webp",
     desc: "Präzision für anspruchsvolle Dressur",
   },
   {
     name: "Springsättel",
     href: "/products?category=springsaettel",
-    image:
-      "https://oursaddlery.com/wp-content/uploads/2021/05/Jumping_Saddle_Prestige_Paris_Classic_Black_1.jpg",
+    image: "/springsattel.png",
     desc: "Freiheit und Sicherheit über dem Sprung",
   },
   {
     name: "Wanderreitsättel",
     href: "/products?category=wanderreitsaettel",
-    image:
-      "https://farmandranchdepot.com/images/product/KS-Braden-Trail-Saddle-KS2634.jpeg",
+    image: "/wandersattel.jpg",
     desc: "Für lange Ausritte und Abenteuer",
   },
   {
     name: "Barocksättel",
     href: "/products?category=barocksaettel",
-    image:
-      "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=900&q=80",
+    image: "/baroque%20saddle.jpg",
     desc: "Klassischer Sitz für barocke Pferde und Dressur",
   },
   {
     name: "Vielseitigkeitssättel",
     href: "/products?category=vielseitigkeitssaettel",
-    image:
-      "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=900&q=80",
+    image: "/all%20purpose.webp",
     desc: "Flexibilität für verschiedene Reitweisen",
   },
 ];
