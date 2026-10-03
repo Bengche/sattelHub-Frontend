@@ -189,14 +189,14 @@ export default function BlogPostPage({ params }: Props) {
           {/* CTA */}
           <div className="bg-primary-500 rounded-2xl p-8 text-center mb-16">
             <h3 className="font-serif text-2xl font-bold text-white mb-3">
-              Ready to Find Your Perfect Saddle?
+              Finden Sie Ihren passenden Sattel
             </h3>
             <p className="text-white/70 mb-6 text-sm">
-              Browse our curated collection with free 30-day trial on every
-              saddle.
+              Entdecken Sie unsere ausgewählte Kollektion und testen Sie jeden
+              Sattel 30 Tage lang.
             </p>
             <Link href="/products" className="btn-gold px-8 py-3">
-              Shop Saddles
+              Sättel entdecken
             </Link>
           </div>
         </div>
