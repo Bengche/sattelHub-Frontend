@@ -8,7 +8,7 @@ import { SITE_CONFIG } from "@/lib/siteConfig";
 import api, { getErrorMessage } from "@/lib/api";
 
 const footerLinks = {
-  Shop: [
+  Sortiment: [
     { label: "Alle Sättel", href: "/products" },
     { label: "Dressursättel", href: "/products?category=dressursaettel" },
     { label: "Springsättel", href: "/products?category=springsaettel" },
@@ -19,14 +19,14 @@ const footerLinks = {
       href: "/products?category=vielseitigkeitssaettel",
     },
   ],
-  Company: [
+  Unternehmen: [
     { label: "Über uns", href: "/about" },
     { label: "Warum wir", href: "/why-us" },
     { label: "Ratgeber", href: "/blog" },
     { label: "Kontakt", href: "/contact" },
     { label: "FAQ", href: "/faq" },
   ],
-  Support: [
+  Service: [
     { label: "Versand", href: "/shipping-policy" },
     { label: "Rückgabe und Erstattung", href: "/returns-refunds" },
     { label: "Datenschutz", href: "/privacy-policy" },
@@ -49,7 +49,7 @@ export default function Footer() {
       await api.post("/newsletter/subscribe", { email });
       setSubStatus("success");
       setSubMessage(
-        "Thank you! Check your inbox to confirm your subscription.",
+        "Vielen Dank! Bitte bestätigen Sie Ihre Anmeldung über den Link in Ihrem Postfach.",
       );
       setEmail("");
     } catch (err) {
@@ -178,27 +178,27 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-white/40">
           <p>
-            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. All rights
-            reserved.
+            &copy; {new Date().getFullYear()} {SITE_CONFIG.name}. Alle Rechte
+            vorbehalten.
           </p>
           <div className="flex items-center gap-5">
             <Link
               href="/privacy-policy"
               className="hover:text-white/70 transition-colors"
             >
-              Privacy
+              Datenschutz
             </Link>
             <Link
               href="/terms-conditions"
               className="hover:text-white/70 transition-colors"
             >
-              Terms
+              AGB
             </Link>
             <Link
               href="/returns-refunds"
               className="hover:text-white/70 transition-colors"
             >
-              Returns
+              Rückgabe
             </Link>
           </div>
           <p className="text-white/30 text-xs">

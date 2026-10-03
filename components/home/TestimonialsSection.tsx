@@ -6,40 +6,40 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Sarah Mitchell",
-    role: "Dressage competitor, 12 years",
+    name: "Lena Hoffmann",
+    role: "Dressurreiterin seit 12 Jahren",
     quote:
-      "The Hanoverian Dressage saddle I purchased has completely transformed my riding. The craftsmanship is extraordinary — every stitch, every panel speaks to quality. My horse moved in a way I hadn't seen before.",
+      "Der Dressursattel, den ich gekauft habe, hat mein Reiten grundlegend verändert. Die Verarbeitung ist außergewöhnlich: Jede Naht und jedes Sattelblatt zeugen von hoher Qualität. Mein Pferd bewegte sich plötzlich ganz anders.",
     rating: 5,
-    location: "Lexington, KY",
-    initials: "SM",
+    location: "Warendorf, Nordrhein-Westfalen",
+    initials: "LH",
   },
   {
-    name: "James Crawford",
-    role: "Ranch owner, 25 years",
+    name: "Markus Schneider",
+    role: "Hofbesitzer seit 25 Jahren",
     quote:
-      "I've bought saddles from everywhere, and nothing compares to the value and quality here. Their 30-day trial took all the risk out of it. The Western saddle fits both me and my quarter horse perfectly.",
+      "Ich habe schon Sättel bei vielen Anbietern gekauft, doch Qualität und Preis-Leistung hier überzeugen mich am meisten. Durch das 30-tägige Probereiten war der Kauf risikofrei. Der Westernsattel passt meinem Quarter Horse und mir perfekt.",
     rating: 5,
-    location: "Fort Worth, TX",
-    initials: "JC",
+    location: "Verden, Niedersachsen",
+    initials: "MS",
   },
   {
-    name: "Emily Rhodes",
-    role: "Show jumping trainer",
+    name: "Sophie Krüger",
+    role: "Springtrainerin",
     quote:
-      "Ordered a jumping saddle for one of my students and the process was seamless. Communication was excellent, delivery was fast, and the saddle exceeded expectations. Highly recommend.",
+      "Ich habe für eine meiner Schülerinnen einen Springsattel bestellt. Die Abwicklung war unkompliziert, die Kommunikation freundlich und die Lieferung schnell. Der Sattel hat unsere Erwartungen sogar übertroffen.",
     rating: 5,
-    location: "Ocala, FL",
-    initials: "ER",
+    location: "Aachen, Nordrhein-Westfalen",
+    initials: "SK",
   },
   {
-    name: "Michael Torres",
-    role: "Trail riding enthusiast",
+    name: "Thomas Berger",
+    role: "Begeisterter Wanderreiter",
     quote:
-      "After years of discomfort on long rides, this trail saddle has been a revelation. The weight distribution is perfect. I can ride for 8+ hours with no issues. Worth every penny.",
+      "Nach Jahren mit Beschwerden auf langen Ausritten war dieser Wanderreitsattel eine echte Entdeckung. Die Gewichtsverteilung ist sehr angenehm, und ich kann problemlos mehr als acht Stunden reiten. Jeder Euro war gut investiert.",
     rating: 5,
-    location: "Santa Fe, NM",
-    initials: "MT",
+    location: "Freiburg im Breisgau, Baden-Württemberg",
+    initials: "TB",
   },
 ];
 
@@ -66,14 +66,14 @@ export default function TestimonialsSection() {
       <div className="container-custom relative z-10">
         <div className="text-center mb-14">
           <p className="text-gold-400 text-sm font-medium tracking-widest uppercase mb-3">
-            What Riders Say
+            Stimmen aus dem Sattel
           </p>
           <h2 className="font-serif text-4xl font-bold text-white mb-4">
-            Real Experiences, Real Riders
+            Echte Erfahrungen von Reiterinnen und Reitern
           </h2>
           <p className="text-white/65 max-w-lg mx-auto">
-            Über tausend Reiter vertrauen Sattelhub.de bei ihrer wichtigsten
-            equipment.
+            Mehr als tausend Reiterinnen und Reiter vertrauen Sattelhub.de bei
+            der Wahl des passenden Sattels.
           </p>
         </div>
 

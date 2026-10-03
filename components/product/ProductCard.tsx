@@ -184,7 +184,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
         {/* Low stock warning */}
         {product.stock_quantity <= 3 && product.stock_quantity > 0 && (
           <p className="text-[11px] text-amber-600 font-semibold mt-2">
-            Only {product.stock_quantity} left in stock
+            Nur noch {product.stock_quantity} auf Lager
           </p>
         )}
       </div>

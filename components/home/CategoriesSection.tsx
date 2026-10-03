@@ -4,6 +4,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 const categories = [
   {
@@ -80,41 +81,29 @@ export default function CategoriesSection() {
             <motion.div key={cat.href} variants={item}>
               <Link
                 href={cat.href}
-                className="group relative overflow-hidden rounded-2xl aspect-[3/2] flex items-end"
+                className="group flex h-full flex-col overflow-hidden rounded-lg border border-[#e8e0d4] bg-white transition-all duration-300 hover:border-[#c4a862] hover:shadow-[0_12px_30px_rgba(28,53,87,0.10)]"
               >
-                <Image
-                  src={cat.image}
-                  alt={cat.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  sizes="(max-width: 640px) 50vw, 33vw"
-                />
-                {/* Darker gradient overlay for better text readability */}
-                <div className="absolute inset-0 bg-gradient-to-t from-primary-900/95 via-primary-900/70 to-transparent" />
-                {/* Content */}
-                <div className="relative z-10 p-4 md:p-5 w-full">
-                  <p className="text-xs text-gold-400 font-medium mb-0.5 uppercase tracking-wider">
-                    {cat.desc}
-                  </p>
-                  <h3 className="font-serif text-xl font-bold text-white flex items-center gap-2">
-                    {cat.name}
-                    <span className="w-5 h-5 rounded-full bg-gold-400 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 -translate-x-2 group-hover:translate-x-0">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 10 10"
-                        fill="none"
-                      >
-                        <path
-                          d="M2 5h6M5 2l3 3-3 3"
-                          stroke="white"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        />
-                      </svg>
-                    </span>
-                  </h3>
+                <div className="relative aspect-[3/2] w-full overflow-hidden bg-cream-200">
+                  <Image
+                    src={cat.image}
+                    alt={cat.name}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    sizes="(max-width: 640px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="flex min-h-[104px] flex-1 items-center justify-between gap-3 border-t border-[#e8e0d4] bg-[#fbf8f1] px-3 py-3 sm:px-4 md:px-5">
+                  <div className="min-w-0">
+                    <h3 className="line-clamp-2 font-serif text-base font-semibold leading-tight text-primary-900 sm:text-lg md:text-xl">
+                      {cat.name}
+                    </h3>
+                    <p className="mt-1 line-clamp-2 text-xs leading-snug text-gray-600 sm:text-sm">
+                      {cat.desc}
+                    </p>
+                  </div>
+                  <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full border border-[#d8c89b] text-primary-700 transition-all duration-300 group-hover:border-primary-700 group-hover:bg-primary-700 group-hover:text-white">
+                    <ArrowRight size={15} strokeWidth={1.7} />
+                  </span>
                 </div>
               </Link>
             </motion.div>

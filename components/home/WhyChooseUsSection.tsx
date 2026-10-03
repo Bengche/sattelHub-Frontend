@@ -151,7 +151,7 @@ export default function WhyChooseUsSection() {
         {/* CTA */}
         <div className="text-center mt-12">
           <Link href="/why-us" className="btn-secondary px-8 py-3">
-            Learn More About Us
+            Mehr über uns erfahren
           </Link>
         </div>
       </div>

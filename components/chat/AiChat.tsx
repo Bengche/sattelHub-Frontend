@@ -436,7 +436,7 @@ export default function AiChat() {
               transition={{ duration: 0.2 }}
               className="text-sm font-semibold whitespace-nowrap overflow-hidden tracking-wide"
             >
-              Ask Sterling
+              Sterling fragen
             </motion.span>
           )}
         </AnimatePresence>

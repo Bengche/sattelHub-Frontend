@@ -110,8 +110,8 @@ export default function HeroSection() {
               { value: "30 Tage", label: "Kostenlos testen" },
               { value: "4,9/5", label: "Kundenbewertung" },
               {
-                value: "Free",
-                label: `Versand ab ${require("@/lib/siteConfig").SITE_CONFIG.shipping.freeShippingThreshold} EUR kostenlos`,
+                value: "Kostenlos",
+                label: `Versand ab ${require("@/lib/siteConfig").SITE_CONFIG.shipping.freeShippingThreshold} EUR`,
               },
             ].map((stat) => (
               <div key={stat.label}>
