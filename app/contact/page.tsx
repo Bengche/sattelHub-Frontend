@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import ContactClient from "./ContactClient";
 import { SITE_CONFIG } from "@/lib/siteConfig";
-import { MapPin, Phone, Mail, MessageSquare, Clock } from "lucide-react";
+import { MapPin, Mail, Clock } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Kontakt",
-  description: `Kontaktieren Sie Sattelhub.de. Wir helfen Ihnen bei Sattelwahl, Bestellungen und Rückgaben. Sie erreichen uns unter ${SITE_CONFIG.phone} oder ${SITE_CONFIG.email.support}.`,
+  description: `Kontaktieren Sie Sattelhub.de. Wir helfen Ihnen bei Sattelwahl, Bestellungen und Rückgaben. Schreiben Sie uns an ${SITE_CONFIG.email.support}.`,
   alternates: { canonical: "/contact" },
 };
 
@@ -17,22 +17,10 @@ const contactInfo = [
     href: undefined,
   },
   {
-    icon: Phone,
-    label: "Telefon",
-    value: SITE_CONFIG.phone,
-    href: `tel:${SITE_CONFIG.phone}`,
-  },
-  {
     icon: Mail,
     label: "E-Mail",
     value: SITE_CONFIG.email.support,
     href: `mailto:${SITE_CONFIG.email.support}`,
-  },
-  {
-    icon: MessageSquare,
-    label: "WhatsApp",
-    value: SITE_CONFIG.whatsapp,
-    href: `https://wa.me/${SITE_CONFIG.whatsapp.replace(/\D/g, "")}`,
   },
   {
     icon: Clock,

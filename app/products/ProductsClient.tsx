@@ -113,10 +113,8 @@ export default function ProductsClient() {
 
   useEffect(() => {
     api
-      .get("/products/categories")
-      .then((response) =>
-        setCategories(response.data.data?.categories ?? []),
-      )
+      .get("/products/categories?available=true")
+      .then((response) => setCategories(response.data.data?.categories ?? []))
       .catch(() => setCategories([]));
   }, []);
 
@@ -272,7 +270,12 @@ export default function ProductsClient() {
                             name="category"
                             checked={filters.category === category.slug}
                             onChange={() =>
-                              setParam("category", filters.category === category.slug ? "" : category.slug)
+                              setParam(
+                                "category",
+                                filters.category === category.slug
+                                  ? ""
+                                  : category.slug,
+                              )
                             }
                             className="text-primary-500"
                           />

@@ -135,12 +135,11 @@ export default function ShippingPolicyPage() {
 
           <h2>Kontakt</h2>
           <p>
-            Fragen zum Versand? Kontaktieren Sie uns unter{" "}
+            Fragen zum Versand? Schreiben Sie uns an{" "}
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
-            </a>{" "}
-            oder rufen Sie uns unter{" "}
-            <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>.
+            </a>
+            .
           </p>
         </div>
       </div>

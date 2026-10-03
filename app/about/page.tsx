@@ -1,16 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  MapPin,
-  Phone,
-  Mail,
-  MessageSquare,
-  Award,
-  Users,
-  Heart,
-  Leaf,
-} from "lucide-react";
+import { MapPin, Mail, Award, Users, Heart, Leaf } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 export const metadata: Metadata = {
@@ -200,32 +191,12 @@ export default function AboutPage() {
                     <span>{SITE_CONFIG.address.full}</span>
                   </li>
                   <li className="flex items-center gap-3 text-white/80">
-                    <Phone size={18} className="text-gold-400" />
-                    <a
-                      href={`tel:${SITE_CONFIG.phone}`}
-                      className="hover:text-white"
-                    >
-                      {SITE_CONFIG.phone}
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-3 text-white/80">
                     <Mail size={18} className="text-gold-400" />
                     <a
                       href={`mailto:${SITE_CONFIG.email.support}`}
                       className="hover:text-white"
                     >
                       {SITE_CONFIG.email.support}
-                    </a>
-                  </li>
-                  <li className="flex items-center gap-3 text-white/80">
-                    <MessageSquare size={18} className="text-gold-400" />
-                    <a
-                      href={`https://wa.me/${SITE_CONFIG.whatsapp.replace(/\D/g, "")}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="hover:text-white"
-                    >
-                      WhatsApp: {SITE_CONFIG.whatsapp}
                     </a>
                   </li>
                 </ul>

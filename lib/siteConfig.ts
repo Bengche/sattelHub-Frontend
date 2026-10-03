@@ -14,11 +14,6 @@ export const SITE_CONFIG = {
   contact: {
     supportEmail: "support@sattelhub.de",
     salesEmail: "sales@sattelhub.de",
-    phone: "+1 (914) 432-9936",
-    phoneDisplay: "+1 (914) 432-9936",
-    whatsapp: "+1 (669) 247-2718",
-    whatsappDisplay: "+1 (669) 247-2718",
-    whatsappLink: "https://wa.me/16692472718",
   },
 
   address: {
@@ -31,14 +26,6 @@ export const SITE_CONFIG = {
     full: "8 Thackeray St, London W8 5ET, United Kingdom",
     mapsLink:
       "https://maps.google.com/?q=4001+Wing+Commander+Way+Lexington+KY+40511",
-  },
-
-  social: {
-    facebook: "https://facebook.com/sattelhub",
-    instagram: "https://instagram.com/sattelhub",
-    twitter: "https://twitter.com/sattelhub",
-    pinterest: "https://pinterest.com/sattelhub",
-    youtube: "https://youtube.com/@sattelhub",
   },
 
   trial: {
@@ -90,7 +77,6 @@ export const SITE_CONFIG = {
     ],
     ogImage: "/og-image.jpg",
     twitterCard: "summary_large_image",
-    twitterSite: "@sattelhub",
   },
 
   pwa: {
@@ -100,8 +86,6 @@ export const SITE_CONFIG = {
     backgroundColor: "#FAFAF7",
   },
   // Shorthand aliases (used across pages)
-  phone: "+1 (914) 432-9936",
-  whatsapp: "+1 (669) 247-2718",
   email: {
     support: "support@sattelhub.de",
     sales: "sales@sattelhub.de",

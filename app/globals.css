@@ -16,7 +16,135 @@
   --color-text: #1a1a1a;
   --color-text-muted: #6b7280;
   --color-border: #e5ddd0;
+  --announcement-height: 38px;
   --header-height: 80px;
+}
+
+.announcement-bar {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 60;
+  display: flex;
+  height: var(--announcement-height);
+  align-items: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(196, 168, 98, 0.8);
+  background: linear-gradient(100deg, #14263c, #1c3557 52%, #14263c);
+  color: #fff;
+}
+
+.announcement-viewport {
+  width: 100%;
+  overflow: hidden;
+}
+
+.announcement-track {
+  display: flex;
+  width: max-content;
+  animation: announcement-marquee 42s linear infinite;
+  will-change: transform;
+}
+
+.announcement-group {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0 2.5rem;
+  white-space: nowrap;
+}
+
+.announcement-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-size: 11px;
+  letter-spacing: 0.025em;
+}
+
+.announcement-icon {
+  flex: 0 0 auto;
+  color: #d8c17e;
+  stroke-width: 1.7;
+}
+
+.announcement-copy {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.35rem;
+}
+
+.announcement-copy strong {
+  color: #e4cf91;
+  font-family: var(--font-playfair), Georgia, serif;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.announcement-divider {
+  width: 1px;
+  height: 15px;
+  background: rgba(216, 193, 126, 0.45);
+}
+
+@keyframes announcement-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (hover: hover) {
+  .announcement-bar:hover .announcement-track {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --announcement-height: 54px;
+  }
+
+  .announcement-track {
+    width: 100%;
+    justify-content: center;
+    animation: none;
+  }
+
+  .announcement-group {
+    width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.25rem 1.5rem;
+    padding: 0.35rem 0.75rem;
+    white-space: normal;
+  }
+
+  .announcement-group + .announcement-group {
+    display: none;
+  }
+
+  .announcement-copy {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) and (prefers-reduced-motion: reduce) {
+  :root {
+    --announcement-height: 70px;
+  }
+
+  .announcement-group {
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .announcement-divider {
+    display: none;
+  }
 }
 
 /* ─── Base Styles ───────────────────────────────────────────────────────────── */

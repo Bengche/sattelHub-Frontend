@@ -3,30 +3,21 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Mail,
-  Phone,
-  MapPin,
-  Instagram,
-  Facebook,
-  Twitter,
-  Send,
-  ChevronRight,
-} from "lucide-react";
+import { Mail, MapPin, Send, ChevronRight } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import api, { getErrorMessage } from "@/lib/api";
 
 const footerLinks = {
   Shop: [
     { label: "Alle Sättel", href: "/products" },
-    { label: "Westernsättel", href: "/products?category=western-saettel" },
-    { label: "Englische Sättel", href: "/products?category=englische-saettel" },
     { label: "Dressursättel", href: "/products?category=dressursaettel" },
     { label: "Springsättel", href: "/products?category=springsaettel" },
-    { label: "Jugendsättel", href: "/products?category=jugendsaettel" },
     { label: "Barocksättel", href: "/products?category=barocksaettel" },
     { label: "Wanderreitsättel", href: "/products?category=wanderreitsaettel" },
-    { label: "Vielseitigkeitssättel", href: "/products?category=vielseitigkeitssaettel" },
+    {
+      label: "Vielseitigkeitssättel",
+      href: "/products?category=vielseitigkeitssaettel",
+    },
   ],
   Company: [
     { label: "Über uns", href: "/about" },
@@ -144,15 +135,6 @@ export default function Footer() {
                 <span>{SITE_CONFIG.address.full}</span>
               </li>
               <li className="flex items-center gap-3 text-sm text-white/70">
-                <Phone size={16} className="flex-shrink-0 text-gold-400" />
-                <a
-                  href={`tel:${SITE_CONFIG.phone}`}
-                  className="hover:text-white transition-colors"
-                >
-                  {SITE_CONFIG.phone}
-                </a>
-              </li>
-              <li className="flex items-center gap-3 text-sm text-white/70">
                 <Mail size={16} className="flex-shrink-0 text-gold-400" />
                 <a
                   href={`mailto:${SITE_CONFIG.email.support}`}
@@ -162,24 +144,6 @@ export default function Footer() {
                 </a>
               </li>
             </ul>
-
-            {/* Social */}
-            <div className="flex items-center gap-3 mt-6">
-              {[
-                { icon: Instagram, href: "#", label: "Instagram" },
-                { icon: Facebook, href: "#", label: "Facebook" },
-                { icon: Twitter, href: "#", label: "Twitter" },
-              ].map(({ icon: Icon, href, label }) => (
-                <a
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="w-9 h-9 rounded-lg bg-white/10 flex items-center justify-center text-white/70 hover:bg-gold-400 hover:text-white transition-all duration-200"
-                >
-                  <Icon size={16} />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Navigation columns */}

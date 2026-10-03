@@ -29,24 +29,16 @@ const navLinks = [
     href: "/products",
     children: [
       { label: "Alle Sättel", href: "/products" },
-      { label: "Westernsättel", href: "/products?category=western-saettel" },
-      { label: "Englische Sättel", href: "/products?category=englische-saettel" },
       { label: "Dressursättel", href: "/products?category=dressursaettel" },
       { label: "Springsättel", href: "/products?category=springsaettel" },
-      { label: "Wanderreitsättel", href: "/products?category=wanderreitsaettel" },
-      { label: "Barocksättel", href: "/products?category=barocksaettel" },
-      { label: "Jugendsättel", href: "/products?category=jugendsaettel" },
       {
-        label: "Barrel-Racing-Sättel",
-        href: "/products?category=barrel-racing-saettel",
+        label: "Wanderreitsättel",
+        href: "/products?category=wanderreitsaettel",
       },
+      { label: "Barocksättel", href: "/products?category=barocksaettel" },
       {
         label: "Vielseitigkeitssättel",
         href: "/products?category=vielseitigkeitssaettel",
-      },
-      {
-        label: "Sattelzubehör",
-        href: "/products?category=sattelzubehoer",
       },
     ],
   },
@@ -111,12 +103,15 @@ export default function Header() {
     <>
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
+          "fixed left-0 right-0 z-50 transition-all duration-500",
           isTransparent
             ? "bg-transparent"
             : "bg-white/95 backdrop-blur-md shadow-luxury border-b border-gray-100",
         )}
-        style={{ height: "var(--header-height)" }}
+        style={{
+          top: "var(--announcement-height)",
+          height: "var(--header-height)",
+        }}
       >
         <div className="container-custom h-full flex items-center justify-between">
           {/* Logo */}
@@ -376,7 +371,13 @@ export default function Header() {
       </header>
 
       {/* Spacer for non-hero pages */}
-      {!isHomePage && <div style={{ height: "var(--header-height)" }} />}
+      {!isHomePage && (
+        <div
+          style={{
+            height: "calc(var(--header-height) + var(--announcement-height))",
+          }}
+        />
+      )}
 
       {/* Search Overlay */}
       <AnimatePresence>
@@ -432,7 +433,8 @@ export default function Header() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-black/40"
+              className="fixed left-0 right-0 bottom-0 z-40 bg-black/40"
+              style={{ top: "var(--announcement-height)" }}
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
@@ -440,7 +442,8 @@ export default function Header() {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "tween", duration: 0.3 }}
-              className="fixed right-0 top-0 bottom-0 z-50 w-80 bg-white shadow-2xl flex flex-col"
+              className="fixed right-0 bottom-0 z-50 w-80 bg-white shadow-2xl flex flex-col"
+              style={{ top: "var(--announcement-height)" }}
             >
               <div className="flex items-center justify-between p-5 border-b border-gray-100">
                 <Image

@@ -150,8 +150,6 @@ export default function TermsConditionsPage() {
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
             </a>
-            <br />
-            <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>
           </p>
         </div>
       </div>

@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 import Spinner from "@/components/ui/Spinner";
 import Link from "next/link";
-import { CheckCircle, Package, Mail, Phone } from "lucide-react";
+import { CheckCircle, Package, Mail } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 
 function OrderSuccessContent() {
@@ -109,13 +109,6 @@ function OrderSuccessContent() {
               >
                 <Mail size={15} />
                 {SITE_CONFIG.contact.salesEmail}
-              </a>
-              <a
-                href={`tel:${SITE_CONFIG.contact.phone}`}
-                className="flex items-center justify-center gap-2 text-sm text-primary-500 hover:text-primary-600 font-medium"
-              >
-                <Phone size={15} />
-                {SITE_CONFIG.contact.phone}
               </a>
             </div>
           </div>

@@ -168,7 +168,6 @@ export default function RegisterPage() {
               <input
                 {...register("phone")}
                 type="tel"
-                placeholder="+49 30 12345678"
                 className="input-field pl-10"
               />
             </div>

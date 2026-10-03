@@ -15,7 +15,6 @@ interface ProductSelections {
   selectedSeatSize?: string;
   selectedColor?: string;
   selectedTreeSize?: string;
-  selectedWidth?: string;
 }
 
 interface CartContextType {

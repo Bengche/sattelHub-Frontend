@@ -172,7 +172,6 @@ function OrderDetailDrawer({
       `Warm regards,`,
       `Saddles Market Team`,
       `support@saddlesmarket.com`,
-      `+1 (914) 432-9936`,
     ]
       .filter((l) => l !== null)
       .join("\n");

@@ -105,7 +105,6 @@ export interface CartItem {
   selected_seat_size?: string;
   selected_color?: string;
   selected_tree_size?: string;
-  selected_width?: string;
   product: Pick<
     Product,
     | "id"
@@ -150,7 +149,6 @@ export interface OrderItem {
   seatSize?: string;
   selectedColor?: string;
   selectedTreeSize?: string;
-  selectedWidth?: string;
 }
 
 export interface Order {

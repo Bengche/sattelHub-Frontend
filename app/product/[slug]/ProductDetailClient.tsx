@@ -32,19 +32,6 @@ import { formatPrice } from "@/lib/utils";
 import api from "@/lib/api";
 import ProductCard from "@/components/product/ProductCard";
 
-// Standard horse saddle width options — shown on every product
-const SADDLE_WIDTHS = [
-  { value: "Narrow (C)", label: "Schmal", sub: 'C / 4.5"' },
-  { value: "Regular / Medium (D)", label: "Normal / Medium", sub: 'D / 5"' },
-  { value: "Wide (W)", label: "Weit", sub: 'W / 5.5"' },
-  { value: "Extra Wide (XW)", label: "Extra weit", sub: 'XW / 6"' },
-  {
-    value: "Extra Extra Wide (XXW)",
-    label: "Extra extra weit",
-    sub: 'XXW / 6.5"',
-  },
-];
-
 interface Props {
   initialProduct: Product;
   slug: string;
@@ -52,9 +39,9 @@ interface Props {
 
 const CONDITION_LABELS: Record<string, string> = {
   new: "Neu",
-  excellent: "Excellent",
-  good: "Good",
-  fair: "Fair",
+  excellent: "Sehr gut",
+  good: "Gut",
+  fair: "Akzeptabel",
 };
 
 export default function ProductDetailClient({ initialProduct, slug }: Props) {
@@ -74,7 +61,6 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
   const [selectedSeatSize, setSelectedSeatSize] = useState("");
   const [selectedColor, setSelectedColor] = useState("");
   const [selectedTreeSize, setSelectedTreeSize] = useState("");
-  const [selectedWidth, setSelectedWidth] = useState("");
 
   const { addToCart, loading: cartLoading } = useCart();
   const { toggle: toggleFav, isFavorite } = useFavorites();
@@ -101,7 +87,9 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
       ? `category=${product.category_slug}`
       : "";
     api
-      .get(`/products?${categoryParam}${categoryParam ? "&" : ""}sort=random&limit=7`)
+      .get(
+        `/products?${categoryParam}${categoryParam ? "&" : ""}sort=random&limit=7`,
+      )
       .then((r) =>
         setRelatedProducts(
           (r.data.data?.products || [])
@@ -126,15 +114,10 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
       showToast("Bitte wählen Sie eine Farbe.", "info");
       return;
     }
-    if (!selectedWidth) {
-      showToast("Bitte wählen Sie eine Sattelweite.", "info");
-      return;
-    }
     addToCart(product.id, qty, {
       selectedSeatSize: selectedSeatSize || undefined,
       selectedColor: selectedColor || undefined,
       selectedTreeSize: selectedTreeSize || undefined,
-      selectedWidth,
     });
   };
 
@@ -164,7 +147,6 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
     { label: "Kategorie", value: product.category_name },
     { label: "Zustand", value: CONDITION_LABELS[product.condition] },
     { label: "Sitzgröße", value: product.seat_size },
-    { label: "Kammerweite", value: product.gullet_width },
     { label: "Kopfeisen", value: product.tree_type },
     { label: "Lederart", value: product.leather_type },
     { label: "Farbe", value: product.color },
@@ -182,11 +164,11 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
         <div className="container-custom py-4">
           <nav className="flex items-center gap-2 text-sm text-gray-500">
             <Link href="/" className="hover:text-primary-600">
-              Home
+              Startseite
             </Link>
             <span>/</span>
             <Link href="/products" className="hover:text-primary-600">
-              Saddles
+              Sättel
             </Link>
             {product.category_name && (
               <>
@@ -309,7 +291,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                   href="#reviews"
                   className="text-sm text-primary-500 hover:underline"
                 >
-                  ({product.review_count} reviews)
+                  ({product.review_count} Bewertungen)
                 </a>
               </div>
             )}
@@ -351,8 +333,8 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
               <div className="flex items-center gap-2 mb-6 text-sm text-green-700">
                 <CheckCircle size={16} className="text-green-500" />
                 {product.stock_quantity <= 5
-                  ? `Only ${product.stock_quantity} left in stock`
-                  : "In stock — ships within 1-2 business days"}
+                  ? `Nur noch ${product.stock_quantity} auf Lager`
+                  : "Auf Lager – Versand innerhalb von 1–2 Werktagen"}
               </div>
             ) : (
               <p className="text-red-600 font-medium mb-6 text-sm">
@@ -366,7 +348,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
             {hasSeatSizes && (
               <div className="mb-5">
                 <p className="text-sm font-semibold text-gray-800 mb-2">
-                  Seat Size
+                  Sitzgröße
                   {selectedSeatSize && (
                     <span className="ml-2 text-primary-600 font-normal">
                       — {selectedSeatSize}
@@ -392,55 +374,11 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
               </div>
             )}
 
-            {/* Horse Saddle Width — always shown */}
-            <div className="mb-5">
-              <p className="text-sm font-semibold text-gray-800 mb-1">
-                Gullet / Width
-                {selectedWidth && (
-                  <span className="ml-2 text-primary-600 font-normal">
-                    — {selectedWidth}
-                  </span>
-                )}
-              </p>
-              <p className="text-xs text-gray-400 mb-2">
-                Match to your horse's back width.{" "}
-                <a
-                  href="https://www.saddlefit4life.com/saddle-fit-for-horse"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="underline hover:text-primary-500"
-                >
-                  How to measure
-                </a>
-              </p>
-              <div className="flex flex-col gap-1.5">
-                {SADDLE_WIDTHS.map((w) => (
-                  <button
-                    key={w.value}
-                    type="button"
-                    onClick={() => setSelectedWidth(w.value)}
-                    className={`flex items-center justify-between px-4 py-2.5 rounded-xl border text-sm transition-all text-left ${
-                      selectedWidth === w.value
-                        ? "bg-primary-600 text-white border-primary-600"
-                        : "bg-white text-gray-700 border-gray-200 hover:border-primary-400"
-                    }`}
-                  >
-                    <span className="font-medium">{w.label}</span>
-                    <span
-                      className={`text-xs ${selectedWidth === w.value ? "text-primary-200" : "text-gray-400"}`}
-                    >
-                      {w.sub}
-                    </span>
-                  </button>
-                ))}
-              </div>
-            </div>
-
             {/* Color */}
             {hasColors && (
               <div className="mb-5">
                 <p className="text-sm font-semibold text-gray-800 mb-2">
-                  Color
+                  Farbe
                   {selectedColor && (
                     <span className="ml-2 text-primary-600 font-normal">
                       — {selectedColor}
@@ -470,7 +408,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
             {hasTreeSizes && (
               <div className="mb-5">
                 <p className="text-sm font-semibold text-gray-800 mb-2">
-                  Tree Size
+                  Kopfeisengröße
                   {selectedTreeSize && (
                     <span className="ml-2 text-primary-600 font-normal">
                       — {selectedTreeSize}
@@ -546,33 +484,33 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
               {[
                 {
                   icon: Shield,
-                  text: "30-Day Ride Trial",
-                  sub: "Ride it before you keep it",
+                  text: "30-Tage-Satteltest",
+                  sub: "Vor dem Kauf in Ruhe testen",
                 },
                 {
                   icon: RotateCcw,
-                  text: "Free Returns",
-                  sub: "Hassle-free return process",
+                  text: "Kostenlose Rückgabe",
+                  sub: "Einfach und unkompliziert",
                 },
                 {
                   icon: Truck,
                   text: "Kostenloser Versand ab 2.000 EUR",
-                  sub: "Fast, insured delivery",
+                  sub: "Schneller, versicherter Versand",
                 },
                 {
                   icon: Award,
-                  text: "Authenticity Guaranteed",
-                  sub: "Every saddle vetted",
+                  text: "Echtheit garantiert",
+                  sub: "Jeder Sattel wird geprüft",
                 },
                 {
                   icon: Lock,
-                  text: "Secure Checkout",
-                  sub: "256-bit SSL encryption",
+                  text: "Sicher bezahlen",
+                  sub: "SSL-verschlüsselte Zahlung",
                 },
                 {
                   icon: Package,
-                  text: "Expert Packing",
-                  sub: "Arrives safely, protected",
+                  text: "Sorgfältig verpackt",
+                  sub: "Sicher und geschützt geliefert",
                 },
               ].map(({ icon: Icon, text, sub }) => (
                 <div
@@ -597,7 +535,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
             {/* Policy links */}
             <div className="flex flex-col gap-2 p-4 bg-cream-50 border border-cream-200 rounded-xl mb-5">
               <p className="text-xs font-semibold text-gray-600 uppercase tracking-wide mb-1">
-                Policies
+                Unsere Informationen
               </p>
               <Link
                 href="/shipping-policy"
@@ -608,7 +546,8 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                   className="text-primary-400 group-hover:text-primary-600 flex-shrink-0"
                 />
                 <span className="group-hover:underline">
-                  Shipping Policy — rates, timelines & carriers
+                  Versandinformationen – Kosten, Lieferzeiten und
+                  Versanddienstleister
                 </span>
               </Link>
               <Link
@@ -620,7 +559,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                   className="text-primary-400 group-hover:text-primary-600 flex-shrink-0"
                 />
                 <span className="group-hover:underline">
-                  Returns &amp; Refunds — 30-day ride trial details
+                  Rückgabe und Erstattung – Details zum 30-Tage-Satteltest
                 </span>
               </Link>
               <Link
@@ -632,7 +571,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                   className="text-primary-400 group-hover:text-primary-600 flex-shrink-0"
                 />
                 <span className="group-hover:underline">
-                  Terms &amp; Conditions
+                  Allgemeine Geschäftsbedingungen
                 </span>
               </Link>
             </div>
@@ -641,7 +580,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
             <button
               onClick={() => {
                 navigator.clipboard?.writeText(window.location.href);
-                showToast("Link copied!", "success");
+                showToast("Link kopiert!", "success");
               }}
               className="flex items-center gap-2 text-sm text-gray-400 hover:text-gray-600 transition-colors"
             >
@@ -693,7 +632,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
           className="bg-white rounded-2xl shadow-card p-5 sm:p-8 mb-6 sm:mb-10"
         >
           <h2 className="font-serif text-2xl font-bold text-primary-500 mb-6">
-            Reviews ({reviews.length})
+            Bewertungen ({reviews.length})
           </h2>
 
           {reviews.length === 0 ? (
@@ -729,11 +668,11 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                     </div>
                     <div className="sm:text-right flex sm:flex-col items-center sm:items-end gap-2">
                       <p className="text-xs text-gray-400">
-                        {new Date(r.created_at).toLocaleDateString()}
+                        {new Date(r.created_at).toLocaleDateString("de-DE")}
                       </p>
                       {r.is_verified && (
                         <span className="badge bg-green-50 text-green-700 text-xs">
-                          Verified Purchase
+                          Verifizierter Kauf
                         </span>
                       )}
                     </div>
@@ -761,7 +700,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                   className="text-primary-500 underline"
                 >
                   Anmelden
-                </Link>{" "}
+                </Link>
                 , um eine Bewertung abzugeben.
               </p>
             ) : (
@@ -840,7 +779,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
             <div className="flex items-center gap-4 mb-10">
               <div className="flex-1 h-px bg-gray-200" />
               <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gray-400 whitespace-nowrap">
-                You May Also Like
+                Das könnte Ihnen auch gefallen
               </span>
               <div className="flex-1 h-px bg-gray-200" />
             </div>
@@ -849,12 +788,12 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
             <div className="flex items-end justify-between gap-4 mb-8">
               <div>
                 <h2 className="font-serif text-2xl sm:text-3xl font-bold text-primary-500">
-                  Riders Also Loved
+                  Diese Sättel sind ebenfalls beliebt
                 </h2>
                 <p className="text-gray-400 text-sm mt-1">
                   {product.category_name
                     ? `Weitere Produkte aus ${product.category_name}`
-                    : "Similar saddles curated for you"}
+                    : "Ähnliche Sättel für Sie zusammengestellt"}
                 </p>
               </div>
               <Link
@@ -865,7 +804,7 @@ export default function ProductDetailClient({ initialProduct, slug }: Props) {
                 }
                 className="flex items-center gap-1.5 text-sm text-primary-500 hover:text-primary-700 font-medium transition-colors group whitespace-nowrap"
               >
-                View all
+                Alle ansehen
                 <ArrowRight
                   size={14}
                   className="group-hover:translate-x-1 transition-transform duration-200"

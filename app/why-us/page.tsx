@@ -43,7 +43,7 @@ const pillars = [
   {
     icon: UserCheck,
     title: "Echte Fachberatung",
-    desc: `Unser Kundenservice besteht aus aktiven Reitern, nicht aus Callcenter-Mitarbeitern mit Skripten. Bei Fragen zu Kammerweite oder Pauschen erhalten Sie eine echte Antwort von einem Reiter. Sie erreichen uns unter ${SITE_CONFIG.phone} oder per WhatsApp unter ${SITE_CONFIG.whatsapp}.`,
+    desc: "Unser Kundenservice besteht aus aktiven Reitern, nicht aus Callcenter-Mitarbeitern mit Skripten. Bei Fragen zu Kammerweite oder Pauschen erhalten Sie eine persönliche Antwort von einem Reiter. Schreiben Sie uns gern eine Nachricht.",
     stat: "< 24h",
     statLabel: "Antwortzeit",
   },

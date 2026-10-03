@@ -10,7 +10,6 @@ import { CheckCircle } from "lucide-react";
 const schema = z.object({
   name: z.string().min(2, "Bitte geben Sie Ihren Namen ein"),
   email: z.string().email("Ungültige E-Mail-Adresse"),
-  phone: z.string().optional(),
   subject: z.string().min(3, "Bitte geben Sie einen Betreff ein"),
   message: z
     .string()
@@ -105,18 +104,7 @@ export default function ContactClient() {
             )}
           </div>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-          <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Telefon (optional)
-            </label>
-            <input
-              type="tel"
-              {...register("phone")}
-              className="input-field"
-              placeholder="+49 30 12345678"
-            />
-          </div>
+        <div className="grid grid-cols-1 gap-5">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">
               Betreff *

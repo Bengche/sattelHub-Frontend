@@ -119,7 +119,7 @@ export default async function BlogPostPage({ params }: Props) {
               }}
             />
 
-            {/* Share & back */}
+            {/* Back to the article list */}
             <div className="flex items-center justify-between mt-12 pt-8 border-t border-gray-100">
               <Link
                 href="/blog"
@@ -127,29 +127,6 @@ export default async function BlogPostPage({ params }: Props) {
               >
                 <ArrowLeft size={16} /> Alle Artikel
               </Link>
-              <div className="flex items-center gap-3">
-                <span className="text-sm text-gray-500">Teilen:</span>
-                {[
-                  {
-                    label: "Twitter",
-                    url: `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(`${SITE_CONFIG.url}/blog/${post.slug}`)}`,
-                  },
-                  {
-                    label: "Facebook",
-                    url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(`${SITE_CONFIG.url}/blog/${post.slug}`)}`,
-                  },
-                ].map(({ label, url }) => (
-                  <a
-                    key={label}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-primary-500 hover:text-primary-700 transition-colors underline underline-offset-2"
-                  >
-                    {label}
-                  </a>
-                ))}
-              </div>
             </div>
           </article>
 

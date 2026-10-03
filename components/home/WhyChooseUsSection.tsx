@@ -48,7 +48,7 @@ const features = [
     icon: MessageSquare,
     title: "Fachkundige Sattelberatung",
     description:
-      "Nicht sicher, welcher Sattel passt? Unsere Reitsport-Experten beraten Sie telefonisch und per Chat.",
+      "Nicht sicher, welcher Sattel passt? Unsere Reitsport-Experten beraten Sie per Nachricht und Chat.",
     color: "text-purple-600",
     bg: "bg-purple-50",
   },

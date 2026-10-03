@@ -25,32 +25,15 @@ const addressSchema = z.object({
   country: z.string().min(2, "Pflichtfeld"),
 });
 
-const checkoutSchema = z
-  .object({
-    shipping: addressSchema,
-    billingSameAsShipping: z.boolean(),
-    billing: addressSchema.optional(),
-    shippingMethod: z.enum(["standard", "express", "free"]),
-    paymentMethod: z.enum([
-      "paypal",
-      "bank_transfer",
-      "zelle",
-      "crypto",
-      "other",
-    ]),
-    paymentOtherDetails: z.string().optional(),
-    couponCode: z.string().optional(),
-    notes: z.string().optional(),
-  })
-  .superRefine((data, ctx) => {
-    if (data.paymentMethod === "other" && !data.paymentOtherDetails?.trim()) {
-      ctx.addIssue({
-        code: z.ZodIssueCode.custom,
-        message: "Bitte beschreiben Sie Ihre Zahlungsmethode",
-        path: ["paymentOtherDetails"],
-      });
-    }
-  });
+const checkoutSchema = z.object({
+  shipping: addressSchema,
+  billingSameAsShipping: z.boolean(),
+  billing: addressSchema.optional(),
+  shippingMethod: z.enum(["standard", "express", "free"]),
+  paymentMethod: z.enum(["bank_transfer", "crypto"]),
+  couponCode: z.string().optional(),
+  notes: z.string().optional(),
+});
 
 type CheckoutFormData = z.infer<typeof checkoutSchema>;
 
@@ -58,7 +41,7 @@ const FIELD_LABELS: Record<string, string> = {
   firstName: "Vorname",
   lastName: "Nachname",
   email: "E-Mail-Adresse",
-  phone: "Telefon",
+  phone: "Telefonnummer",
   street: "Straße",
   city: "Ort",
   state: "Bundesland",
@@ -117,7 +100,7 @@ export default function CheckoutPage() {
         city: "",
         state: "",
         zipCode: "",
-        country: "United States",
+        country: "Deutschland",
       },
       billingSameAsShipping: true,
       shippingMethod: freeShip ? "free" : "standard",
@@ -171,7 +154,6 @@ export default function CheckoutPage() {
           selectedSeatSize: i.selected_seat_size,
           selectedColor: i.selected_color,
           selectedTreeSize: i.selected_tree_size,
-          selectedWidth: i.selected_width,
         })),
         shippingAddress: data.shipping,
         billingAddress: data.billingSameAsShipping
@@ -183,17 +165,8 @@ export default function CheckoutPage() {
         couponCode: appliedCouponCode || undefined,
         customerNotes: (() => {
           const methodLabel: Record<string, string> = {
-            zelle: "Zelle",
-            crypto: "Cryptocurrency",
+            crypto: "Kryptowährung",
           };
-          if (
-            data.paymentMethod === "other" &&
-            data.paymentOtherDetails?.trim()
-          ) {
-            return `Zahlungsmethode: ${data.paymentOtherDetails.trim()}${
-              data.notes ? `\n${data.notes}` : ""
-            }`;
-          }
           if (methodLabel[data.paymentMethod]) {
             return `Zahlungsmethode: ${methodLabel[data.paymentMethod]}${
               data.notes ? `\n${data.notes}` : ""
@@ -218,15 +191,15 @@ export default function CheckoutPage() {
     return (
       <div className="min-h-screen bg-cream-100 flex items-center justify-center px-4">
         <div className="text-center">
-          <p className="text-6xl font-serif text-primary-200 mb-4">Empty</p>
+          <p className="text-6xl font-serif text-primary-200 mb-4">Leer</p>
           <h2 className="font-serif text-2xl font-bold text-primary-500 mb-3">
-            No items to checkout
+            Ihr Warenkorb ist leer
           </h2>
           <p className="text-gray-500 mb-6">
-            Add some saddles to your cart first.
+            Legen Sie zuerst einen Sattel in den Warenkorb.
           </p>
           <Link href="/products" className="btn-primary">
-            Shop Saddles
+            Sättel entdecken
           </Link>
         </div>
       </div>
@@ -239,14 +212,14 @@ export default function CheckoutPage() {
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-gray-400 mb-8">
           <Link href="/cart" className="hover:text-primary-500">
-            Cart
+            Warenkorb
           </Link>
           <ChevronRight size={14} />
-          <span className="text-gray-600 font-medium">Checkout</span>
+          <span className="text-gray-600 font-medium">Kasse</span>
         </nav>
 
         <h1 className="font-serif text-4xl font-bold text-primary-500 mb-10">
-          Checkout
+          Zur Kasse
         </h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -256,12 +229,12 @@ export default function CheckoutPage() {
               {/* Shipping Address */}
               <div className="bg-white rounded-2xl shadow-card p-7">
                 <h2 className="font-serif text-xl font-semibold text-gray-900 mb-6">
-                  Shipping Address
+                  Lieferadresse
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      First Name *
+                      Vorname *
                     </label>
                     <input
                       {...register("shipping.firstName")}
@@ -275,7 +248,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Last Name *
+                      Nachname *
                     </label>
                     <input
                       {...register("shipping.lastName")}
@@ -289,7 +262,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Email *
+                      E-Mail-Adresse *
                     </label>
                     <input
                       type="email"
@@ -304,7 +277,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Phone *
+                      Telefonnummer *
                     </label>
                     <input
                       type="tel"
@@ -334,7 +307,7 @@ export default function CheckoutPage() {
                   </div>
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      City *
+                      Ort *
                     </label>
                     <input
                       {...register("shipping.city")}
@@ -483,7 +456,9 @@ export default function CheckoutPage() {
                         </p>
                         <p className="text-sm text-gray-500">3-5 Werktage</p>
                       </div>
-                      <span className="font-semibold text-green-600">FREE</span>
+                      <span className="font-semibold text-green-600">
+                        KOSTENLOS
+                      </span>
                     </label>
                   )}
 
@@ -525,27 +500,12 @@ export default function CheckoutPage() {
                     {
                       id: "bank_transfer",
                       label: "Banküberweisung",
-                      desc: "Unser Team sendet Ihnen nach der Bestellung die Zahlungsdetails",
-                    },
-                    {
-                      id: "paypal",
-                      label: "PayPal",
-                      desc: "Mit Ihrem PayPal-Konto bezahlen",
-                    },
-                    {
-                      id: "zelle",
-                      label: "Zelle",
-                      desc: "Send payment via Zelle — details emailed after order",
+                      desc: "Die Zahlungsdaten erhalten Sie nach der Bestellung per E-Mail.",
                     },
                     {
                       id: "crypto",
                       label: "Kryptowährung",
-                      desc: "Pay with Bitcoin, Ethereum, or other crypto — details emailed after order",
-                    },
-                    {
-                      id: "other",
-                      label: "Andere",
-                      desc: "Venmo, Western Union oder eine andere Methode",
+                      desc: "Zahlungsdetails für Bitcoin, Ethereum und weitere Kryptowährungen erhalten Sie per E-Mail.",
                     },
                   ].map((pm) => (
                     <label
@@ -568,30 +528,15 @@ export default function CheckoutPage() {
                       </div>
                     </label>
                   ))}
-
-                  {watch("paymentMethod") === "other" && (
-                    <div className="pt-1">
-                      <input
-                        {...register("paymentOtherDetails")}
-                        placeholder="Beschreiben Sie Ihre Zahlungsmethode (z. B. Zelle, Venmo, Western Union ...)"
-                        className="input-field"
-                      />
-                      {errors.paymentOtherDetails && (
-                        <p className="text-red-500 text-xs mt-1">
-                          {errors.paymentOtherDetails.message as string}
-                        </p>
-                      )}
-                    </div>
-                  )}
                 </div>
               </div>
 
               {/* Order notes */}
               <div className="bg-white rounded-2xl shadow-card p-7">
                 <h2 className="font-serif text-xl font-semibold text-gray-900 mb-4">
-                  Order Notes{" "}
+                  Bestellhinweise{" "}
                   <span className="text-gray-400 font-normal text-sm">
-                    (Optional)
+                    (optional)
                   </span>
                 </h2>
                 <textarea
@@ -630,33 +575,27 @@ export default function CheckoutPage() {
                         </p>
                         {/* Variant summary */}
                         {(item.selected_seat_size ||
-                          item.selected_width ||
                           item.selected_color ||
                           item.selected_tree_size) && (
                           <div className="flex flex-wrap gap-1 mt-0.5 mb-0.5">
                             {item.selected_seat_size && (
                               <span className="text-xs text-primary-600 bg-primary-50 rounded px-1.5 py-0.5">
-                                Seat: {item.selected_seat_size}
-                              </span>
-                            )}
-                            {item.selected_width && (
-                              <span className="text-xs text-primary-600 bg-primary-50 rounded px-1.5 py-0.5">
-                                Width: {item.selected_width}
+                                Sitzgröße: {item.selected_seat_size}
                               </span>
                             )}
                             {item.selected_color && (
                               <span className="text-xs text-primary-600 bg-primary-50 rounded px-1.5 py-0.5">
-                                Color: {item.selected_color}
+                                Farbe: {item.selected_color}
                               </span>
                             )}
                             {item.selected_tree_size && (
                               <span className="text-xs text-primary-600 bg-primary-50 rounded px-1.5 py-0.5">
-                                Tree: {item.selected_tree_size}
+                                Kopfeisen: {item.selected_tree_size}
                               </span>
                             )}
                           </div>
                         )}
-                        <p className="text-gray-400">Qty: {item.quantity}</p>
+                        <p className="text-gray-400">Menge: {item.quantity}</p>
                       </div>
                       <p className="font-medium text-gray-900 whitespace-nowrap">
                         {formatPrice(
@@ -727,7 +666,7 @@ export default function CheckoutPage() {
                   {/* Totals */}
                   <div className="space-y-2 text-sm">
                     <div className="flex justify-between text-gray-600">
-                      <span>Subtotal</span>
+                      <span>Zwischensumme</span>
                       <span>{formatPrice(subtotal)}</span>
                     </div>
                     <div className="flex justify-between text-gray-600">
@@ -747,7 +686,7 @@ export default function CheckoutPage() {
                       </div>
                     )}
                     <div className="flex justify-between font-semibold text-base text-gray-900 pt-2 border-t border-gray-100">
-                      <span>Total</span>
+                      <span>Gesamtbetrag</span>
                       <span>{formatPrice(total)}</span>
                     </div>
                   </div>
@@ -770,14 +709,14 @@ export default function CheckoutPage() {
                 </div>
 
                 <p className="text-xs text-gray-400 text-center mt-3">
-                  By placing your order you agree to our{" "}
+                  Mit Ihrer Bestellung stimmen Sie unseren{" "}
                   <Link
                     href="/terms-conditions"
                     className="underline hover:text-primary-500"
                   >
                     AGB
                   </Link>{" "}
-                  and{" "}
+                  und der{" "}
                   <Link
                     href="/privacy-policy"
                     className="underline hover:text-primary-500"

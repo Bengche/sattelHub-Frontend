@@ -6,6 +6,7 @@ import { ToastProvider } from "@/context/ToastContext";
 import { AuthProvider } from "@/context/AuthContext";
 import { CartProvider } from "@/context/CartContext";
 import { FavoritesProvider } from "@/context/FavoritesContext";
+import AnnouncementBar from "@/components/layout/AnnouncementBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CookieConsent from "@/components/CookieConsent";
@@ -85,6 +86,7 @@ export default function RootLayout({
           <AuthProvider>
             <CartProvider>
               <FavoritesProvider>
+                <AnnouncementBar />
                 <Header />
                 <main id="main-content" tabIndex={-1}>
                   {children}

@@ -105,8 +105,7 @@ export default function ProductCard({ product, className }: ProductCardProps) {
         {/* Category + seat size */}
         <div className="flex items-center justify-between mb-2">
           <span className="text-[10px] font-bold tracking-[0.12em] uppercase text-primary-400">
-            {product.category_name || product.category?.name ||
-              "Sattel"}
+            {product.category_name || product.category?.name || "Sattel"}
           </span>
           {product.seat_size && (
             <span className="text-[10px] font-semibold bg-cream-200 text-primary-500 px-2 py-0.5 rounded-full">

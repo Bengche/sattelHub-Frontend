@@ -131,18 +131,12 @@ export default function OrdersPage() {
                         </span>
                         {/* Variant summary */}
                         {(item.seatSize ||
-                          item.selectedWidth ||
                           item.selectedColor ||
                           item.selectedTreeSize) && (
                           <div className="flex flex-wrap gap-1 mt-1">
                             {item.seatSize && (
                               <span className="text-xs bg-white text-primary-600 border border-primary-100 rounded px-1.5 py-0.5">
                                 Sitzgröße: {item.seatSize}
-                              </span>
-                            )}
-                            {item.selectedWidth && (
-                              <span className="text-xs bg-white text-primary-600 border border-primary-100 rounded px-1.5 py-0.5">
-                                Weite: {item.selectedWidth}
                               </span>
                             )}
                             {item.selectedColor && (

@@ -117,7 +117,6 @@ export default function ReturnsRefundsPage() {
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
             </a>{" "}
-            or call <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>{" "}
             innerhalb Ihres 30-tägigen Testzeitraums. Wir organisieren den
             Umtausch ohne zusätzliche Versandkosten.
           </p>
@@ -138,18 +137,6 @@ export default function ReturnsRefundsPage() {
             Email:{" "}
             <a href={`mailto:${SITE_CONFIG.email.support}`}>
               {SITE_CONFIG.email.support}
-            </a>
-            <br />
-            Telefon:{" "}
-            <a href={`tel:${SITE_CONFIG.phone}`}>{SITE_CONFIG.phone}</a>
-            <br />
-            WhatsApp:{" "}
-            <a
-              href={`https://wa.me/${SITE_CONFIG.whatsapp.replace(/\D/g, "")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {SITE_CONFIG.whatsapp}
             </a>
           </p>
         </div>

@@ -75,7 +75,6 @@ interface OrderDetail {
     seat_size?: string;
     selected_color?: string;
     selected_tree_size?: string;
-    selected_width?: string;
   }>;
 }
 
@@ -201,22 +200,17 @@ export default function OrderDetailPage() {
                     <div className="flex flex-wrap gap-1.5 mt-1.5">
                       {item.seat_size && (
                         <span className="text-xs bg-cream-100 text-primary-600 border border-primary-100 rounded px-2 py-0.5">
-                          Seat: {item.seat_size}&quot;
-                        </span>
-                      )}
-                      {item.selected_width && (
-                        <span className="text-xs bg-cream-100 text-primary-600 border border-primary-100 rounded px-2 py-0.5">
-                          Width: {item.selected_width}
+                          Sitzgröße: {item.seat_size}&quot;
                         </span>
                       )}
                       {item.selected_color && (
                         <span className="text-xs bg-cream-100 text-primary-600 border border-primary-100 rounded px-2 py-0.5">
-                          Color: {item.selected_color}
+                          Farbe: {item.selected_color}
                         </span>
                       )}
                       {item.selected_tree_size && (
                         <span className="text-xs bg-cream-100 text-primary-600 border border-primary-100 rounded px-2 py-0.5">
-                          Tree: {item.selected_tree_size}
+                          Kopfeisen: {item.selected_tree_size}
                         </span>
                       )}
                     </div>

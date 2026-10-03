@@ -7,19 +7,6 @@ import { motion } from "framer-motion";
 
 const categories = [
   {
-    name: "Western-Sättel",
-    href: "/products?category=western-saettel",
-    image:
-      "https://saddleonlineshop.com/cdn/shop/products/9075PonySS_2.jpg?v=1640371922",
-    desc: "Klassischer Komfort für Gelände und Ranch",
-  },
-  {
-    name: "Englische Sättel",
-    href: "/products?category=englische-saettel",
-    image: "https://i.ebayimg.com/images/g/C7AAAOSwgjxlAEVo/s-l400.jpg",
-    desc: "Eleganz, Tradition und Leistung",
-  },
-  {
     name: "Dressursättel",
     href: "/products?category=dressursaettel",
     image:
@@ -41,13 +28,6 @@ const categories = [
     desc: "Für lange Ausritte und Abenteuer",
   },
   {
-    name: "Jugendsättel",
-    href: "/products?category=jugendsaettel",
-    image:
-      "https://www.chicksaddlery.com/Merchant2/graphics/00000001/WT5394_271x380_2.jpg",
-    desc: "Sicher und bequem für junge Reiter",
-  },
-  {
     name: "Barocksättel",
     href: "/products?category=barocksaettel",
     image:
@@ -60,13 +40,6 @@ const categories = [
     image:
       "https://images.unsplash.com/photo-1551884831-bbf3cdc6469e?auto=format&fit=crop&w=900&q=80",
     desc: "Flexibilität für verschiedene Reitweisen",
-  },
-  {
-    name: "Barrel-Racing-Sättel",
-    href: "/products?category=barrel-racing-saettel",
-    image:
-      "https://images.unsplash.com/photo-1553284965-83fd3e82fa5a?auto=format&fit=crop&w=900&q=80",
-    desc: "Sicherer Sitz für schnelle Wendungen",
   },
 ];
 
@@ -107,7 +80,7 @@ export default function CategoriesSection() {
             <motion.div key={cat.href} variants={item}>
               <Link
                 href={cat.href}
-                className="group relative overflow-hidden rounded-2xl aspect-[3/2] flex items-end block"
+                className="group relative overflow-hidden rounded-2xl aspect-[3/2] flex items-end"
               >
                 <Image
                   src={cat.image}
