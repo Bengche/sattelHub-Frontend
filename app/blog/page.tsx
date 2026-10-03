@@ -1,67 +1,32 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Clock, ChevronRight, Search } from "lucide-react";
-import { BlogPost } from "@/types";
-import api from "@/lib/api";
 import { formatDate } from "@/lib/utils";
-import { Metadata } from "next";
+import { BLOG_POSTS } from "@/lib/blogPosts";
 
 const CATEGORIES = [
   "Alle",
-  "Sattelratgeber",
-  "Sattelpflege",
-  "Disziplinen",
-  "Kaufberatung",
-  "Pferdegesundheit",
+  ...Array.from(new Set(BLOG_POSTS.map((post) => post.category))),
 ];
 
-function BlogSkeleton() {
-  return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-card animate-pulse">
-      <div className="aspect-[16/9] bg-gray-200" />
-      <div className="p-5 space-y-3">
-        <div className="h-3 bg-gray-200 rounded w-1/4" />
-        <div className="h-5 bg-gray-200 rounded w-4/5" />
-        <div className="h-3 bg-gray-200 rounded w-full" />
-        <div className="h-3 bg-gray-200 rounded w-2/3" />
-      </div>
-    </div>
-  );
-}
-
 export default function BlogPage() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
+  const posts = BLOG_POSTS;
   const [activeCategory, setActiveCategory] = useState("Alle");
   const [search, setSearch] = useState("");
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
-
-  useEffect(() => {
-    setLoading(true);
-    const params = new URLSearchParams({ page: String(page), limit: "9" });
-    if (activeCategory !== "Alle") params.set("category", activeCategory);
-    api
-      .get(`/blog?${params.toString()}`)
-      .then((r) => {
-        setPosts(r.data.data?.posts || []);
-        setTotalPages(r.data.data?.pagination?.pages || 1);
-      })
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, [page, activeCategory]);
-
-  const filtered = search
-    ? posts.filter(
-        (p) =>
-          p.title.toLowerCase().includes(search.toLowerCase()) ||
-          p.excerpt.toLowerCase().includes(search.toLowerCase()),
-      )
-    : posts;
+  const filtered = posts.filter((post) => {
+    const matchesCategory =
+      activeCategory === "Alle" || post.category === activeCategory;
+    const query = search.trim().toLocaleLowerCase("de-DE");
+    const matchesSearch =
+      !query ||
+      post.title.toLocaleLowerCase("de-DE").includes(query) ||
+      post.excerpt.toLocaleLowerCase("de-DE").includes(query);
+    return matchesCategory && matchesSearch;
+  });
 
   return (
     <div className="bg-cream-100 min-h-screen">
@@ -119,7 +84,6 @@ export default function BlogPage() {
               key={cat}
               onClick={() => {
                 setActiveCategory(cat);
-                setPage(1);
               }}
               className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                 activeCategory === cat
@@ -134,9 +98,7 @@ export default function BlogPage() {
 
         {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {loading
-            ? Array.from({ length: 9 }).map((_, i) => <BlogSkeleton key={i} />)
-            : filtered.map((post, i) => (
+          {filtered.map((post, i) => (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 18 }}
@@ -201,7 +163,7 @@ export default function BlogPage() {
               ))}
         </div>
 
-        {!loading && filtered.length === 0 && (
+        {filtered.length === 0 && (
           <div className="text-center py-16">
             <p className="font-serif text-xl text-gray-600">
               Keine Artikel gefunden
@@ -213,24 +175,6 @@ export default function BlogPage() {
           </div>
         )}
 
-        {/* Pagination */}
-        {totalPages > 1 && (
-          <div className="flex justify-center gap-2 mt-12">
-            {Array.from({ length: totalPages }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setPage(i + 1)}
-                className={`w-10 h-10 rounded-lg text-sm font-medium transition-all ${
-                  page === i + 1
-                    ? "bg-primary-500 text-white"
-                    : "bg-white text-gray-700 hover:bg-primary-50 border border-gray-200"
-                }`}
-              >
-                {i + 1}
-              </button>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   );

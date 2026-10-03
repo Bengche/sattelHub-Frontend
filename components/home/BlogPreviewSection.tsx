@@ -1,41 +1,15 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
-import { BlogPost } from "@/types";
-import api from "@/lib/api";
+import { BLOG_POSTS } from "@/lib/blogPosts";
 import { formatDate } from "@/lib/utils";
 
-function SkeletonBlog() {
-  return (
-    <div className="bg-white rounded-2xl overflow-hidden shadow-card">
-      <div className="aspect-[16/9] skeleton" />
-      <div className="p-5 space-y-3">
-        <div className="h-3 skeleton rounded w-1/4" />
-        <div className="h-5 skeleton rounded w-4/5" />
-        <div className="h-3 skeleton rounded w-full" />
-        <div className="h-3 skeleton rounded w-3/4" />
-      </div>
-    </div>
-  );
-}
-
 export default function BlogPreviewSection() {
-  const [posts, setPosts] = useState<BlogPost[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    api
-      .get("/blog?limit=3")
-      .then((res) => setPosts(res.data.data?.posts || []))
-      .catch(() => {})
-      .finally(() => setLoading(false));
-  }, []);
-
-  if (!loading && posts.length === 0) return null;
+  const posts = BLOG_POSTS.slice(0, 3);
 
   return (
     <section className="py-20 bg-white">
@@ -62,9 +36,7 @@ export default function BlogPreviewSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {loading
-            ? Array.from({ length: 3 }).map((_, i) => <SkeletonBlog key={i} />)
-            : posts.map((post, i) => (
+          {posts.map((post, i) => (
                 <motion.article
                   key={post.id}
                   initial={{ opacity: 0, y: 20 }}

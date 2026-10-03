@@ -5,31 +5,21 @@ import Link from "next/link";
 import { Clock, ArrowLeft, User, Calendar, ChevronRight } from "lucide-react";
 import { SITE_CONFIG } from "@/lib/siteConfig";
 import { formatDate } from "@/lib/utils";
-import { BlogPost } from "@/types";
+import { BLOG_POSTS, getBlogPost, getRelatedBlogPosts } from "@/lib/blogPosts";
 
 interface Props {
   params: { slug: string };
 }
 
-async function getPost(
-  slug: string,
-): Promise<{ post: BlogPost; related: BlogPost[] } | null> {
-  try {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/blog/${slug}`, {
-      next: { revalidate: 600 },
-    });
-    if (!res.ok) return null;
-    const data = await res.json();
-    return data.data || null;
-  } catch {
-    return null;
-  }
+export function generateStaticParams() {
+  return BLOG_POSTS.map((post) => ({ slug: post.slug }));
 }
 
+export const dynamicParams = false;
+
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const data = await getPost(params.slug);
-  if (!data) return { title: "Article Not Found" };
-  const { post } = data;
+  const post = getBlogPost(params.slug);
+  if (!post) return { title: "Artikel nicht gefunden" };
 
   return {
     title: post.seo_title || post.title,
@@ -46,13 +36,41 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
-export default async function BlogPostPage({ params }: Props) {
-  const data = await getPost(params.slug);
-  if (!data) notFound();
-  const { post, related } = data;
+export default function BlogPostPage({ params }: Props) {
+  const post = getBlogPost(params.slug);
+  if (!post) notFound();
+  const related = getRelatedBlogPosts(post.slug);
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.seo_title || post.title,
+    description: post.seo_description || post.excerpt,
+    datePublished: post.published_at,
+    dateModified: post.published_at,
+    inLanguage: "de-DE",
+    author: {
+      "@type": "Organization",
+      name: post.author_name,
+    },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_CONFIG.name,
+      url: SITE_CONFIG.url,
+    },
+    mainEntityOfPage: `${SITE_CONFIG.url}/blog/${post.slug}`,
+    image: post.cover_image
+      ? new URL(post.cover_image, SITE_CONFIG.url).toString()
+      : undefined,
+  };
 
   return (
     <div className="bg-cream-100 min-h-screen">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
+        }}
+      />
       {/* Hero image */}
       {post.cover_image && (
         <div className="relative h-[40vh] md:h-[55vh] overflow-hidden bg-primary-900">
